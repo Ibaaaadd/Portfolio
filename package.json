@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tailwindcss -i ./input.css -o ./output.css --minify && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.24",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.3.5",
+    "vite": "^7.3.1"
+  }
+}

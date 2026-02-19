@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choirul Ainul Ibad</title>
+  <link href="Img/Icon.jpg" rel="icon">
+
+  <!-- External Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Animation Libraries -->
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Tailwind Custom Config -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            'inter': ['Inter', 'sans-serif'],
+            'mono': ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            primary: {
+              50: '#e6f9ff',
+              100: '#b3efff',
+              200: '#80e5ff',
+              300: '#4ddbff',
+              400: '#1ad1ff',
+              500: '#00d4ff',
+              600: '#00a8cc',
+              700: '#007c99',
+              800: '#005066',
+              900: '#002433'
+            },
+            secondary: {
+              50: '#f3f0ff',
+              100: '#e0d7ff',
+              200: '#ccbeff',
+              300: '#b8a5ff',
+              400: '#a48cff',
+              500: '#9173ff',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              800: '#5b21b6',
+              900: '#4c1d95'
+            }
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.8s ease-out',
+            'slide-up': 'slideUp 1s ease-out',
+            'slide-down': 'slideDown 1s ease-out',
+            'slide-left': 'slideLeft 1s ease-out',
+            'slide-right': 'slideRight 1s ease-out',
+            'float': 'float 6s ease-in-out infinite',
+            'glow': 'glow 2s ease-in-out infinite alternate',
+            'pulse-slow': 'pulse 3s ease-in-out infinite',
+            'bounce-slow': 'bounce 2s infinite',
+            'spin-slow': 'spin 8s linear infinite',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="dark">
+  <!-- Animated Background Elements -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <!-- Enhanced Floating Geometric Shapes -->
+    <div
+      class="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-purple-500/15 to-blue-600/15 rounded-full blur-3xl animate-pulse">
+    </div>
+    <div
+      class="absolute top-1/4 -left-40 w-80 h-80 bg-gradient-to-br from-indigo-500/15 to-cyan-400/15 rounded-full blur-3xl animate-bounce-slow">
+    </div>
+    <div
+      class="absolute bottom-1/4 right-1/4 w-60 h-60 bg-gradient-to-br from-violet-500/20 to-pink-500/15 rounded-full blur-2xl animate-float">
+    </div>
+
+    <!-- Additional Floating Elements -->
+    <div
+      class="absolute top-20 left-1/4 w-6 h-6 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-sm animate-float-reverse opacity-70 rotate-45">
+    </div>
+    <div class="absolute top-1/3 right-1/3 w-8 h-8 border-2 border-purple-400/40 rotate-45 animate-spin-slow"></div>
+    <div
+      class="absolute bottom-1/3 left-1/6 w-4 h-4 bg-gradient-to-r from-pink-400 to-violet-500 rounded-full animate-pulse">
+    </div>
+    <div class="absolute bottom-40 right-1/5 w-5 h-5 border border-indigo-400/50 rounded-full animate-bounce-slow">
+    </div>
+    <div class="absolute top-3/4 left-2/3 w-3 h-3 bg-cyan-400/60 rounded-full animate-ping"></div>
+
+    <!-- Particle Lines -->
+    <svg class="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:rgb(96,165,250);stop-opacity:0" />
+          <stop offset="50%" style="stop-color:rgb(96,165,250);stop-opacity:0.6" />
+          <stop offset="100%" style="stop-color:rgb(96,165,250);stop-opacity:0" />
+        </linearGradient>
+        <linearGradient id="lineGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:rgb(168,85,247);stop-opacity:0" />
+          <stop offset="50%" style="stop-color:rgb(168,85,247);stop-opacity:0.4" />
+          <stop offset="100%" style="stop-color:rgb(168,85,247);stop-opacity:0" />
+        </linearGradient>
+      </defs>
+      <line x1="0" y1="25%" x2="100%" y2="35%" stroke="url(#lineGradient1)" stroke-width="2" class="animate-pulse" />
+      <line x1="0" y1="65%" x2="100%" y2="75%" stroke="url(#lineGradient2)" stroke-width="1" class="animate-pulse"
+        style="animation-delay: 1.5s; animation-duration: 3s;" />
+      <circle cx="20%" cy="40%" r="1" fill="rgb(96,165,250)" opacity="0.5" class="animate-ping"
+        style="animation-delay: 2s;" />
+      <circle cx="80%" cy="60%" r="1" fill="rgb(168,85,247)" opacity="0.4" class="animate-ping"
+        style="animation-delay: 3s;" />
+    </svg>
+  </div>
+  </head>
+
+  <body class="dark bg-slate-900 text-slate-100 overflow-x-hidden">
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar fixed top-0 w-full z-50" id="navbar">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 lg:h-20">
+          <!-- Logo -->
+          <div class="flex items-center" data-aos="fade-right">
+            <a href="#home" class="logo group">
+              <img src="Img/tech/code.png" alt="Code Icon" class="h-8 w-8 object-contain" />
+              <span class="text-2xl sm:text-3xl lg:text-4xl font-bold">Ibad</span>
+            </a>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="desktop-nav hidden lg:flex items-center space-x-8" data-aos="fade-left">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#profile" class="nav-link">Profile</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#project" class="nav-link">Projects</a>
+            <a href="#certificate" class="nav-link">Certificates</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </nav>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobileMenuBtn" class="mobile-menu-btn block lg:hidden" data-aos="fade-left">
+            <div class="w-6 h-6 flex flex-col justify-around">
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="mobile-menu lg:hidden">
+          <div class="py-4 space-y-2">
+            <a href="#home" class="mobile-nav-link">Home</a>
+            <a href="#profile" class="mobile-nav-link">Profile</a>
+            <a href="#experience" class="mobile-nav-link">Experience</a>
+            <a href="#project" class="mobile-nav-link">Projects</a>
+            <a href="#certificate" class="mobile-nav-link">Certificates</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section section">
+      <div class="hero-bg"></div>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
+          <!-- Text Content -->
+          <div class="hero-content flex-1 text-center lg:text-left" data-aos="fade-right" data-aos-delay="200">
+            <div class="mb-6">
+              <p class="text-sm sm:text-base mb-4 font-mono" style="color: var(--accent-primary);">Hello, I'm</p>
+              <h1 class="hero-title">
+                Choirul Ainul
+                <span class="block">Ibad</span>
+              </h1>
+              <div class="typing-container">
+                <span id="typed-text"></span>
+              </div>
+              <p class="hero-subtitle max-w-2xl mx-auto lg:mx-0">
+                Transforming Ideas into Innovation through Code ✨
+              </p>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" data-aos="fade-up"
+              data-aos-delay="600">
+              <a href="#contact" class="btn-primary">
+                <span>Hire Me</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                  </path>
+                </svg>
+              </a>
+              <a href="#project" class="btn-secondary">
+                <span>View Projects</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Profile Image -->
+          <div class="flex-1 flex justify-center lg:justify-end" data-aos="fade-left" data-aos-delay="400">
+            <div class="relative w-full max-w-md mx-auto lg:mx-0 animate-float">
+              <!-- Main Profile Image -->
+              <div class="profile-image overflow-hidden mx-auto">
+                <img src="Img/ibad.jpeg" alt="Ibad Portrait" class="w-full h-full object-cover" />
+              </div>
+
+              <!-- Floating Tech Icons - Positioned relative to profile image -->
+              <div
+                class="absolute top-4 -right-6 w-12 h-12 glass-card rounded-full flex items-center justify-center animate-bounce-slow">
+                <img src="Img/tech/js.png" alt="JS" class="w-8 h-8 object-contain skill-icon" />
+              </div>
+              <div
+                class="absolute -bottom-4 -left-4 w-12 h-12 glass-card rounded-full flex items-center justify-center animate-bounce-slow"
+                style="animation-delay: 0.5s">
+                <img src="Img/tech/laravel.png" alt="Laravel" class="w-8 h-8 object-contain skill-icon" />
+              </div>
+              <div
+                class="absolute top-10 -left-6 w-12 h-12 glass-card rounded-full flex items-center justify-center animate-bounce-slow"
+                style="animation-delay: 1s" data-aos="zoom-in" data-aos-delay="800">
+                <img src="Img/tech/react.png" alt="React" class="w-8 h-8 object-contain skill-icon" />
+              </div>
+              <div
+                class="absolute bottom-12 -right-6 w-12 h-12 glass-card rounded-full flex items-center justify-center animate-bounce-slow"
+                style="animation-delay: 1.5s" data-aos="zoom-in" data-aos-delay="1000">
+                <img src="Img/tech/css.png" alt="CSS" class="w-8 h-8 object-contain skill-icon" />
+              </div>
+              <div
+                class="absolute -bottom-10 right-12 w-12 h-12 glass-card rounded-full flex items-center justify-center animate-bounce-slow"
+                style="animation-delay: 2s" data-aos="zoom-in" data-aos-delay="1200">
+                <img src="Img/tech/vue.png" alt="Vue" class="w-8 h-8 object-contain skill-icon" />
+              </div>
+              <div
+                class="absolute top-1/2 -left-12 w-10 h-10 glass-card rounded-full flex items-center justify-center animate-pulse-slow"
+                style="animation-delay: 0.5s" data-aos="fade-left" data-aos-delay="1400">
+                <img src="Img/tech/html.png" alt="HTML" class="w-6 h-6 object-contain skill-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="section">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="section-title" data-aos="fade-up">About Me</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <!-- About Me Content -->
+          <div class="space-y-6" data-aos="fade-right">
+            <!-- Professional Summary -->
+            <div class="glass-card p-6 sm:p-8">
+              <h3 class="text-xl sm:text-2xl font-bold mb-4 flex items-center" style="color: var(--text-primary);">
+                <span class="text-2xl mr-3" style="color: var(--accent-primary);">💼</span>
+                Professional Summary
+              </h3>
+              <p class="leading-relaxed text-sm sm:text-base" style="color: var(--text-secondary);">
+                A passionate Full Stack Developer with a strong foundation in both front-end and back-end development.
+                Experienced in building scalable web applications using modern technologies and frameworks. Currently
+                pursuing Informatics Engineering at Universitas Negeri Surabaya, combining academic excellence with
+                practical development experience.
+              </p>
+            </div>
+
+            <!-- Skills & Expertise -->
+            <div class="glass-card p-6 sm:p-8">
+              <h3 class="text-xl sm:text-2xl font-bold mb-4 flex items-center" style="color: var(--text-primary);">
+                <span class="text-2xl mr-3" style="color: var(--accent-primary);">⚡</span>
+                Core Competencies
+              </h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full" style="background: var(--accent-primary);"></span>
+                    <p style="color: var(--text-secondary);">Frontend Development</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full" style="background: var(--accent-primary);"></span>
+                    <p style="color: var(--text-secondary);">Backend Systems</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full" style="background: var(--accent-primary);"></span>
+                    <p style="color: var(--text-secondary);">Database Design</p>
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full" style="background: var(--accent-primary);"></span>
+                    <p style="color: var(--text-secondary);">API Development</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full" style="background: var(--accent-primary);"></span>
+                    <p style="color: var(--text-secondary);">UI/UX Design</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full" style="background: var(--accent-primary);"></span>
+                    <p style="color: var(--text-secondary);">Problem Solving</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <blockquote class="text-center py-8" data-aos="fade-up" data-aos-delay="200">
+              <p class="text-lg sm:text-xl lg:text-2xl font-bold italic"
+                style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                "Transforming challenges into opportunities through innovative solutions"
+              </p>
+            </blockquote>
+          </div>
+
+          <!-- Education Content -->
+          <div class="space-y-6" data-aos="fade-left">
+            <h3 class="text-xl sm:text-2xl font-bold mb-6 flex items-center" style="color: var(--text-primary);">
+              <span class="text-2xl mr-3" style="color: var(--accent-primary);">🎓</span>
+              Education & Training
+            </h3>
+
+            <div class="space-y-6">
+              <div class="glass-card p-6 hover-lift group border-l-4 border-blue-500">
+                <div class="flex items-center justify-between mb-3">
+                  <div>
+                    <h4 class="font-bold text-lg" style="color: var(--text-primary);">Universitas Negeri Surabaya</h4>
+                    <p class="text-blue-400 font-medium">Informatics Engineering</p>
+                  </div>
+                  <a href="https://www.unesa.ac.id/" target="_blank"
+                    class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300">
+                    🎓
+                  </a>
+                </div>
+                <p class="text-sm" style="color: var(--text-secondary);">Focusing on software engineering, web
+                  development, and computer science
+                  fundamentals</p>
+              </div>
+
+              <div class="glass-card p-6 hover-lift group border-l-4 border-purple-500">
+                <div class="flex items-center justify-between mb-3">
+                  <div>
+                    <h4 class="font-bold text-lg" style="color: var(--text-primary);">PIKTI ITS</h4>
+                    <p class="text-purple-400 font-medium">Advanced IT Training Program</p>
+                  </div>
+                  <a href="https://pikti.itsteknosains.co.id/about/" target="_blank"
+                    class="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center text-purple-400 hover:bg-purple-500 hover:text-white transition-all duration-300">
+                    💻
+                  </a>
+                </div>
+                <p class="text-sm" style="color: var(--text-secondary);">Specialized training in modern web technologies
+                  and software development
+                  practices</p>
+              </div>
+
+              <div class="glass-card p-6 hover-lift group border-l-4 border-green-500">
+                <div class="flex items-center justify-between mb-3">
+                  <div>
+                    <h4 class="font-bold text-lg" style="color: var(--text-primary);">SMA Darussalamah</h4>
+                    <p class="text-green-400 font-medium">Science Program</p>
+                  </div>
+                  <a href="https://smadarussalamahkrian.sch.id/" target="_blank"
+                    class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 hover:bg-green-500 hover:text-white transition-all duration-300">
+                    🏫
+                  </a>
+                </div>
+                <p class="text-sm" style="color: var(--text-secondary);">Foundation in analytical thinking and
+                  problem-solving skills</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="section-title" data-aos="fade-up">Professional Experience</h2>
+          <p class="text-base sm:text-lg max-w-2xl mx-auto" style="color: var(--text-secondary);" data-aos="fade-up"
+            data-aos-delay="200">
+            My journey through internships, research, and professional development
+          </p>
+        </div>
+
+        <!-- Experience Timeline -->
+        <div class="relative max-w-4xl mx-auto">
+          <!-- Timeline Line -->
+          <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-cyan-500 rounded-full hidden md:block"></div>
+
+          <!-- Experience Items -->
+          <div class="space-y-8 md:space-y-12">
+            <!-- Freelance Developer -->
+            <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="100">
+              <div class="md:w-1/2 md:pr-8 mb-6 md:mb-0 md:text-right order-2 md:order-1">
+                <div class="glass-card p-6 hover-lift group">
+                  <div class="flex items-center justify-between mb-3 md:flex-row-reverse">
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                      </svg>
+                    </div>
+                    <div class="md:mr-4">
+                      <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Fullstack Developer</h3>
+                      <p class="text-purple-400 font-medium">Naungan Cons Code (Freelance)</p>
+                    </div>
+                  </div>
+                  <p class="text-sm text-green-400 font-medium mb-3">August 2023 - Present</p>
+                  <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                    Working as a freelance fullstack developer, creating custom web applications using modern technologies like Laravel, Vue.js, and React. Developing end-to-end solutions from database design to frontend implementation.
+                  </p>
+                  <div class="mt-3 flex flex-wrap gap-2 justify-end md:justify-start">
+                    <span class="tech-tag text-xs">Laravel</span>
+                    <span class="tech-tag text-xs">Vue.js</span>
+                    <span class="tech-tag text-xs">React</span>
+                    <span class="tech-tag text-xs">MySQL</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Timeline Dot -->
+              <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 border-4 border-gray-900 rounded-full z-10"></div>
+              <div class="md:w-1/2 md:pl-8 order-1 md:order-2"></div>
+            </div>
+
+            <!-- PUSPAGA Research -->
+            <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="150">
+              <div class="md:w-1/2 md:pr-8 order-1"></div>
+              <!-- Timeline Dot -->
+              <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-yellow-500 border-4 border-gray-900 rounded-full z-10"></div>
+              <div class="md:w-1/2 md:pl-8 mb-6 md:mb-0 order-2">
+                <div class="glass-card p-6 hover-lift group">
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                      </svg>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Thesis Researcher</h3>
+                      <p class="text-yellow-400 font-medium">PUSPAGA Surabaya</p>
+                    </div>
+                  </div>
+                  <p class="text-sm text-green-400 font-medium mb-3">February - April 2025</p>
+                  <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                    Conducted thesis research at Family Learning Center (PUSPAGA) Surabaya, focusing on developing innovative solutions for family services and community engagement through technology integration.
+                  </p>
+                  <div class="mt-3 flex flex-wrap gap-2">
+                    <span class="tech-tag text-xs">Research</span>
+                    <span class="tech-tag text-xs">Data Analysis</span>
+                    <span class="tech-tag text-xs">OCR Technology</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- MSIB 7 - DP3APPKB -->
+            <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="200">
+              <div class="md:w-1/2 md:pr-8 mb-6 md:mb-0 md:text-right order-2 md:order-1">
+                <div class="glass-card p-6 hover-lift group">
+                  <div class="flex items-center justify-between mb-3 md:flex-row-reverse">
+                    <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                      </svg>
+                    </div>
+                    <div class="md:mr-4">
+                      <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">IT Crew</h3>
+                      <p class="text-green-400 font-medium">DP3APPKB Surabaya (MSIB Batch 7)</p>
+                    </div>
+                  </div>
+                  <p class="text-sm text-green-400 font-medium mb-3">September - December 2024</p>
+                  <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                    Participated in MSIB Batch 7 program as IT Crew at DP3APPKB Surabaya. Responsible for maintaining IT infrastructure, developing internal systems, and providing technical support for government operations.
+                  </p>
+                  <div class="mt-3 flex flex-wrap gap-2 justify-end md:justify-start">
+                    <span class="tech-tag text-xs">IT Support</span>
+                    <span class="tech-tag text-xs">System Admin</span>
+                    <span class="tech-tag text-xs">Database</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Timeline Dot -->
+              <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 border-4 border-gray-900 rounded-full z-10"></div>
+              <div class="md:w-1/2 md:pl-8 order-1 md:order-2"></div>
+            </div>
+
+            <!-- MSIB 6 - Dinkominfo -->
+            <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="250">
+              <div class="md:w-1/2 md:pr-8 order-1"></div>
+              <!-- Timeline Dot -->
+              <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 border-4 border-gray-900 rounded-full z-10"></div>
+              <div class="md:w-1/2 md:pl-8 mb-6 md:mb-0 order-2">
+                <div class="glass-card p-6 hover-lift group">
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
+                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                      </svg>
+                    </div>
+                    <div class="ml-4">
+                      <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Software Developer</h3>
+                      <p class="text-blue-400 font-medium">Dinkominfo Surabaya (MSIB Batch 6)</p>
+                    </div>
+                  </div>
+                  <p class="text-sm text-green-400 font-medium mb-3">February - July 2024</p>
+                  <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
+                    Participated in MSIB Batch 6 program as a Software Developer at Surabaya Communication and Information Department. Developed government web applications and contributed to digital transformation initiatives.
+                  </p>
+                  <div class="mt-3 flex flex-wrap gap-2">
+                    <span class="tech-tag text-xs">PHP</span>
+                    <span class="tech-tag text-xs">Laravel</span>
+                    <span class="tech-tag text-xs">JavaScript</span>
+                    <span class="tech-tag text-xs">MySQL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="project" class="section">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+          <p class="text-base sm:text-lg max-w-2xl mx-auto" style="color: var(--text-secondary);" data-aos="fade-up"
+            data-aos-delay="200">
+            Some amazing things I've built with passion and dedication
+          </p>
+        </div>
+
+        <!-- Swiper Container -->
+        <div class="swiper projectSwiper" data-aos="fade-up" data-aos-delay="400">
+          <div class="swiper-wrapper">
+            <!-- Project Cards -->
+            <div class="swiper-slide">
+              <div class="project-card group h-[32rem] flex flex-col">
+                <div class="project-image-container">
+                  <img src="Img/Leave-Management.png" alt="Leave Management" class="project-image">
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  </div>
+                </div>
+                <div class="project-content flex flex-col flex-grow">
+                  <div class="flex-grow">
+                    <h3 class="project-title group-hover:text-blue-400 transition-colors">
+                      Leave Management
+                    </h3>
+                    <p class="project-description line-clamp-4">
+                      Built using Laravel (REST API) for the backend and Vue.js with Laravel Mix for the frontend. This
+                      system has two main roles: User and Admin. Users can apply for leave by selecting dates, providing
+                      reasons, and uploading approval documents. Features include leave management, admin review, and
+                      audit trail tracking.
+                    </p>
+                  </div>
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tech-tag">Laravel</span>
+                    <span class="tech-tag">Vue.js</span>
+                    <span class="tech-tag">REST API</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card group h-[32rem] flex flex-col">
+                <div class="project-image-container">
+                  <img src="Img/E-Building2.png" alt="E-Building" class="project-image">
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  </div>
+                </div>
+                <div class="project-content flex flex-col flex-grow">
+                  <div class="flex-grow">
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors"
+                      style="color: var(--text-primary);">
+                      E-Building
+                    </h3>
+                    <p class="text-sm leading-relaxed line-clamp-4" style="color: var(--text-secondary);">A
+                      comprehensive website for DPRKPP
+                      office
+                      reporting system for official buildings in Surabaya. The platform enables detailed evaluation of
+                      various
+                      improvement aspects and facilitates efficient building management.</p>
+                  </div>
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tech-tag">Laravel</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">JavaScript</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card group h-[32rem] flex flex-col">
+                <div class="project-image-container">
+                  <img src="Img/Yasoge.png" alt="Yasoge" class="project-image">
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  </div>
+                </div>
+                <div class="project-content flex flex-col flex-grow">
+                  <div class="flex-grow">
+                    <h3 class="project-title group-hover:text-blue-400 transition-colors">
+                      Yasoge
+                    </h3>
+                    <p class="project-description line-clamp-4">
+                      Advanced invoice creation system for shoe products implementing Point of Sale (POS) methodology. Built with the latest Laravel 11 framework and styled with Bootstrap 5 for a modern, responsive interface.
+                    </p>
+                  </div>
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tech-tag">Laravel</span>
+                    <span class="tech-tag">Bootstrap</span>
+                    <span class="tech-tag">MySQL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card group h-[32rem] flex flex-col">
+                <div class="project-image-container">
+                  <img src="Img/MI.png" alt="Management Inventory" class="project-image">
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  </div>
+                </div>
+                <div class="project-content flex flex-col flex-grow">
+                  <div class="flex-grow">
+                    <h3 class="project-title group-hover:text-blue-400 transition-colors">
+                      Management Inventory
+                    </h3>
+                    <p class="project-description line-clamp-4">
+                      Full-stack inventory management system with API-first approach. Features include CRUD operations, stock management, transaction processing, automated notifications, and comprehensive reporting system.
+                    </p>
+                  </div>
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="project-card group h-[32rem] flex flex-col">
+                <div class="project-image-container bg-gradient-to-br from-yellow-400 to-orange-500">
+                  <img src="Img/Selamat Datang Buku Tamu.png" alt="PUSPAGA Guestbook" class="project-image">
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  </div>
+                </div>
+                <div class="project-content flex flex-col flex-grow">
+                  <div class="flex-grow">
+                    <h3 class="project-title group-hover:text-blue-400 transition-colors">
+                      PUSPAGA Guestbook
+                    </h3>
+                    <p class="project-description line-clamp-4">
+                      Advanced guestbook system featuring OCR technology for automatic ID card data extraction at Family Learning Centers. Streamlines visitor registration and improves data accuracy.
+                    </p>
+                  </div>
+                  <div class="mt-4 flex flex-wrap gap-2">
+                    <span class="tech-tag">OCR</span>
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">JavaScript</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination mt-8"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificate" class="section">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="section-title" data-aos="fade-up">Certificates & Achievements</h2>
+          <p class="text-base sm:text-lg" style="color: var(--text-secondary);" data-aos="fade-up" data-aos-delay="200">
+            Recognition of my continuous learning journey
+          </p>
+        </div>
+
+        <!-- Certificate Categories -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="400">
+          <button onclick="filterCertificates('all')" class="filter-btn active">
+            All
+          </button>
+          <button onclick="filterCertificates('academic')" class="filter-btn">
+            Academic
+          </button>
+          <button onclick="filterCertificates('organization')" class="filter-btn">
+            Organization
+          </button>
+          <button onclick="filterCertificates('competition')" class="filter-btn">
+            Competition
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="600">
+          <!-- HIMTI Certificate -->
+          <div class="glass-card p-6 hover-lift group certificate-card" data-category="organization">
+            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
+              <img src="Img/Himpunan Mahasiswa Teknik Informatika - Choirul Ainul Ibad_page-0001.jpg"
+                alt="HIMTI Certificate"
+                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
+              style="color: var(--text-primary);">
+              HIMTI Participation
+            </h4>
+            <p class="text-sm mb-4" style="color: var(--text-secondary);">
+              Active member of Informatics Engineering Student Association
+            </p>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 text-xs rounded-full">Organization</span>
+            </div>
+          </div>
+
+          <!-- PKKMB Certificate -->
+          <div class="glass-card p-6 hover-lift group certificate-card" data-category="academic">
+            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
+              <img src="Img/PKKMB FT_page-0001.jpg" alt="PKKMB Certificate"
+                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
+              style="color: var(--text-primary);">PKKMB Certificate
+            </h4>
+            <p class="text-sm mb-4" style="color: var(--text-secondary);">New Student Orientation Program Achievement
+            </p>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Academic</span>
+            </div>
+          </div>
+
+          <!-- IBC Certificate -->
+          <div class="glass-card p-6 hover-lift group certificate-card" data-category="competition">
+            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
+              <img src="Img/Sertifikat IBC - Choirul Ainul Ibad_page-0001.jpg" alt="IBC Certificate"
+                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
+              style="color: var(--text-primary);">IBC Competition</h4>
+            <p class="text-sm mb-4" style="color: var(--text-secondary);">Informatics Championship Competition
+              Achievement</p>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">Competition</span>
+            </div>
+          </div>
+
+          <!-- IT Sport Certificate -->
+          <div class="glass-card p-6 hover-lift group certificate-card" data-category="competition">
+            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
+              <img src="Img/IT Sport - Choirul Ainul Ibad_page-0001.jpg" alt="IT Sport Certificate"
+                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div class="w-full h-full bg-gradient-to-br from-purple-500/20 to-indigo-500/20 rounded-lg hidden items-center justify-center text-purple-400">
+                <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+              </div>
+            </div>
+            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
+              style="color: var(--text-primary);">IT Sport Event</h4>
+            <p class="text-sm mb-4" style="color: var(--text-secondary);">Sports Competition Achievement in IT
+              Department</p>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">Competition</span>
+            </div>
+          </div>
+
+          <!-- Seminar Certificate -->
+          <div class="glass-card p-6 hover-lift group certificate-card" data-category="academic">
+            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
+              <img src="Img/Seminar Nasional Teknik Informatika - Choirul Ainul Ibad_page-0001.jpg"
+                alt="Seminar Certificate"
+                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
+              style="color: var(--text-primary);">National IT Seminar
+            </h4>
+            <p class="text-sm mb-4" style="color: var(--text-secondary);">Participation in National Informatics
+              Engineering Seminar</p>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Academic</span>
+            </div>
+          </div>
+
+          <!-- Job Show Certificate -->
+          <div class="glass-card p-6 hover-lift group certificate-card" data-category="academic">
+            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
+              <img src="Img/Job Show - Choirul Ainul Ibad_page-0001.jpg" alt="Job Show Certificate"
+                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
+              style="color: var(--text-primary);">Job Show Event</h4>
+            <p class="text-sm mb-4" style="color: var(--text-secondary);">Career Development and Professional Networking
+              Event</p>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Academic</span>
+            </div>
+          </div>
+
+          <!-- Competines Certificate -->
+          <div class="glass-card p-6 hover-lift group certificate-card" data-category="competition">
+            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
+              <img src="Img/Competines - Choirul Ainul Ibad_page-0001.jpg" alt="Competines Certificate"
+                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
+              style="color: var(--text-primary);">Competines
+              Achievement</h4>
+            <p class="text-sm mb-4" style="color: var(--text-secondary);">Excellence in Technical Competition</p>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">Competition</span>
+            </div>
+          </div>
+
+          <!-- Informatic Championship -->
+          <div class="glass-card p-6 hover-lift group certificate-card" data-category="competition">
+            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
+              <img src="Img/Informatic Championship - Choirul Ainul Ibad_page-0001.jpg" alt="Informatic Championship"
+                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
+              style="color: var(--text-primary);">Informatics
+              Championship</h4>
+            <p class="text-sm mb-4" style="color: var(--text-secondary);">Recognition in Informatics Engineering
+              Competition</p>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">Competition</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 sm:mb-16">
+          <h2 class="section-title" data-aos="fade-up">Let's Connect! 🚀</h2>
+          <p class="text-base sm:text-lg max-w-2xl mx-auto" style="color: var(--text-secondary);" data-aos="fade-up"
+            data-aos-delay="200">
+            Ready to collaborate or just want to say hello? I'd love to hear from you!
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12" data-aos="fade-up" data-aos-delay="400">
+          <!-- Social Media Cards -->
+          <a href="https://www.instagram.com/iibaaaad/" target="_blank"
+            class="contact-card-small group hover:border-pink-400">
+            <div
+              class="contact-icon-small bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.070-4.85.070-3.204 0-3.584-.012-4.849-.070-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-base mb-1 group-hover:text-pink-400 transition-colors"
+              style="color: var(--text-primary);">Instagram</h3>
+            <p class="text-xs" style="color: var(--text-secondary);">@iibaaaadd</p>
+          </a>
+
+          <a href="https://wa.me/+6289519267028" target="_blank"
+            class="contact-card-small group hover:border-green-400">
+            <div
+              class="contact-icon-small bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.488" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-base mb-1 group-hover:text-green-400 transition-colors"
+              style="color: var(--text-primary);">WhatsApp</h3>
+            <p class="text-xs" style="color: var(--text-secondary);">089519267028</p>
+          </a>
+
+          <a href="https://www.tiktok.com/@ibaaad" target="_blank"
+            class="contact-card-small group hover:border-gray-300">
+            <div
+              class="contact-icon-small bg-gradient-to-br from-black to-gray-800 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-base mb-1 group-hover:text-gray-400 transition-colors"
+              style="color: var(--text-primary);">TikTok</h3>
+            <p class="text-xs" style="color: var(--text-secondary);">@ibaaad</p>
+          </a>
+
+          <a href="CV/CV Choirul Ainul Ibad.pdf" target="_blank" class="contact-card-small group hover:border-blue-400">
+            <div
+              class="contact-icon-small bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+              </svg>
+            </div>
+            <h3 class="font-semibold text-base mb-1 group-hover:text-blue-400 transition-colors"
+              style="color: var(--text-primary);">Download CV</h3>
+            <p class="text-xs" style="color: var(--text-secondary);">PDF Format</p>
+          </a>
+        </div>
+
+        <!-- Additional Contact Links -->
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+          <a href="https://www.linkedin.com/in/choirul-ainul-ibad-99b69b2a1/" target="_blank"
+            class="w-12 h-12 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+            <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+          </a>
+
+          <a href="https://github.com/iibaaaadd/" target="_blank"
+            class="w-12 h-12 bg-gray-800 hover:bg-gray-900 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+            <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t" style="background: var(--bg-secondary); border-color: rgba(248, 250, 252, 0.1);">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
+          <p class="mb-4" style="color: var(--text-secondary);">
+            Crafted with ❤️ by <span style="color: var(--accent-primary);" class="font-semibold">Choirul Ainul
+              Ibad</span>
+          </p>
+          <p class="text-sm" style="color: var(--text-muted);">
+            © 2024 All rights reserved. Built with passion and modern web technologies.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top opacity-0 invisible">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+      </svg>
+    </button>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+  </body>
+
+</html>
