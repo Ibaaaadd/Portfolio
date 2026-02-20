@@ -5,12 +5,10 @@
 // Enhanced smooth scroll function for cross-browser compatibility
 function smoothScrollTo(targetElement) {
   if (!targetElement) return;
-
-  // Get the target position
   const targetPosition = targetElement.offsetTop;
   const startPosition = window.pageYOffset;
   const distance = targetPosition - startPosition;
-  const duration = 800; // 800ms for smooth animation
+  const duration = 800;
   let start = null;
 
   function animation(currentTime) {
@@ -20,8 +18,6 @@ function smoothScrollTo(targetElement) {
     window.scrollTo(0, run);
     if (timeElapsed < duration) requestAnimationFrame(animation);
   }
-
-  // Easing function for smooth animation
   function ease(t, b, c, d) {
     t /= d / 2;
     if (t < 1) return c / 2 * t * t + b;
@@ -29,7 +25,6 @@ function smoothScrollTo(targetElement) {
     return -c / 2 * (t * (t - 2) - 1) + b;
   }
 
-  // Use native smooth scroll if supported, otherwise use custom animation
   if ('scrollBehavior' in document.documentElement.style) {
     targetElement.scrollIntoView({ 
       behavior: 'smooth',
@@ -41,7 +36,6 @@ function smoothScrollTo(targetElement) {
   }
 }
 
-// DOM Content Loaded - Initialize Everything
 document.addEventListener("DOMContentLoaded", function () {
   initializeTypedJS();
   initializeAOS();
@@ -52,35 +46,28 @@ document.addEventListener("DOMContentLoaded", function () {
   setupInteractiveElements();
 });
 
-// Initialize AOS (Animate On Scroll)
 function initializeAOS() {
   AOS.init({
-    duration: window.innerWidth < 768 ? 400 : 800, // Faster on mobile
+    duration: window.innerWidth < 768 ? 400 : 800, 
     once: false,
-    offset: window.innerWidth < 768 ? 30 : 50, // Lower offset on mobile
+    offset: window.innerWidth < 768 ? 30 : 50, 
     easing: 'ease-out-cubic',
     anchorPlacement: 'top-bottom',
-    disable: false, // Enable on mobile but with faster animations
-    // Reduced delays for mobile
+    disable: false, 
     delay: function (el) {
       const isMobile = window.innerWidth < 768;
-      
-      // Faster animation for footer elements
       if (el.closest('footer')) {
         return isMobile ? 50 : 100;
       }
       
-      // Faster experience section animations on mobile
       if (el.closest('#experience')) {
         return isMobile ? 50 : 100;
       }
       
-      // Default delay for other elements
       return isMobile ? 100 : 200;
     }
   });
 
-  // Refresh AOS on window resize with responsive settings
   let resizeTimeout;
   let wasMobile = window.innerWidth < 768;
   
@@ -88,8 +75,6 @@ function initializeAOS() {
     clearTimeout(resizeTimeout);
     resizeTimeout = setTimeout(() => {
       const isMobile = window.innerWidth < 768;
-      
-      // Reinitialize if switching between mobile/desktop
       if (isMobile !== wasMobile) {
         wasMobile = isMobile;
         initializeAOS();
@@ -99,11 +84,9 @@ function initializeAOS() {
     }, 250);
   });
   
-  // Force refresh AOS when scrolling near footer
   let footerObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Trigger AOS refresh for faster footer animation
         setTimeout(() => {
           AOS.refresh();
         }, 50);
@@ -117,7 +100,6 @@ function initializeAOS() {
   }
 }
 
-// Enhanced Typed.js Animation
 function initializeTypedJS() {
   new Typed("#typed-text", {
     strings: [
@@ -140,15 +122,14 @@ function initializeTypedJS() {
   });
 }
 
-// Enhanced Swiper with 3D Effects
 function initializeSwiper() {
   const swiper = new Swiper(".projectSwiper", {
     effect: 'coverflow',
-    grabCursor: false, // Disabled to allow hover events
+    grabCursor: false,
     centeredSlides: true,
     slidesPerView: 'auto',
     loop: true,
-    allowTouchMove: true, // Still allow touch/drag but not grab cursor
+    allowTouchMove: true,
     autoplay: {
       delay: 4000,
       disableOnInteraction: false,
@@ -186,7 +167,6 @@ function initializeSwiper() {
     },
     on: {
       slideChange: function() {
-        // Add custom animation when slide changes
         this.slides.forEach((slide, index) => {
           if (index === this.activeIndex) {
             slide.style.transform += ' scale(1.05)';
@@ -199,7 +179,6 @@ function initializeSwiper() {
   });
 }
 
-// Particle Background Animation
 function initializeParticles() {
   const canvas = document.createElement('canvas');
   canvas.id = 'particles-canvas';
@@ -252,7 +231,6 @@ function initializeParticles() {
       ctx.fill();
     });
 
-    // Draw connections
     particles.forEach((particle, i) => {
       particles.slice(i + 1).forEach(otherParticle => {
         const dx = particle.x - otherParticle.x;
@@ -277,7 +255,6 @@ function initializeParticles() {
     requestAnimationFrame(animate);
   }
 
-  // Initialize particles
   for (let i = 0; i < maxParticles; i++) {
     particles.push(createParticle());
   }
@@ -288,7 +265,6 @@ function initializeParticles() {
   window.addEventListener('resize', resizeCanvas);
 }
 
-// Enhanced Mobile Menu with Animations
 function setupMobileMenu() {
   const mobileMenuBtn = document.getElementById("mobileMenuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
@@ -298,14 +274,12 @@ function setupMobileMenu() {
     const isOpen = mobileMenu.classList.contains('active');
     
     if (isOpen) {
-      // Close menu
       mobileMenu.classList.remove('active');
       mobileMenu.style.maxHeight = "0px";
       hamburgerLines[0].style.transform = "rotate(0deg) translateY(0px)";
       hamburgerLines[1].style.opacity = "1";
       hamburgerLines[2].style.transform = "rotate(0deg) translateY(0px)";
       
-      // Animate menu items out
       const menuItems = mobileMenu.querySelectorAll('.mobile-nav-link');
       menuItems.forEach((item, index) => {
         setTimeout(() => {
@@ -314,14 +288,12 @@ function setupMobileMenu() {
         }, index * 50);
       });
     } else {
-      // Open menu
       mobileMenu.classList.add('active');
       mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
       hamburgerLines[0].style.transform = "rotate(45deg) translateY(8px)";
       hamburgerLines[1].style.opacity = "0";
       hamburgerLines[2].style.transform = "rotate(-45deg) translateY(-8px)";
       
-      // Animate menu items in
       const menuItems = mobileMenu.querySelectorAll('.mobile-nav-link');
       menuItems.forEach((item, index) => {
         setTimeout(() => {
@@ -332,7 +304,6 @@ function setupMobileMenu() {
     }
   });
 
-  // Close menu when clicking links
   document.querySelectorAll(".mobile-nav-link").forEach((link) => {
     link.addEventListener("click", function () {
       mobileMenu.classList.remove('active');
@@ -344,9 +315,7 @@ function setupMobileMenu() {
   });
 }
 
-// Enhanced Scroll Animations
 function setupScrollAnimations() {
-  // Scroll Progress Indicator with Optimized Performance for Mobile
   let ticking = false;
   let lastScrollTime = 0;
   const scrollIndicator = document.getElementById("scrollIndicator");
@@ -354,7 +323,6 @@ function setupScrollAnimations() {
   function updateScrollProgress() {
     const now = performance.now();
     
-    // Throttle updates for better mobile performance (60fps max)
     if (now - lastScrollTime < 16) {
       requestAnimationFrame(updateScrollProgress);
       return;
@@ -363,7 +331,6 @@ function setupScrollAnimations() {
     lastScrollTime = now;
     const scrolled = (window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
     
-    // Use transform3d for better mobile performance
     scrollIndicator.style.transform = `scaleX(${Math.min(scrolled / 100, 1)}) translateZ(0)`;
     ticking = false;
   }
@@ -373,9 +340,8 @@ function setupScrollAnimations() {
       requestAnimationFrame(updateScrollProgress);
       ticking = true;
     }
-  }, { passive: true }); // Passive listener for better mobile performance
+  }, { passive: true });
 
-  // Enhanced Navbar Animation
   let lastScrollY = window.scrollY;
   const navbar = document.getElementById("navbar");
   
@@ -385,7 +351,6 @@ function setupScrollAnimations() {
     if (currentScrollY > 100) {
       navbar.classList.add('scrolled');
       
-      // Hide navbar on scroll down, show on scroll up
       if (currentScrollY > lastScrollY && currentScrollY > 200) {
         navbar.style.transform = 'translateY(-100%)';
       } else {
@@ -400,9 +365,7 @@ function setupScrollAnimations() {
   });
 }
 
-// Enhanced Navigation
 function setupNavigation() {
-  // Back to Top Button with Pulse Animation
   const backToTopBtn = document.getElementById("backToTop");
   
   window.addEventListener("scroll", function () {
@@ -416,21 +379,18 @@ function setupNavigation() {
   });
 
   backToTopBtn.addEventListener("click", function (e) {
-    e.preventDefault(); // Prevent default behavior
+    e.preventDefault();
     
-    // Enhanced smooth scroll to home section
     const homeSection = document.getElementById('home');
     if (homeSection) {
       smoothScrollTo(homeSection);
     } else {
-      // Fallback to window scroll
       window.scrollTo({
         top: 0,
         behavior: "smooth",
       });
     }
     
-    // Update navigation state
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(l => l.classList.remove('active'));
     const homeNavLink = document.querySelector('a[href="#home"].nav-link');
@@ -438,14 +398,12 @@ function setupNavigation() {
       homeNavLink.classList.add('active');
     }
     
-    // Add click animation
     this.style.transform = 'scale(0.9)';
     setTimeout(() => {
       this.style.transform = 'scale(1)';
     }, 150);
   });
 
-  // Enhanced Smooth Scrolling
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
@@ -457,7 +415,6 @@ function setupNavigation() {
         const elementPosition = targetElement.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-        // Add loading animation to the link
         this.style.transform = 'scale(0.95)';
         setTimeout(() => {
           this.style.transform = 'scale(1)';
@@ -471,23 +428,18 @@ function setupNavigation() {
     });
   });
 
-  // Active Navigation with Smooth Transitions
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".nav-link");
 
-  // More forgiving observer options
   const observerOptions = {
-    threshold: [0.1, 0.25, 0.5], // Multiple thresholds for better detection
-    rootMargin: '-20% 0px -20% 0px' // Less restrictive margins
+    threshold: [0.1, 0.25, 0.5], 
+    rootMargin: '-20% 0px -20% 0px'
   };
 
   let currentActiveSection = null;
 
   const sectionObserver = new IntersectionObserver((entries) => {
-    // Sort entries by intersection ratio (highest first)
     entries.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-    
-    // Find the most visible section
     const mostVisible = entries.find(entry => entry.isIntersecting);
     
     if (mostVisible && mostVisible.target.id !== currentActiveSection) {
@@ -508,11 +460,10 @@ function setupNavigation() {
   }, observerOptions);
 
   sections.forEach(section => {
-    console.log('Observing section:', section.id); // Debug log
+    console.log('Observing section:', section.id); 
     sectionObserver.observe(section);
   });
 
-  // Fallback scroll-based detection
   let ticking = false;
 
   function updateActiveNavOnScroll() {
@@ -534,6 +485,14 @@ function setupNavigation() {
               console.log('Scroll activated nav link:', `#${sectionId}`);
             }
           });
+
+          const mobileBottomNavItems = document.querySelectorAll('.mobile-bottom-nav-item');
+          mobileBottomNavItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('data-section') === sectionId) {
+              item.classList.add('active');
+            }
+          });
         }
       }
     });
@@ -548,13 +507,10 @@ function setupNavigation() {
     }
   }
 
-  // Add scroll listener as backup
   window.addEventListener('scroll', requestScrollUpdate, { passive: true });
 
-  // Initial check
   updateActiveNavOnScroll();
 
-  // Manual click handler for nav links
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href');
@@ -562,12 +518,10 @@ function setupNavigation() {
       if (targetId && targetId.startsWith('#')) {
         e.preventDefault();
         
-        // Update active state immediately
         navLinks.forEach(l => l.classList.remove('active'));
         this.classList.add('active');
         currentActiveSection = targetId.substring(1);
         
-        // Enhanced smooth scroll to target
         const targetSection = document.querySelector(targetId);
         if (targetSection) {
           smoothScrollTo(targetSection);
@@ -576,7 +530,6 @@ function setupNavigation() {
     });
   });
 
-  // Handle logo click specifically
   const logoLink = document.querySelector('.logo');
   if (logoLink) {
     logoLink.addEventListener('click', function(e) {
@@ -585,7 +538,6 @@ function setupNavigation() {
       if (targetId && targetId.startsWith('#')) {
         e.preventDefault();
         
-        // Update active state for home
         navLinks.forEach(l => l.classList.remove('active'));
         const homeNavLink = document.querySelector('a[href="#home"].nav-link');
         if (homeNavLink) {
@@ -593,7 +545,6 @@ function setupNavigation() {
         }
         currentActiveSection = 'home';
         
-        // Enhanced smooth scroll to home/hero section
         const homeSection = document.querySelector('#home');
         if (homeSection) {
           smoothScrollTo(homeSection);
@@ -602,7 +553,6 @@ function setupNavigation() {
     });
   }
 
-  // Handle mobile nav links
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
   mobileNavLinks.forEach(link => {
     link.addEventListener('click', function(e) {
@@ -611,13 +561,11 @@ function setupNavigation() {
       if (targetId && targetId.startsWith('#')) {
         e.preventDefault();
         
-        // Close mobile menu
         const mobileMenu = document.getElementById('mobileMenu');
         if (mobileMenu) {
           mobileMenu.classList.remove('active');
         }
         
-        // Update active state
         navLinks.forEach(l => l.classList.remove('active'));
         const correspondingNavLink = document.querySelector(`a[href="${targetId}"].nav-link`);
         if (correspondingNavLink) {
@@ -625,7 +573,6 @@ function setupNavigation() {
         }
         currentActiveSection = targetId.substring(1);
         
-        // Enhanced smooth scroll
         const targetSection = document.querySelector(targetId);
         if (targetSection) {
           smoothScrollTo(targetSection);
@@ -634,12 +581,55 @@ function setupNavigation() {
     });
   });
 
+  const mobileBottomNavItems = document.querySelectorAll('.mobile-bottom-nav-item');
+  mobileBottomNavItems.forEach(item => {
+    item.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      
+      if (targetId && targetId.startsWith('#')) {
+        e.preventDefault();
+        
+        mobileBottomNavItems.forEach(navItem => navItem.classList.remove('active'));
+        this.classList.add('active');
+        
+        navLinks.forEach(l => l.classList.remove('active'));
+        const correspondingNavLink = document.querySelector(`a[href="${targetId}"].nav-link`);
+        if (correspondingNavLink) {
+          correspondingNavLink.classList.add('active');
+        }
+        currentActiveSection = targetId.substring(1);
+        
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          smoothScrollTo(targetSection);
+        }
+      }
+    });
+  });
+
+  const waFloatingBtn = document.getElementById('waFloatingBtn');
+  const contactSection = document.getElementById('contact');
+  
+  if (waFloatingBtn && contactSection) {
+    function checkWaButtonVisibility() {
+      const contactRect = contactSection.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      if (contactRect.top < windowHeight - 100) {
+        waFloatingBtn.classList.add('hidden');
+      } else {
+        waFloatingBtn.classList.remove('hidden');
+      }
+    }
+    
+    window.addEventListener('scroll', checkWaButtonVisibility, { passive: true });
+    checkWaButtonVisibility();
+  }
+
   setupMobileMenu();
 }
 
-// Interactive Elements Enhancement
 function setupInteractiveElements() {
-  // Enhanced Card Hover Effects
   const cards = document.querySelectorAll('.card, .project-card, .certificate-card, .glass-card');
   
   cards.forEach(card => {
@@ -653,7 +643,6 @@ function setupInteractiveElements() {
     });
   });
 
-  // Enhanced Button Interactions
   const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
   
   buttons.forEach(button => {
@@ -668,7 +657,6 @@ function setupInteractiveElements() {
     });
     
     button.addEventListener('click', function() {
-      // Ripple effect
       const ripple = document.createElement('span');
       ripple.style.position = 'absolute';
       ripple.style.borderRadius = '50%';
@@ -688,7 +676,6 @@ function setupInteractiveElements() {
     });
   });
 
-  // Skill Icons Interactive Animation
   const skillIcons = document.querySelectorAll('.skill-icon');
   
   skillIcons.forEach(icon => {
@@ -704,9 +691,7 @@ function setupInteractiveElements() {
   });
 }
 
-// Enhanced Certificate Filtering with Animations
 function filterCertificates(category) {
-  // Update active button state with smooth transition
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.classList.remove('active');
     btn.style.transform = 'scale(1)';
@@ -719,10 +704,8 @@ function filterCertificates(category) {
     event.target.style.transform = 'scale(1)';
   }, 200);
 
-  // Filter certificates with staggered animation
   const certificates = document.querySelectorAll('.certificate-card');
   
-  // First fade out all certificates
   certificates.forEach((cert, index) => {
     setTimeout(() => {
       cert.style.opacity = '0';
@@ -730,7 +713,6 @@ function filterCertificates(category) {
     }, index * 50);
   });
 
-  // Then show/hide and fade in relevant ones
   setTimeout(() => {
     certificates.forEach((cert, index) => {
       if (category === 'all' || cert.getAttribute('data-category') === category) {
@@ -747,7 +729,6 @@ function filterCertificates(category) {
   }, 300);
 }
 
-// Cursor Trail Effect
 function initializeCursorTrail() {
   const trail = [];
   const maxTrail = 10;
@@ -759,7 +740,6 @@ function initializeCursorTrail() {
       trail.shift();
     }
     
-    // Update existing trail elements
     document.querySelectorAll('.cursor-trail').forEach((el, index) => {
       if (trail[index]) {
         el.style.left = trail[index].x + 'px';
@@ -768,7 +748,6 @@ function initializeCursorTrail() {
       }
     });
     
-    // Create trail elements if they don't exist
     while (document.querySelectorAll('.cursor-trail').length < trail.length) {
       const trailElement = document.createElement('div');
       trailElement.classList.add('cursor-trail');
@@ -785,12 +764,10 @@ function initializeCursorTrail() {
   });
 }
 
-// Initialize cursor trail on desktop devices
 if (window.innerWidth > 768) {
   initializeCursorTrail();
 }
 
-// Add CSS for ripple animation
 const style = document.createElement('style');
 style.textContent = `
   @keyframes ripple {
@@ -807,7 +784,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Handle certificate image loading errors
 function handleCertificateImageErrors() {
   const certificateImages = document.querySelectorAll('.certificate-card img');
   
@@ -815,16 +791,13 @@ function handleCertificateImageErrors() {
     img.addEventListener('error', function() {
       console.log('Failed to load image:', this.src);
       
-      // Hide the image
       this.style.display = 'none';
       
-      // Show fallback if it exists
       const fallback = this.nextElementSibling;
       if (fallback && fallback.classList.contains('hidden')) {
         fallback.classList.remove('hidden');
         fallback.classList.add('flex');
       } else {
-        // Create a fallback if none exists
         const container = this.parentElement;
         const fallbackDiv = document.createElement('div');
         fallbackDiv.className = 'w-full h-full bg-gradient-to-br from-purple-500/20 to-indigo-500/20 rounded-lg flex items-center justify-center text-purple-400';
@@ -840,13 +813,11 @@ function handleCertificateImageErrors() {
       }
     });
     
-    // Also check if image is already failed to load
     if (img.complete && img.naturalWidth === 0) {
       img.dispatchEvent(new Event('error'));
     }
   });
 }
 
-// Initialize image error handling when DOM is loaded
 document.addEventListener('DOMContentLoaded', handleCertificateImageErrors);
 

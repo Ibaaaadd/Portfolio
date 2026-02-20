@@ -455,6 +455,7 @@ body::after {
   position: relative;
   overflow: hidden;
   background: var(--gradient-bg);
+  padding-top: 4rem;
 }
 
 .hero-bg {
@@ -1449,6 +1450,7 @@ body::after {
   .hero-section {
     padding: 6rem 0 4rem;
     text-align: center;
+    min-height: auto;
   }
   
   .hero-section .flex-col {
@@ -1591,7 +1593,7 @@ body::after {
   /* Ensure Hello I'm text is visible on mobile */
   .hero-content p {
     font-size: 0.95rem !important;
-    margin-bottom: 2rem !important;
+    margin-bottom: 1rem !important;
     opacity: 1 !important;
     display: block !important;
   }
@@ -1776,5 +1778,222 @@ textarea:focus {
   
   .mobile-menu-btn.active .hamburger-line:last-child {
     transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+/* ===========================
+   MOBILE BOTTOM NAVIGATION
+   =========================== */
+
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(56, 189, 248, 0.15);
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  padding: 8px 4px 8px 4px;
+  padding-bottom: calc(8px + env(safe-area-inset-bottom));
+  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.4);
+  animation: slideUpNav 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes slideUpNav {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobile-bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 12px;
+  min-width: 60px;
+  position: relative;
+}
+
+.mobile-bottom-nav-item svg {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mobile-bottom-nav-item span {
+  font-size: 10px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.mobile-bottom-nav-item:hover,
+.mobile-bottom-nav-item:focus {
+  color: var(--accent-primary);
+}
+
+.mobile-bottom-nav-item:active {
+  transform: scale(0.92);
+}
+
+.mobile-bottom-nav-item.active {
+  color: var(--accent-primary);
+}
+
+.mobile-bottom-nav-item.active svg {
+  transform: scale(1.15) translateY(-2px);
+  filter: drop-shadow(0 4px 8px rgba(56, 189, 248, 0.4));
+}
+
+/* Center item with floating effect - Theme colors */
+.mobile-bottom-nav-center {
+  position: relative;
+  margin-top: -20px;
+}
+
+.mobile-bottom-nav-center::before {
+  display: none;
+}
+
+.mobile-bottom-nav-center-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4), 0 0 30px rgba(139, 92, 246, 0.2);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: white;
+  animation: floatCenter 3s ease-in-out infinite;
+}
+
+@keyframes floatCenter {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4), 0 0 30px rgba(139, 92, 246, 0.2);
+  }
+  50% {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(56, 189, 248, 0.5), 0 0 40px rgba(139, 92, 246, 0.3);
+  }
+}
+
+.mobile-bottom-nav-center:hover .mobile-bottom-nav-center-icon {
+  transform: scale(1.1) translateY(-6px);
+  box-shadow: 0 12px 40px rgba(56, 189, 248, 0.6), 0 0 50px rgba(139, 92, 246, 0.4);
+  animation: none;
+}
+
+.mobile-bottom-nav-center:active .mobile-bottom-nav-center-icon {
+  transform: scale(0.95);
+}
+
+.mobile-bottom-nav-center.active .mobile-bottom-nav-center-icon {
+  background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-primary) 100%);
+  box-shadow: 0 6px 30px rgba(56, 189, 248, 0.6), 0 0 40px rgba(139, 92, 246, 0.4);
+}
+
+.mobile-bottom-nav-center span {
+  color: var(--accent-primary);
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+/* Add padding to body to prevent content overlap on mobile */
+@media (max-width: 1023px) {
+  body {
+    padding-bottom: 80px;
+  }
+  
+  footer {
+    margin-bottom: 0;
+  }
+  
+  /* Hide hamburger menu on mobile */
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  
+  .mobile-menu {
+    display: none !important;
+  }
+  
+  /* Hide back to top button on mobile */
+  .back-to-top {
+    display: none !important;
+  }
+}
+
+/* ===========================
+   WHATSAPP FLOATING BUTTON
+   =========================== */
+
+.wa-floating-btn {
+  position: fixed;
+  bottom: 110px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: waPulse 2s ease-in-out infinite;
+  z-index: 99;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.wa-floating-btn:hover {
+  transform: scale(1.15) rotate(10deg);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.7);
+}
+
+.wa-floating-btn:active {
+  transform: scale(0.95);
+}
+
+.wa-floating-btn.hidden {
+  opacity: 0;
+  transform: scale(0.5) translateY(30px);
+  pointer-events: none;
+}
+
+@keyframes waPulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.8), 0 0 0 10px rgba(37, 211, 102, 0.1);
+    transform: scale(1.05);
+  }
+}
+
+/* Hide WA button on desktop */
+@media (min-width: 1024px) {
+  .wa-floating-btn {
+    display: none;
   }
 }

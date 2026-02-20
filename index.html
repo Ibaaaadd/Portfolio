@@ -7,25 +7,18 @@
   <title>Choirul Ainul Ibad</title>
   <link href="Img/Icon.jpg" rel="icon">
 
-  <!-- External Libraries -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
-
-  <!-- Animation Libraries -->
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-  <!-- Custom Styles -->
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Tailwind Custom Config -->
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -79,10 +72,8 @@
   </script>
 </head>
 
-<body class="dark">
-  <!-- Animated Background Elements -->
+<body class="dark bg-slate-900 text-slate-100 overflow-x-hidden">
   <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-    <!-- Enhanced Floating Geometric Shapes -->
     <div
       class="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-purple-500/15 to-blue-600/15 rounded-full blur-3xl animate-pulse">
     </div>
@@ -92,8 +83,6 @@
     <div
       class="absolute bottom-1/4 right-1/4 w-60 h-60 bg-gradient-to-br from-violet-500/20 to-pink-500/15 rounded-full blur-2xl animate-float">
     </div>
-
-    <!-- Additional Floating Elements -->
     <div
       class="absolute top-20 left-1/4 w-6 h-6 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-sm animate-float-reverse opacity-70 rotate-45">
     </div>
@@ -105,7 +94,6 @@
     </div>
     <div class="absolute top-3/4 left-2/3 w-3 h-3 bg-cyan-400/60 rounded-full animate-ping"></div>
 
-    <!-- Particle Lines -->
     <svg class="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -128,17 +116,11 @@
         style="animation-delay: 3s;" />
     </svg>
   </div>
-  </head>
 
-  <body class="dark bg-slate-900 text-slate-100 overflow-x-hidden">
-    <!-- Scroll Progress Indicator -->
     <div class="scroll-indicator" id="scrollIndicator"></div>
-
-    <!-- Navigation Header -->
     <header class="navbar fixed top-0 w-full z-50" id="navbar">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16 lg:h-20">
-          <!-- Logo -->
           <div class="flex items-center" data-aos="fade-right">
             <a href="#home" class="logo group">
               <img src="Img/tech/code.png" alt="Code Icon" class="h-8 w-8 object-contain" />
@@ -146,7 +128,6 @@
             </a>
           </div>
 
-          <!-- Desktop Navigation -->
           <nav class="desktop-nav hidden lg:flex items-center space-x-8" data-aos="fade-left">
             <a href="#home" class="nav-link">Home</a>
             <a href="#profile" class="nav-link">Profile</a>
@@ -155,8 +136,6 @@
             <a href="#certificate" class="nav-link">Certificates</a>
             <a href="#contact" class="nav-link">Contact</a>
           </nav>
-
-          <!-- Mobile Menu Button -->
           <button id="mobileMenuBtn" class="mobile-menu-btn block lg:hidden" data-aos="fade-left">
             <div class="w-6 h-6 flex flex-col justify-around">
               <span class="hamburger-line"></span>
@@ -166,7 +145,6 @@
           </button>
         </div>
 
-        <!-- Mobile Navigation -->
         <div id="mobileMenu" class="mobile-menu lg:hidden">
           <div class="py-4 space-y-2">
             <a href="#home" class="mobile-nav-link">Home</a>
@@ -180,12 +158,10 @@
       </div>
     </header>
 
-    <!-- Hero Section -->
     <section id="home" class="hero-section section">
       <div class="hero-bg"></div>
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
-          <!-- Text Content -->
           <div class="hero-content flex-1 text-center lg:text-left" data-aos="fade-right" data-aos-delay="200">
             <div class="mb-6">
               <p class="text-sm sm:text-base mb-4 font-mono" style="color: var(--accent-primary);">Hello, I'm</p>
@@ -201,7 +177,6 @@
               </p>
             </div>
 
-            <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" data-aos="fade-up"
               data-aos-delay="600">
               <a href="#contact" class="btn-primary">
@@ -220,15 +195,12 @@
             </div>
           </div>
 
-          <!-- Profile Image -->
           <div class="flex-1 flex justify-center lg:justify-end" data-aos="fade-left" data-aos-delay="400">
             <div class="relative w-full max-w-md mx-auto lg:mx-0 animate-float">
-              <!-- Main Profile Image -->
               <div class="profile-image overflow-hidden mx-auto">
                 <img src="Img/ibad.jpeg" alt="Ibad Portrait" class="w-full h-full object-cover" />
               </div>
 
-              <!-- Floating Tech Icons - Positioned relative to profile image -->
               <div
                 class="absolute top-4 -right-6 w-12 h-12 glass-card rounded-full flex items-center justify-center animate-bounce-slow">
                 <img src="Img/tech/js.png" alt="JS" class="w-8 h-8 object-contain skill-icon" />
@@ -239,22 +211,22 @@
                 <img src="Img/tech/laravel.png" alt="Laravel" class="w-8 h-8 object-contain skill-icon" />
               </div>
               <div
-                class="absolute top-10 -left-6 w-12 h-12 glass-card rounded-full flex items-center justify-center animate-bounce-slow"
+                class="hidden lg:flex absolute top-10 -left-6 w-12 h-12 glass-card rounded-full items-center justify-center animate-bounce-slow"
                 style="animation-delay: 1s" data-aos="zoom-in" data-aos-delay="800">
                 <img src="Img/tech/react.png" alt="React" class="w-8 h-8 object-contain skill-icon" />
               </div>
               <div
-                class="absolute bottom-12 -right-6 w-12 h-12 glass-card rounded-full flex items-center justify-center animate-bounce-slow"
+                class="hidden lg:flex absolute bottom-12 -right-6 w-12 h-12 glass-card rounded-full items-center justify-center animate-bounce-slow"
                 style="animation-delay: 1.5s" data-aos="zoom-in" data-aos-delay="1000">
                 <img src="Img/tech/css.png" alt="CSS" class="w-8 h-8 object-contain skill-icon" />
               </div>
               <div
-                class="absolute -bottom-10 right-12 w-12 h-12 glass-card rounded-full flex items-center justify-center animate-bounce-slow"
+                class="hidden lg:flex absolute -bottom-10 right-12 w-12 h-12 glass-card rounded-full items-center justify-center animate-bounce-slow"
                 style="animation-delay: 2s" data-aos="zoom-in" data-aos-delay="1200">
                 <img src="Img/tech/vue.png" alt="Vue" class="w-8 h-8 object-contain skill-icon" />
               </div>
               <div
-                class="absolute top-1/2 -left-12 w-10 h-10 glass-card rounded-full flex items-center justify-center animate-pulse-slow"
+                class="hidden lg:flex absolute top-1/2 -left-12 w-10 h-10 glass-card rounded-full items-center justify-center animate-pulse-slow"
                 style="animation-delay: 0.5s" data-aos="fade-left" data-aos-delay="1400">
                 <img src="Img/tech/html.png" alt="HTML" class="w-6 h-6 object-contain skill-icon" />
               </div>
@@ -264,7 +236,6 @@
       </div>
     </section>
 
-    <!-- Profile Section -->
     <section id="profile" class="section">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 sm:mb-16">
@@ -272,9 +243,7 @@
         </div>
 
         <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          <!-- About Me Content -->
           <div class="space-y-6" data-aos="fade-right">
-            <!-- Professional Summary -->
             <div class="glass-card p-6 sm:p-8">
               <h3 class="text-xl sm:text-2xl font-bold mb-4 flex items-center" style="color: var(--text-primary);">
                 <span class="text-2xl mr-3" style="color: var(--accent-primary);">💼</span>
@@ -288,7 +257,6 @@
               </p>
             </div>
 
-            <!-- Skills & Expertise -->
             <div class="glass-card p-6 sm:p-8">
               <h3 class="text-xl sm:text-2xl font-bold mb-4 flex items-center" style="color: var(--text-primary);">
                 <span class="text-2xl mr-3" style="color: var(--accent-primary);">⚡</span>
@@ -334,7 +302,6 @@
             </blockquote>
           </div>
 
-          <!-- Education Content -->
           <div class="space-y-6" data-aos="fade-left">
             <h3 class="text-xl sm:text-2xl font-bold mb-6 flex items-center" style="color: var(--text-primary);">
               <span class="text-2xl mr-3" style="color: var(--accent-primary);">🎓</span>
@@ -394,7 +361,6 @@
       </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience" class="section">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 sm:mb-16">
@@ -405,17 +371,12 @@
           </p>
         </div>
 
-        <!-- Experience Timeline -->
         <div class="relative max-w-4xl mx-auto">
-          <!-- Timeline Line -->
           <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-cyan-500 rounded-full hidden md:block"></div>
 
-          <!-- Experience Items -->
           <div class="space-y-8 md:space-y-12">
-            <!-- PT BHRAMA BENUA SEJAHTERA -->
             <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="50">
               <div class="md:w-1/2 md:pr-8 order-1"></div>
-              <!-- Timeline Dot -->
               <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-cyan-500 border-4 border-gray-900 rounded-full z-10"></div>
               <div class="md:w-1/2 md:pl-8 mb-6 md:mb-0 order-2">
                 <div class="glass-card p-6 hover-lift group">
@@ -445,7 +406,6 @@
               </div>
             </div>
 
-            <!-- Freelance Developer -->
             <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="100">
               <div class="md:w-1/2 md:pr-8 mb-6 md:mb-0 md:text-right order-2 md:order-1">
                 <div class="glass-card p-6 hover-lift group">
@@ -472,15 +432,12 @@
                   </div>
                 </div>
               </div>
-              <!-- Timeline Dot -->
               <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 border-4 border-gray-900 rounded-full z-10"></div>
               <div class="md:w-1/2 md:pl-8 order-1 md:order-2"></div>
             </div>
 
-            <!-- PUSPAGA Research -->
             <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="150">
               <div class="md:w-1/2 md:pr-8 order-1"></div>
-              <!-- Timeline Dot -->
               <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-yellow-500 border-4 border-gray-900 rounded-full z-10"></div>
               <div class="md:w-1/2 md:pl-8 mb-6 md:mb-0 order-2">
                 <div class="glass-card p-6 hover-lift group">
@@ -507,8 +464,6 @@
                 </div>
               </div>
             </div>
-
-            <!-- MSIB 7 - DP3APPKB -->
             <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="200">
               <div class="md:w-1/2 md:pr-8 mb-6 md:mb-0 md:text-right order-2 md:order-1">
                 <div class="glass-card p-6 hover-lift group">
@@ -529,20 +484,19 @@
                   </p>
                   <div class="mt-3 flex flex-wrap gap-2 justify-end md:justify-start">
                     <span class="tech-tag text-xs">IT Support</span>
-                    <span class="tech-tag text-xs">System Admin</span>
-                    <span class="tech-tag text-xs">Database</span>
+                    <span class="tech-tag text-xs">Vue.js</span>
+                    <span class="tech-tag text-xs">Laravel</span>
+                    <span class="tech-tag text-xs">Boostrap</span>
+                    <span class="tech-tag text-xs">PostgreSQL</span>
                   </div>
                 </div>
               </div>
-              <!-- Timeline Dot -->
               <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 border-4 border-gray-900 rounded-full z-10"></div>
               <div class="md:w-1/2 md:pl-8 order-1 md:order-2"></div>
             </div>
 
-            <!-- MSIB 6 - Dinkominfo -->
             <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="250">
               <div class="md:w-1/2 md:pr-8 order-1"></div>
-              <!-- Timeline Dot -->
               <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 border-4 border-gray-900 rounded-full z-10"></div>
               <div class="md:w-1/2 md:pl-8 mb-6 md:mb-0 order-2">
                 <div class="glass-card p-6 hover-lift group">
@@ -575,7 +529,6 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="project" class="section">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 sm:mb-16">
@@ -586,10 +539,8 @@
           </p>
         </div>
 
-        <!-- Swiper Container -->
         <div class="swiper projectSwiper" data-aos="fade-up" data-aos-delay="400">
           <div class="swiper-wrapper">
-            <!-- Project Cards -->
             <div class="swiper-slide">
               <div class="project-card group h-[32rem] flex flex-col">
                 <div class="project-image-container">
@@ -732,7 +683,6 @@
       </div>
     </section>
 
-    <!-- Certificates Section -->
     <section id="certificate" class="section">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 sm:mb-16">
@@ -742,7 +692,6 @@
           </p>
         </div>
 
-        <!-- Certificate Categories -->
         <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="400">
           <button onclick="filterCertificates('all')" class="filter-btn active">
             All
@@ -759,7 +708,6 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="600">
-          <!-- HIMTI Certificate -->
           <div class="glass-card p-6 hover-lift group certificate-card" data-category="organization">
             <div class="aspect-video rounded-xl mb-4 overflow-hidden">
               <img src="Img/Himpunan Mahasiswa Teknik Informatika - Choirul Ainul Ibad_page-0001.jpg"
@@ -778,7 +726,6 @@
             </div>
           </div>
 
-          <!-- PKKMB Certificate -->
           <div class="glass-card p-6 hover-lift group certificate-card" data-category="academic">
             <div class="aspect-video rounded-xl mb-4 overflow-hidden">
               <img src="Img/PKKMB FT_page-0001.jpg" alt="PKKMB Certificate"
@@ -794,7 +741,6 @@
             </div>
           </div>
 
-          <!-- IBC Certificate -->
           <div class="glass-card p-6 hover-lift group certificate-card" data-category="competition">
             <div class="aspect-video rounded-xl mb-4 overflow-hidden">
               <img src="Img/Sertifikat IBC - Choirul Ainul Ibad_page-0001.jpg" alt="IBC Certificate"
@@ -809,7 +755,6 @@
             </div>
           </div>
 
-          <!-- IT Sport Certificate -->
           <div class="glass-card p-6 hover-lift group certificate-card" data-category="competition">
             <div class="aspect-video rounded-xl mb-4 overflow-hidden">
               <img src="Img/IT Sport - Choirul Ainul Ibad_page-0001.jpg" alt="IT Sport Certificate"
@@ -830,7 +775,6 @@
             </div>
           </div>
 
-          <!-- Seminar Certificate -->
           <div class="glass-card p-6 hover-lift group certificate-card" data-category="academic">
             <div class="aspect-video rounded-xl mb-4 overflow-hidden">
               <img src="Img/Seminar Nasional Teknik Informatika - Choirul Ainul Ibad_page-0001.jpg"
@@ -847,7 +791,6 @@
             </div>
           </div>
 
-          <!-- Job Show Certificate -->
           <div class="glass-card p-6 hover-lift group certificate-card" data-category="academic">
             <div class="aspect-video rounded-xl mb-4 overflow-hidden">
               <img src="Img/Job Show - Choirul Ainul Ibad_page-0001.jpg" alt="Job Show Certificate"
@@ -862,7 +805,6 @@
             </div>
           </div>
 
-          <!-- Competines Certificate -->
           <div class="glass-card p-6 hover-lift group certificate-card" data-category="competition">
             <div class="aspect-video rounded-xl mb-4 overflow-hidden">
               <img src="Img/Competines - Choirul Ainul Ibad_page-0001.jpg" alt="Competines Certificate"
@@ -877,7 +819,6 @@
             </div>
           </div>
 
-          <!-- Informatic Championship -->
           <div class="glass-card p-6 hover-lift group certificate-card" data-category="competition">
             <div class="aspect-video rounded-xl mb-4 overflow-hidden">
               <img src="Img/Informatic Championship - Choirul Ainul Ibad_page-0001.jpg" alt="Informatic Championship"
@@ -896,7 +837,6 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="section">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 sm:mb-16">
@@ -964,7 +904,6 @@
           </a>
         </div>
 
-        <!-- Additional Contact Links -->
         <div class="flex flex-wrap justify-center gap-4 mb-8">
           <a href="https://www.linkedin.com/in/choirul-ainul-ibad-99b69b2a1/" target="_blank"
             class="w-12 h-12 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
@@ -985,7 +924,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-8 border-t" style="background: var(--bg-secondary); border-color: rgba(248, 250, 252, 0.1);">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
@@ -1000,14 +938,52 @@
       </div>
     </footer>
 
-    <!-- Back to Top Button -->
     <button id="backToTop" class="back-to-top opacity-0 invisible">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
       </svg>
     </button>
 
-    <!-- Custom JavaScript -->
+    <nav class="mobile-bottom-nav lg:hidden">
+      <a href="#profile" class="mobile-bottom-nav-item" data-section="profile">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+        </svg>
+        <span>Profile</span>
+      </a>
+      <a href="#experience" class="mobile-bottom-nav-item" data-section="experience">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg>
+        <span>Exp</span>
+      </a>
+      <a href="#home" class="mobile-bottom-nav-item mobile-bottom-nav-center active" data-section="home">
+        <div class="mobile-bottom-nav-center-icon">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+          </svg>
+        </div>
+        <span>Home</span>
+      </a>
+            <a href="#project" class="mobile-bottom-nav-item" data-section="project">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+        </svg>
+        <span>Projects</span>
+      </a>
+      <a href="#contact" class="mobile-bottom-nav-item" data-section="contact">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg>
+        <span>Contact</span>
+      </a>
+      <a href="https://wa.me/6289519267028" target="_blank" class="wa-floating-btn" id="waFloatingBtn">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+    </nav>
+
     <script src="script.js"></script>
   </body>
 
