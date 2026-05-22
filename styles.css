@@ -1730,54 +1730,109 @@ footer {
 .reveal-right.in { opacity:1; transform:translateX(0); }
 
 /* ─── RESPONSIVE ─── */
+
+/* Large desktop: tighten about gap */
+@media (max-width: 1280px) {
+  .about-grid { gap: 4rem; }
+}
+
+/* Tablet landscape */
 @media (max-width: 1024px) {
-  :root { --section-padding: clamp(4rem,8vw,6rem); }
+  :root { --section-padding: clamp(4rem, 8vw, 6rem); }
 
-  .about-grid { grid-template-columns:1fr; gap:3rem; }
-  .about-image-col { max-width: 380px; }
+  /* About */
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about-image-col { max-width: 420px; margin: 0 auto; width: 100%; order: -1; }
   .about-photo-wrap { width: 100%; }
-  .badge-1, .badge-2, .badge-3 { display:none; }
+  .badge-1, .badge-2, .badge-3 { display: none; }
 
-  .contact-socials { grid-template-columns:1fr; }
+  /* Projects: keep 2-col, equal split (6/6 of 12) */
+  .project-card-featured { grid-column: span 6; }
+  .project-card-normal   { grid-column: span 6; }
 
-  .project-card-featured,
-  .project-card-normal { grid-column: span 12; }
+  /* Contact */
+  .contact-socials { grid-template-columns: 1fr; }
 
-  .timeline-item {
-    grid-template-columns: 1fr;
-    padding-left: 40px;
+  /* Timeline: collapse to single column */
+  .timeline-item { grid-template-columns: 1fr; padding-left: 40px; position: relative; }
+  .timeline-line { left: 16px; }
+  .timeline-center { position: absolute; left: 8px; top: 20px; }
+  .timeline-item-left { display: none; }
+  .timeline-item-right { padding-left: 0; }
+
+  /* Nav */
+  .nav-links { display: none; }
+}
+
+/* Tablet portrait / large mobile */
+@media (max-width: 768px) {
+  :root {
+    --container-pad: 1.25rem;
+    --section-padding: clamp(3rem, 6vw, 4.5rem);
   }
 
-  .timeline-line { left:16px; }
-  .timeline-center { position:absolute; left:8px; top:20px; }
-  .timeline-item-left { display:none; }
-  .timeline-item-right { padding-left:0; }
+  .hero-title { font-size: clamp(2.4rem, 9vw, 3.5rem); }
 
-  .nav-links { display:none; }
-  .nav-hamburger { display:flex; }
-}
+  /* About stats: keep 3-col (numbers are compact enough) */
+  .about-stats { padding: 1.25rem; gap: 1rem; }
 
-@media (max-width: 768px) {
-  :root { --container-pad: 1.25rem; }
+  /* Skills */
+  .skills-panel.active { grid-template-columns: 1fr 1fr; }
 
-  .hero-title { font-size: clamp(2.4rem,9vw,3.5rem); }
-  .about-stats { grid-template-columns:1fr; gap:1rem; }
-  .skills-panel.active { grid-template-columns:1fr 1fr; }
-  .projects-grid { grid-template-columns:1fr; gap:1.25rem; }
-  .certs-grid { grid-template-columns:1fr 1fr; }
-  .mobile-bottom-nav { display:flex; }
+  /* Projects: single column */
+  .projects-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .project-card-featured,
+  .project-card-normal { grid-column: span 1; }
 
+  /* Certs: 2 col */
+  .certs-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Mobile bottom nav */
+  .mobile-bottom-nav { display: flex; }
   body { padding-bottom: 80px; }
 
-  footer .back-to-top { display:none; }
+  /* Footer */
+  footer .back-to-top { display: none; }
+  .footer-inner { justify-content: center; text-align: center; }
 }
 
+/* Mobile portrait — extra tightening before 480px */
+@media (max-width: 580px) {
+  /* Project cards */
+  .project-body { padding: 1.1rem; }
+  .project-name { font-size: 1rem; }
+
+  /* Contact links */
+  .contact-social-link { padding: 0.85rem 1rem; gap: 0.75rem; }
+  .social-icon-wrap { width: 38px; height: 38px; }
+  .social-name { font-size: 0.85rem; }
+  .social-handle { font-size: 0.72rem; }
+
+  /* Skills tabs fill width */
+  .skills-tabs { width: 100%; }
+  .skill-tab { flex: 1; text-align: center; padding: 0.6rem 0.75rem; }
+}
+
+/* Small mobile */
 @media (max-width: 480px) {
-  .hero-cta { flex-direction:column; }
-  .btn { width:100%; justify-content:center; }
-  .skills-panel.active { grid-template-columns:1fr; }
-  .certs-grid { grid-template-columns:1fr; }
-  .skills-tabs { width:100%; justify-content:center; }
+  :root { --container-pad: 1rem; }
+
+  /* Hero CTA stack */
+  .hero-cta { flex-direction: column; }
+  .btn { width: 100%; justify-content: center; }
+
+  /* About stats: stack vertically */
+  .about-stats { grid-template-columns: 1fr; }
+
+  /* Skills: 1 col */
+  .skills-panel.active { grid-template-columns: 1fr; }
+  .skills-tabs { width: 100%; justify-content: center; }
+
+  /* Certs: 1 col */
+  .certs-grid { grid-template-columns: 1fr; }
+
+  /* Preloader counter */
+  .preloader-count { display: none; }
 }
 
 /* ─── REDUCED MOTION ─── */
