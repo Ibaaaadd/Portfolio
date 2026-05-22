@@ -36,15 +36,111 @@ function smoothScrollTo(targetElement) {
   }
 }
 
+function getAccentRgb() {
+  const value = getComputedStyle(document.documentElement)
+    .getPropertyValue('--accent-primary-rgb')
+    .trim();
+  return value || '34, 211, 238';
+}
+
+function applyTheme(theme, persist) {
+  document.documentElement.setAttribute('data-theme', theme);
+  if (persist) {
+    localStorage.setItem('portfolio-theme', theme);
+  }
+
+  document.documentElement.classList.add('theme-transition');
+  document.body.classList.add('theme-transition');
+  window.setTimeout(() => {
+    document.documentElement.classList.remove('theme-transition');
+    document.body.classList.remove('theme-transition');
+  }, 350);
+
+  const toggle = document.getElementById('themeToggle');
+  if (toggle) {
+    toggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+  }
+
+  window.dispatchEvent(new CustomEvent('theme:change', { detail: { theme } }));
+}
+
+function setupThemeToggle() {
+  const toggle = document.getElementById('themeToggle');
+  if (!toggle) return;
+
+  const storedTheme = localStorage.getItem('portfolio-theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = storedTheme || document.documentElement.getAttribute('data-theme') || (prefersDark ? 'dark' : 'light');
+
+  applyTheme(initialTheme, false);
+
+  toggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') || initialTheme;
+    const nextTheme = current === 'dark' ? 'light' : 'dark';
+    applyTheme(nextTheme, true);
+  });
+
+  if (window.matchMedia) {
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (event) => {
+      if (!localStorage.getItem('portfolio-theme')) {
+        applyTheme(event.matches ? 'dark' : 'light', false);
+      }
+    };
+
+    if (typeof media.addEventListener === 'function') {
+      media.addEventListener('change', handleChange);
+    } else if (typeof media.addListener === 'function') {
+      media.addListener(handleChange);
+    }
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+  setupThemeToggle();
   initializeTypedJS();
   initializeAOS();
   initializeSwiper();
   initializeParticles();
+  setupPremiumReveal();
   setupScrollAnimations();
   setupNavigation();
   setupInteractiveElements();
 });
+
+function setupPremiumReveal() {
+  const sections = document.querySelectorAll('section.section');
+  const revealSelectors = [
+    '.hero-content',
+    '.profile-image',
+    '.glass-card',
+    '.card',
+    '.project-card',
+    '.certificate-card',
+    '.contact-card',
+    '.contact-card-small',
+    '.section-title',
+  ];
+
+  sections.forEach(section => {
+    const elements = section.querySelectorAll(revealSelectors.join(','));
+    elements.forEach((el, index) => {
+      el.classList.add('reveal-item');
+      el.style.setProperty('--reveal-delay', `${index * 90}ms`);
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -10% 0px' });
+
+  document.querySelectorAll('.reveal-item').forEach(item => observer.observe(item));
+}
 
 function initializeAOS() {
   AOS.init({
@@ -180,7 +276,7 @@ function initializeSwiper() {
 }
 
 function initializeParticles() {
-  const canvas = document.createElement('canvas');
+  const canvas = document.createElement('canvas'); 
   canvas.id = 'particles-canvas';
   canvas.style.position = 'fixed';
   canvas.style.top = '0';
@@ -194,6 +290,14 @@ function initializeParticles() {
   const ctx = canvas.getContext('2d');
   let particles = [];
   const maxParticles = 50;
+  let accentRgb = getAccentRgb();
+
+  window.addEventListener('theme:change', () => {
+    accentRgb = getAccentRgb();
+    document.querySelectorAll('.cursor-trail').forEach((el) => {
+      el.style.background = `rgba(${accentRgb}, 0.6)`;
+    });
+  });
 
   function resizeCanvas() {
     canvas.width = window.innerWidth;
@@ -227,7 +331,7 @@ function initializeParticles() {
     particles.forEach(particle => {
       ctx.beginPath();
       ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(0, 212, 255, ${particle.opacity})`;
+      ctx.fillStyle = `rgba(${accentRgb}, ${particle.opacity})`;
       ctx.fill();
     });
 
@@ -241,7 +345,7 @@ function initializeParticles() {
           ctx.beginPath();
           ctx.moveTo(particle.x, particle.y);
           ctx.lineTo(otherParticle.x, otherParticle.y);
-          ctx.strokeStyle = `rgba(0, 212, 255, ${0.2 * (1 - distance / 100)})`;
+          ctx.strokeStyle = `rgba(${accentRgb}, ${0.2 * (1 - distance / 100)})`;
           ctx.lineWidth = 1;
           ctx.stroke();
         }
@@ -647,13 +751,14 @@ function setupInteractiveElements() {
   
   buttons.forEach(button => {
     button.addEventListener('mouseenter', function() {
+      const accentRgb = getAccentRgb();
       this.style.transform = 'translateY(-3px)';
-      this.style.boxShadow = '0 10px 30px rgba(0, 212, 255, 0.4)';
+      this.style.boxShadow = `0 10px 30px rgba(${accentRgb}, 0.4)`;
     });
     
     button.addEventListener('mouseleave', function() {
       this.style.transform = 'translateY(0)';
-      this.style.boxShadow = '0 4px 15px rgba(0, 212, 255, 0.3)';
+      this.style.boxShadow = `0 4px 15px rgba(${getAccentRgb()}, 0.3)`;
     });
     
     button.addEventListener('click', function() {
@@ -680,8 +785,9 @@ function setupInteractiveElements() {
   
   skillIcons.forEach(icon => {
     icon.addEventListener('mouseenter', function() {
+      const accentRgb = getAccentRgb();
       this.style.transform = 'scale(1.2) rotate(10deg)';
-      this.style.filter = 'drop-shadow(0 5px 15px rgba(0, 212, 255, 0.5))';
+      this.style.filter = `drop-shadow(0 5px 15px rgba(${accentRgb}, 0.5))`;
     });
     
     icon.addEventListener('mouseleave', function() {
@@ -732,6 +838,11 @@ function filterCertificates(category) {
 function initializeCursorTrail() {
   const trail = [];
   const maxTrail = 10;
+  let accentRgb = getAccentRgb();
+
+  window.addEventListener('theme:change', () => {
+    accentRgb = getAccentRgb();
+  });
   
   document.addEventListener('mousemove', (e) => {
     trail.push({ x: e.clientX, y: e.clientY, opacity: 1 });
@@ -754,7 +865,7 @@ function initializeCursorTrail() {
       trailElement.style.position = 'fixed';
       trailElement.style.width = '4px';
       trailElement.style.height = '4px';
-      trailElement.style.background = 'rgba(0, 212, 255, 0.6)';
+      trailElement.style.background = `rgba(${accentRgb}, 0.6)`;
       trailElement.style.borderRadius = '50%';
       trailElement.style.pointerEvents = 'none';
       trailElement.style.zIndex = '9999';
@@ -800,7 +911,7 @@ function handleCertificateImageErrors() {
       } else {
         const container = this.parentElement;
         const fallbackDiv = document.createElement('div');
-        fallbackDiv.className = 'w-full h-full bg-gradient-to-br from-purple-500/20 to-indigo-500/20 rounded-lg flex items-center justify-center text-purple-400';
+        fallbackDiv.className = 'certificate-fallback';
         fallbackDiv.innerHTML = `
           <div class="text-center">
             <svg class="w-16 h-16 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

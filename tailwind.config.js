@@ -8,17 +8,18 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: "#F3EEEA",
-        secondary: "#EBE3D5",
-        third: "#B0A695",
-        fourth: "#776B5D",
+        primary: "#F7F2E9",
+        secondary: "#F0E8DB",
+        third: "#E6DBCA",
+        fourth: "#1D1B16",
         ig: "#c13584",
         wa: "#25D366",
         line: "#000000",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
-        inter: ["Inter", "sans-serif"],
+        inter: ["Space Grotesk", "sans-serif"],
+        mono: ["IBM Plex Mono", "monospace"],
       },
       animation: {
         lentur: "lentur 3s linear infinite",
