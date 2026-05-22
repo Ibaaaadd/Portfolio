@@ -1,0 +1,42 @@
+# ─── Gzip Compression ────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml font/woff font/woff2
+</IfModule>
+
+# ─── Browser Caching ──────────────────────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp             "access plus 3 months"
+  ExpiresByType image/png              "access plus 3 months"
+  ExpiresByType image/jpeg             "access plus 3 months"
+  ExpiresByType image/svg+xml          "access plus 3 months"
+  ExpiresByType text/css               "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType font/woff2             "access plus 6 months"
+</IfModule>
+
+# ─── Auto-serve WebP when browser supports it & .webp file exists ─────────────
+# Run compress.php first to generate WebP versions.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # PNG → WebP
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{REQUEST_URI} (.+)\.png$
+  RewriteCond %{DOCUMENT_ROOT}%1.webp -f
+  RewriteRule (.+)\.png$ $1.webp [T=image/webp,L]
+
+  # JPG/JPEG → WebP
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{REQUEST_URI} (.+)\.(jpg|jpeg)$
+  RewriteCond %{DOCUMENT_ROOT}%1.webp -f
+  RewriteRule (.+)\.(jpg|jpeg)$ $1.webp [T=image/webp,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(png|jpe?g)$">
+    Header append Vary Accept
+  </FilesMatch>
+</IfModule>

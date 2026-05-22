@@ -1,256 +1,224 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth" data-theme="light">
-
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Choirul Ainul Ibad</title>
-  <link href="Img/Icon.jpg" rel="icon">
+  <meta name="description" content="Choirul Ainul Ibad — Full Stack Developer specializing in Laravel, Vue.js, React, and Node.js. Building meaningful digital experiences." />
+  <link rel="icon" href="Img/Icon.jpg" />
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
   <script>
-    (function () {
-      var storedTheme = localStorage.getItem('portfolio-theme');
-      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var theme = storedTheme || (prefersDark ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
+    (function(){
+      var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+      document.documentElement.setAttribute('data-theme',t);
     })();
   </script>
-  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
   <link rel="stylesheet" href="styles.css" />
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            'inter': ['Space Grotesk', 'sans-serif'],
-            'mono': ['IBM Plex Mono', 'monospace'],
-          },
-          colors: {
-            primary: {
-              50: '#e6f9ff',
-              100: '#b3efff',
-              200: '#80e5ff',
-              300: '#4ddbff',
-              400: '#1ad1ff',
-              500: '#00d4ff',
-              600: '#00a8cc',
-              700: '#007c99',
-              800: '#005066',
-              900: '#002433'
-            },
-            secondary: {
-              50: '#f3f0ff',
-              100: '#e0d7ff',
-              200: '#ccbeff',
-              300: '#b8a5ff',
-              400: '#a48cff',
-              500: '#9173ff',
-              600: '#7c3aed',
-              700: '#6d28d9',
-              800: '#5b21b6',
-              900: '#4c1d95'
-            }
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.8s ease-out',
-            'slide-up': 'slideUp 1s ease-out',
-            'slide-down': 'slideDown 1s ease-out',
-            'slide-left': 'slideLeft 1s ease-out',
-            'slide-right': 'slideRight 1s ease-out',
-            'float': 'float 6s ease-in-out infinite',
-            'glow': 'glow 2s ease-in-out infinite alternate',
-            'pulse-slow': 'pulse 3s ease-in-out infinite',
-            'bounce-slow': 'bounce 2s infinite',
-            'spin-slow': 'spin 8s linear infinite',
-          }
-        }
-      }
-    }
-  </script>
 </head>
 
-<body class="overflow-x-hidden">
-  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-    <div
-      class="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-purple-500/15 to-blue-600/15 rounded-full blur-3xl animate-pulse">
-    </div>
-    <div
-      class="absolute top-1/4 -left-40 w-80 h-80 bg-gradient-to-br from-indigo-500/15 to-cyan-400/15 rounded-full blur-3xl animate-bounce-slow">
-    </div>
-    <div
-      class="absolute bottom-1/4 right-1/4 w-60 h-60 bg-gradient-to-br from-violet-500/20 to-pink-500/15 rounded-full blur-2xl animate-float">
-    </div>
-    <div
-      class="absolute top-20 left-1/4 w-6 h-6 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-sm animate-float-reverse opacity-70 rotate-45">
-    </div>
-    <div class="absolute top-1/3 right-1/3 w-8 h-8 border-2 border-purple-400/40 rotate-45 animate-spin-slow"></div>
-    <div
-      class="absolute bottom-1/3 left-1/6 w-4 h-4 bg-gradient-to-r from-pink-400 to-violet-500 rounded-full animate-pulse">
-    </div>
-    <div class="absolute bottom-40 right-1/5 w-5 h-5 border border-indigo-400/50 rounded-full animate-bounce-slow">
-    </div>
-    <div class="absolute top-3/4 left-2/3 w-3 h-3 bg-cyan-400/60 rounded-full animate-ping"></div>
+<body>
 
-    <svg class="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:rgb(14,165,166);stop-opacity:0" />
-          <stop offset="50%" style="stop-color:rgb(14,165,166);stop-opacity:0.6" />
-          <stop offset="100%" style="stop-color:rgb(14,165,166);stop-opacity:0" />
-        </linearGradient>
-        <linearGradient id="lineGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:rgb(245,158,11);stop-opacity:0" />
-          <stop offset="50%" style="stop-color:rgb(245,158,11);stop-opacity:0.4" />
-          <stop offset="100%" style="stop-color:rgb(245,158,11);stop-opacity:0" />
-        </linearGradient>
-      </defs>
-      <line x1="0" y1="25%" x2="100%" y2="35%" stroke="url(#lineGradient1)" stroke-width="2" class="animate-pulse" />
-      <line x1="0" y1="65%" x2="100%" y2="75%" stroke="url(#lineGradient2)" stroke-width="1" class="animate-pulse"
-        style="animation-delay: 1.5s; animation-duration: 3s;" />
-      <circle cx="20%" cy="40%" r="1" fill="rgb(14,165,166)" opacity="0.5" class="animate-ping"
-        style="animation-delay: 2s;" />
-      <circle cx="80%" cy="60%" r="1" fill="rgb(245,158,11)" opacity="0.4" class="animate-ping"
-        style="animation-delay: 3s;" />
-    </svg>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Preloader -->
+  <div id="preloader" aria-hidden="true">
+    <div class="preloader-icon">
+      <svg class="preloader-ring" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="27" class="ring-track"/>
+        <circle cx="32" cy="32" r="27" class="ring-spin"/>
+      </svg>
+      <span class="preloader-icon-code">&lt;/&gt;</span>
+    </div>
+
+    <div class="preloader-bar-wrap">
+      <div class="preloader-bar" id="preloaderBar"></div>
+    </div>
+    <div class="preloader-count" id="preloaderCount">0%</div>
   </div>
 
-    <div class="scroll-indicator" id="scrollIndicator"></div>
-    <header class="navbar fixed top-0 w-full z-50" id="navbar">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16 lg:h-20">
-          <div class="flex items-center" data-aos="fade-right">
-            <a href="#home" class="logo group">
-              <img src="Img/tech/code.png" alt="Code Icon" class="h-8 w-8 object-contain" />
-              <span class="text-2xl sm:text-3xl lg:text-4xl font-bold">Ibad</span>
+  <div class="cursor-dot"  id="cursorDot"  aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header id="nav" role="banner">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Ibad — Home">
+        <span class="nav-logo-code" aria-hidden="true">&lt;/&gt;</span>
+        Ibad
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about"        class="nav-link" data-section="about">About</a>
+        <a href="#skills"       class="nav-link" data-section="skills">Skills</a>
+        <a href="#projects"     class="nav-link" data-section="projects">Projects</a>
+        <a href="#experience"   class="nav-link" data-section="experience">Experience</a>
+        <a href="#certificates" class="nav-link" data-section="certificates">Certs</a>
+        <a href="#contact"      class="nav-link" data-section="contact">Contact</a>
+      </nav>
+
+      <div class="nav-right">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+          <div class="theme-toggle-thumb">
+            <svg class="theme-toggle-icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+            </svg>
+            <svg class="theme-toggle-icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ═══ HERO ═══ -->
+    <section id="hero" aria-labelledby="hero-title">
+      <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-orbs" aria-hidden="true">
+        <div class="hero-orb hero-orb-1"></div>
+        <div class="hero-orb hero-orb-2"></div>
+        <div class="hero-orb hero-orb-3"></div>
+      </div>
+
+      <div class="hero-inner">
+        <p class="hero-eyebrow" aria-hidden="true">Hello, I'm &mdash; Full Stack Developer</p>
+
+        <h1 class="hero-title" id="hero-title">
+          <span class="word">
+            <span class="char">C</span><span class="char">h</span><span class="char">o</span><span class="char">i</span><span class="char">r</span><span class="char">u</span><span class="char">l</span>
+          </span>
+          <span style="display:inline-block;width:0.3em"></span>
+          <span class="word">
+            <span class="char">A</span><span class="char">i</span><span class="char">n</span><span class="char">u</span><span class="char">l</span>
+          </span>
+          <br/>
+          <span class="word accent-word">
+            <span class="char">I</span><span class="char">b</span><span class="char">a</span><span class="char">d</span>
+          </span>
+        </h1>
+
+        <div class="hero-sub">
+          <p>Building meaningful digital experiences — from solid backend architecture to stunning, responsive interfaces.</p>
+        </div>
+
+        <div class="hero-cta">
+          <div class="hero-cta-inner">
+            <a href="#projects" class="btn btn-primary" aria-label="View my work">
+              View Work
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-ghost" aria-label="Get in touch">
+              Get in Touch
             </a>
           </div>
-
-          <nav class="desktop-nav hidden lg:flex items-center space-x-8" data-aos="fade-left">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="#profile" class="nav-link">Profile</a>
-            <a href="#experience" class="nav-link">Experience</a>
-            <a href="#project" class="nav-link">Projects</a>
-            <a href="#certificate" class="nav-link">Certificates</a>
-            <a href="#contact" class="nav-link">Contact</a>
-          </nav>
-          <button id="themeToggle" class="theme-toggle" aria-label="Toggle color theme" aria-pressed="false">
-            <span class="theme-toggle-label">Theme</span>
-            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 4.5a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 12 4.5ZM6.22 6.22a.75.75 0 0 1 1.06 0l.35.35a.75.75 0 0 1-1.06 1.06l-.35-.35a.75.75 0 0 1 0-1.06Zm11.2 0a.75.75 0 0 1 0 1.06l-.35.35a.75.75 0 1 1-1.06-1.06l.35-.35a.75.75 0 0 1 1.06 0ZM4.5 12a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 4.5 12Zm13.75-.75a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h.5ZM6.22 17.78a.75.75 0 0 1 1.06 0l.35.35a.75.75 0 0 1-1.06 1.06l-.35-.35a.75.75 0 0 1 0-1.06Zm9.88 0a.75.75 0 0 1 0 1.06l-.35.35a.75.75 0 1 1-1.06-1.06l.35-.35a.75.75 0 0 1 1.06 0ZM12 18.75a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1-.75-.75ZM12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z"/>
-            </svg>
-            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12.75 3.75a.75.75 0 0 1 .75.75 7.5 7.5 0 0 0 7.5 7.5.75.75 0 0 1 .53 1.28A9 9 0 1 1 11.47 3.22a.75.75 0 0 1 1.28.53z"/>
-            </svg>
-          </button>
-          <button id="mobileMenuBtn" class="mobile-menu-btn block lg:hidden" data-aos="fade-left">
-            <div class="w-6 h-6 flex flex-col justify-around">
-              <span class="hamburger-line"></span>
-              <span class="hamburger-line"></span>
-              <span class="hamburger-line"></span>
-            </div>
-          </button>
-        </div>
-
-        <div id="mobileMenu" class="mobile-menu lg:hidden">
-          <div class="py-4 space-y-2">
-            <a href="#home" class="mobile-nav-link">Home</a>
-            <a href="#profile" class="mobile-nav-link">Profile</a>
-            <a href="#experience" class="mobile-nav-link">Experience</a>
-            <a href="#project" class="mobile-nav-link">Projects</a>
-            <a href="#certificate" class="mobile-nav-link">Certificates</a>
-            <a href="#contact" class="mobile-nav-link">Contact</a>
-          </div>
         </div>
       </div>
-    </header>
 
-    <section id="home" class="hero-section section">
-      <div class="hero-bg"></div>
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
-          <div class="hero-content flex-1 text-center lg:text-left" data-aos="fade-right" data-aos-delay="200">
-            <div class="mb-6">
-              <p class="text-sm sm:text-base mb-4 font-mono" style="color: var(--accent-primary);">Hello, I'm</p>
-              <h1 class="hero-title">
-                Choirul Ainul
-                <span class="block">Ibad</span>
-              </h1>
-              <div class="typing-container">
-                <span id="typed-text"></span>
+      <div class="hero-scroll" id="heroScroll" aria-hidden="true">
+        <div class="scroll-line"></div>
+        <span>SCROLL</span>
+      </div>
+    </section>
+
+    <!-- ═══ ABOUT ═══ -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-label" aria-hidden="true">01 / About</div>
+        <h2 class="section-title reveal" id="about-title">A Bit About Me</h2>
+
+        <div class="about-grid">
+          <div class="about-text-block">
+            <p class="about-lead reveal">
+              I'm Ibad — a professional Full Stack Developer building enterprise-grade digital solutions that deliver real business impact.
+            </p>
+            <p class="about-body reveal">
+              Working as IT Staff Programmer at PT Bhrama Benua Sejahtera, I design and maintain scalable web applications for real production environments. I believe great software is art — every line should have purpose, every feature should drive impact.
+            </p>
+
+            <div class="about-stats reveal">
+              <div class="stat-item">
+                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-label">Years Experience</div>
               </div>
-              <p class="hero-subtitle max-w-2xl mx-auto lg:mx-0">
-                Transforming Ideas into Innovation through Code
-                <span class="inline-flex items-center align-middle ml-2" style="color: var(--accent-primary);">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.977 2.89a1 1 0 00-.364 1.118l1.518 4.674c.3.921-.755 1.688-1.54 1.118l-3.977-2.89a1 1 0 00-1.176 0l-3.977 2.89c-.784.57-1.838-.197-1.539-1.118l1.518-4.674a1 1 0 00-.364-1.118L2.98 10.101c-.783-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.518-4.674z"></path>
-                  </svg>
-                </span>
-              </p>
+              <div class="stat-item">
+                <div class="stat-number" data-target="15">0</div>
+                <div class="stat-label">Projects Completed</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-target="8">0</div>
+                <div class="stat-label">Happy Clients</div>
+              </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" data-aos="fade-up"
-              data-aos-delay="600">
-              <a href="#contact" class="btn-primary">
-                <span>Hire Me</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
-                  </path>
-                </svg>
+            <div class="about-availability reveal" role="status" aria-label="Available for freelance">
+              <div class="availability-dot" aria-hidden="true"></div>
+              Available for Freelance
+            </div>
+
+            <div class="edu-cards">
+              <a href="https://www.unesa.ac.id/" target="_blank" rel="noopener" class="edu-card reveal">
+                <div class="edu-card-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div>
+                  <div class="edu-title">Universitas Negeri Surabaya</div>
+                  <div class="edu-subtitle">S1 Computer Science</div>
+                  <div class="edu-period">2021 — 2025</div>
+                </div>
               </a>
-              <a href="#project" class="btn-secondary">
-                <span>View Projects</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
+              <a href="https://pikti.itsteknosains.co.id/about/" target="_blank" rel="noopener" class="edu-card reveal">
+                <div class="edu-card-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                </div>
+                <div>
+                  <div class="edu-title">PIKTI ITS</div>
+                  <div class="edu-subtitle">Advanced IT Training Program</div>
+                </div>
+              </a>
+              <a href="https://smadarussalamahkrian.sch.id/" target="_blank" rel="noopener" class="edu-card reveal">
+                <div class="edu-card-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <div>
+                  <div class="edu-title">SMA Darussalamah</div>
+                  <div class="edu-subtitle">Science Program</div>
+                  <div class="edu-period">Graduated 2021</div>
+                </div>
               </a>
             </div>
           </div>
 
-          <div class="flex-1 flex justify-center lg:justify-end" data-aos="fade-left" data-aos-delay="400">
-            <div class="relative w-full max-w-md mx-auto lg:mx-0 animate-float">
-              <div class="profile-image overflow-hidden mx-auto">
-                <img src="Img/ibad.jpeg" alt="Ibad Portrait" class="w-full h-full object-cover" />
+          <div class="about-image-col">
+            <div class="about-photo-wrap reveal-right">
+              <div class="about-photo-frame">
+                <img src="Img/ibad.jpeg" alt="Choirul Ainul Ibad — Full Stack Developer" loading="lazy" />
               </div>
-
-              <div
-                class="absolute top-4 -right-6 w-12 h-12 glass-card rounded-full flex items-center justify-center animate-bounce-slow">
-                <img src="Img/tech/js.png" alt="JS" class="w-8 h-8 object-contain skill-icon" />
+              <div class="about-deco-ring" aria-hidden="true"></div>
+              <div class="about-badge badge-1" aria-hidden="true">
+                <img src="Img/tech/vue.png" alt="" class="about-badge-icon" />
+                Vue.js
               </div>
-              <div
-                class="absolute -bottom-4 -left-4 w-12 h-12 glass-card rounded-full flex items-center justify-center animate-bounce-slow"
-                style="animation-delay: 0.5s">
-                <img src="Img/tech/laravel.png" alt="Laravel" class="w-8 h-8 object-contain skill-icon" />
+              <div class="about-badge badge-2" aria-hidden="true">
+                <img src="Img/tech/laravel.png" alt="" class="about-badge-icon" />
+                Laravel
               </div>
-              <div
-                class="hidden lg:flex absolute top-10 -left-6 w-12 h-12 glass-card rounded-full items-center justify-center animate-bounce-slow"
-                style="animation-delay: 1s" data-aos="zoom-in" data-aos-delay="800">
-                <img src="Img/tech/react.png" alt="React" class="w-8 h-8 object-contain skill-icon" />
-              </div>
-              <div
-                class="hidden lg:flex absolute bottom-12 -right-6 w-12 h-12 glass-card rounded-full items-center justify-center animate-bounce-slow"
-                style="animation-delay: 1.5s" data-aos="zoom-in" data-aos-delay="1000">
-                <img src="Img/tech/css.png" alt="CSS" class="w-8 h-8 object-contain skill-icon" />
-              </div>
-              <div
-                class="hidden lg:flex absolute -bottom-10 right-12 w-12 h-12 glass-card rounded-full items-center justify-center animate-bounce-slow"
-                style="animation-delay: 2s" data-aos="zoom-in" data-aos-delay="1200">
-                <img src="Img/tech/vue.png" alt="Vue" class="w-8 h-8 object-contain skill-icon" />
-              </div>
-              <div
-                class="hidden lg:flex absolute top-1/2 -left-12 w-10 h-10 glass-card rounded-full items-center justify-center animate-pulse-slow"
-                style="animation-delay: 0.5s" data-aos="fade-left" data-aos-delay="1400">
-                <img src="Img/tech/html.png" alt="HTML" class="w-6 h-6 object-contain skill-icon" />
+              <div class="about-badge badge-3" aria-hidden="true">
+                <img src="Img/tech/react.png" alt="" class="about-badge-icon" />
+                React
               </div>
             </div>
           </div>
@@ -258,146 +226,403 @@
       </div>
     </section>
 
-    <section id="profile" class="section">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 sm:mb-16">
-          <h2 class="section-title" data-aos="fade-up">About Me</h2>
-        </div>
+    <!-- ═══ SKILLS ═══ -->
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-label" aria-hidden="true">02 / Skills</div>
+        <h2 class="section-title reveal" id="skills-title">Tech Stack</h2>
+        <p class="section-subtitle reveal">Tools and technologies I master to build end-to-end solutions.</p>
 
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          <div class="space-y-6" data-aos="fade-right">
-            <div class="glass-card p-6 sm:p-8">
-              <h3 class="text-xl sm:text-2xl font-bold mb-4 flex items-center" style="color: var(--text-primary);">
-                <span class="mr-3 text-[1.35rem]" style="color: var(--accent-primary);">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                </span>
-                Professional Summary
-              </h3>
-              <p class="leading-relaxed text-sm sm:text-base" style="color: var(--text-secondary);">
-                A passionate Full Stack Developer with a strong foundation in both front-end and back-end development.
-                Experienced in building scalable web applications using modern technologies and frameworks. Currently
-                pursuing Informatics Engineering at Universitas Negeri Surabaya, combining academic excellence with
-                practical development experience.
-              </p>
-            </div>
-
-            <div class="glass-card p-6 sm:p-8">
-              <h3 class="text-xl sm:text-2xl font-bold mb-4 flex items-center" style="color: var(--text-primary);">
-                <span class="mr-3 text-[1.35rem]" style="color: var(--accent-primary);">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                  </svg>
-                </span>
-                Core Competencies
-              </h3>
-              <div class="grid grid-cols-2 gap-4">
-                <div class="space-y-2">
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full" style="background: var(--accent-primary);"></span>
-                    <p style="color: var(--text-secondary);">Frontend Development</p>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full" style="background: var(--accent-primary);"></span>
-                    <p style="color: var(--text-secondary);">Backend Systems</p>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full" style="background: var(--accent-primary);"></span>
-                    <p style="color: var(--text-secondary);">Database Design</p>
-                  </div>
-                </div>
-                <div class="space-y-2">
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full" style="background: var(--accent-primary);"></span>
-                    <p style="color: var(--text-secondary);">API Development</p>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full" style="background: var(--accent-primary);"></span>
-                    <p style="color: var(--text-secondary);">UI/UX Design</p>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full" style="background: var(--accent-primary);"></span>
-                    <p style="color: var(--text-secondary);">Problem Solving</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <blockquote class="text-center py-8" data-aos="fade-up" data-aos-delay="200">
-              <p class="text-lg sm:text-xl lg:text-2xl font-bold italic"
-                style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                "Transforming challenges into opportunities through innovative solutions"
-              </p>
-            </blockquote>
+        <div class="skills-layout">
+          <div class="skills-tabs" role="tablist" aria-label="Skill categories">
+            <button class="skill-tab active" role="tab" aria-selected="true"  aria-controls="panel-frontend" data-panel="frontend">Frontend</button>
+            <button class="skill-tab"        role="tab" aria-selected="false" aria-controls="panel-backend"  data-panel="backend">Backend</button>
+            <button class="skill-tab"        role="tab" aria-selected="false" aria-controls="panel-tools"    data-panel="tools">Tools &amp; DB</button>
           </div>
 
-          <div class="space-y-6" data-aos="fade-left">
-            <h3 class="text-xl sm:text-2xl font-bold mb-6 flex items-center" style="color: var(--text-primary);">
-              <span class="mr-3 text-[1.35rem]" style="color: var(--accent-primary);">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422A12.083 12.083 0 0121 13.5c0 1.657-4.03 3-9 3s-9-1.343-9-3c0-1.11.634-2.137 1.84-2.922L12 14z"></path>
-                </svg>
-              </span>
-              Education & Training
-            </h3>
+          <div id="panel-frontend" class="skills-panel active" role="tabpanel">
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap"><img src="Img/tech/html.png" alt="" loading="lazy" /></div>
+              <div><div class="skill-name">HTML5</div><div class="skill-level">Expert</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap"><img src="Img/tech/css.png" alt="" loading="lazy" /></div>
+              <div><div class="skill-name">CSS3</div><div class="skill-level">Expert</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap"><img src="Img/tech/js.png" alt="" loading="lazy" /></div>
+              <div><div class="skill-name">JavaScript</div><div class="skill-level">Expert</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap"><img src="Img/tech/vue.png" alt="" loading="lazy" /></div>
+              <div><div class="skill-name">Vue.js</div><div class="skill-level">Expert</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap"><img src="Img/tech/react.png" alt="" loading="lazy" /></div>
+              <div><div class="skill-name">React</div><div class="skill-level">Advanced</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap" style="background:var(--bg-elevated);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.7rem;color:var(--accent);">NEXT</div>
+              <div><div class="skill-name">Next.js</div><div class="skill-level">Advanced</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap" style="background:#06B6D4;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.65rem;color:white;">TW</div>
+              <div><div class="skill-name">Tailwind CSS</div><div class="skill-level">Expert</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap" style="background:#7952B3;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.65rem;color:white;">BS</div>
+              <div><div class="skill-name">Bootstrap</div><div class="skill-level">Advanced</div></div>
+            </div>
+          </div>
 
-            <div class="space-y-6">
-              <div class="glass-card p-6 hover-lift group border-l-4 border-blue-500">
-                <div class="flex items-center justify-between mb-3">
-                  <div>
-                    <h4 class="font-bold text-lg" style="color: var(--text-primary);">Universitas Negeri Surabaya</h4>
-                    <p class="text-blue-400 font-medium">Informatics Engineering</p>
-                  </div>
-                  <a href="https://www.unesa.ac.id/" target="_blank"
-                    class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422A12.083 12.083 0 0121 13.5c0 1.657-4.03 3-9 3s-9-1.343-9-3c0-1.11.634-2.137 1.84-2.922L12 14z"></path>
-                    </svg>
-                  </a>
-                </div>
-                <p class="text-sm" style="color: var(--text-secondary);">Focusing on software engineering, web
-                  development, and computer science
-                  fundamentals</p>
+          <div id="panel-backend" class="skills-panel" role="tabpanel">
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap"><img src="Img/tech/laravel.png" alt="" loading="lazy" /></div>
+              <div><div class="skill-name">Laravel</div><div class="skill-level">Expert</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap" style="background:#339933;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.65rem;color:white;">NODE</div>
+              <div><div class="skill-name">Node.js</div><div class="skill-level">Advanced</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap" style="background:#777BB4;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.65rem;color:white;">PHP</div>
+              <div><div class="skill-name">PHP</div><div class="skill-level">Expert</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap" style="background:var(--accent-subtle);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.65rem;color:var(--accent);">REST</div>
+              <div><div class="skill-name">REST API</div><div class="skill-level">Expert</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap" style="background:#F0DB4F;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.65rem;color:#000;">JS</div>
+              <div><div class="skill-name">Express.js</div><div class="skill-level">Intermediate</div></div>
+            </div>
+          </div>
+
+          <div id="panel-tools" class="skills-panel" role="tabpanel">
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap" style="background:#4479A1;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.6rem;color:white;">MySQL</div>
+              <div><div class="skill-name">MySQL</div><div class="skill-level">Advanced</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap" style="background:#336791;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.6rem;color:white;">PG</div>
+              <div><div class="skill-name">PostgreSQL</div><div class="skill-level">Advanced</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap" style="background:#F05032;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.6rem;color:white;">GIT</div>
+              <div><div class="skill-name">Git &amp; GitHub</div><div class="skill-level">Advanced</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap" style="background:#E34F26;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.55rem;color:white;">OCR</div>
+              <div><div class="skill-name">OCR Technology</div><div class="skill-level">Intermediate</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap" style="background:var(--bg-elevated);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.6rem;color:var(--text-secondary);">CI/CD</div>
+              <div><div class="skill-name">CI / CD</div><div class="skill-level">Intermediate</div></div>
+            </div>
+            <div class="skill-card reveal">
+              <div class="skill-icon-wrap" style="background:#FF6C37;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.55rem;color:white;">POST</div>
+              <div><div class="skill-name">Postman</div><div class="skill-level">Advanced</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PROJECTS ═══ -->
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-label" aria-hidden="true">03 / Projects</div>
+        <h2 class="section-title reveal" id="projects-title">Selected Work</h2>
+        <p class="section-subtitle reveal">Projects built with full passion and dedication.</p>
+
+        <div class="projects-filter reveal" role="group" aria-label="Filter projects">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web App</button>
+          <button class="filter-btn" data-filter="enterprise">Enterprise</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Row 1 -->
+          <article class="project-card project-card-featured reveal" data-category="enterprise">
+            <div class="project-thumb">
+              <img src="Img/project/Leave-Management.png" alt="Leave Management System" loading="lazy" />
+              <div class="project-overlay"><span class="project-overlay-text">View Details &rarr;</span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Enterprise / Web App</div>
+              <h3 class="project-name">Leave Management System</h3>
+              <p class="project-desc">A REST API-based leave management system built with Laravel backend and Vue.js frontend. Supports two main roles — User and Admin — with a comprehensive leave request, review, and audit trail workflow.</p>
+              <div class="project-tags">
+                <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">REST API</span><span class="tag">MySQL</span>
               </div>
-
-              <div class="glass-card p-6 hover-lift group border-l-4 border-purple-500">
-                <div class="flex items-center justify-between mb-3">
-                  <div>
-                    <h4 class="font-bold text-lg" style="color: var(--text-primary);">PIKTI ITS</h4>
-                    <p class="text-purple-400 font-medium">Advanced IT Training Program</p>
-                  </div>
-                  <a href="https://pikti.itsteknosains.co.id/about/" target="_blank"
-                    class="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center text-purple-400 hover:bg-purple-500 hover:text-white transition-all duration-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                    </svg>
-                  </a>
-                </div>
-                <p class="text-sm" style="color: var(--text-secondary);">Specialized training in modern web technologies
-                  and software development
-                  practices</p>
+              <div class="project-links">
+                <a href="#" class="project-link" aria-label="View on GitHub" title="GitHub">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </a>
               </div>
+            </div>
+          </article>
 
-              <div class="glass-card p-6 hover-lift group border-l-4 border-green-500">
-                <div class="flex items-center justify-between mb-3">
-                  <div>
-                    <h4 class="font-bold text-lg" style="color: var(--text-primary);">SMA Darussalamah</h4>
-                    <p class="text-green-400 font-medium">Science Program</p>
-                  </div>
-                  <a href="https://smadarussalamahkrian.sch.id/" target="_blank"
-                    class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center text-green-400 hover:bg-green-500 hover:text-white transition-all duration-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21v-4a2 2 0 012-2h4a2 2 0 012 2v4"></path>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l9-7 9 7"></path>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10v11h14V10"></path>
-                    </svg>
-                  </a>
+          <article class="project-card project-card-normal reveal" data-category="enterprise">
+            <div class="project-thumb">
+              <img src="Img/project/e-building.png" alt="E-Building DPRKPP" loading="lazy" />
+              <div class="project-overlay"><span class="project-overlay-text">View Details &rarr;</span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Enterprise / Government</div>
+              <h3 class="project-name">E-Building DPRKPP</h3>
+              <p class="project-desc">Building reporting platform for DPRKPP Surabaya's government agency. Enables detailed evaluation of renovation aspects and efficient building management.</p>
+              <div class="project-tags">
+                <span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 2 -->
+          <article class="project-card project-card-normal reveal" data-category="web">
+            <div class="project-thumb">
+              <img src="Img/project/Yasoge.png" alt="Yasoge POS System" loading="lazy" />
+              <div class="project-overlay"><span class="project-overlay-text">View Details &rarr;</span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Web App / POS</div>
+              <h3 class="project-name">Yasoge</h3>
+              <p class="project-desc">A shoe product invoice system using Point of Sale methodology. Built with the latest Laravel 11 and Bootstrap 5 for a modern, responsive interface.</p>
+              <div class="project-tags">
+                <span class="tag">Laravel 11</span><span class="tag">Bootstrap</span><span class="tag">MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card-featured reveal" data-category="enterprise">
+            <div class="project-thumb">
+              <img src="Img/project/MI.png" alt="Management Inventory" loading="lazy" />
+              <div class="project-overlay"><span class="project-overlay-text">View Details &rarr;</span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Enterprise / Full Stack</div>
+              <h3 class="project-name">Management Inventory</h3>
+              <p class="project-desc">Full-stack inventory management system with an API-first approach. Features include CRUD operations, stock management, transaction processing, automated notifications, and comprehensive reporting.</p>
+              <div class="project-tags">
+                <span class="tag">Node.js</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">REST API</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 4 -->
+          <article class="project-card project-card-featured reveal" data-category="enterprise">
+            <div class="project-thumb">
+              <img src="Img/project/Orderly.png" alt="Orderly" loading="lazy" />
+              <div class="project-overlay"><span class="project-overlay-text">View Details &rarr;</span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Enterprise / Order Management</div>
+              <h3 class="project-name">Orderly</h3>
+              <p class="project-desc">Streamlined order and workflow management platform with an intuitive dashboard. Handles end-to-end order processing, status tracking, and operational reporting for business efficiency.</p>
+              <div class="project-tags">
+                <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card-normal reveal" data-category="web">
+            <div class="project-thumb">
+              <img src="Img/project/Bank Sampah.png" alt="Bank Sampah" loading="lazy" />
+              <div class="project-overlay"><span class="project-overlay-text">View Details &rarr;</span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Web App / Environmental</div>
+              <h3 class="project-name">Bank Sampah</h3>
+              <p class="project-desc">Digital waste bank management system enabling communities to track waste deposits, manage reward points, and generate environmental impact reports.</p>
+              <div class="project-tags">
+                <span class="tag">Laravel</span><span class="tag">Bootstrap</span><span class="tag">MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 3 -->
+          <article class="project-card project-card-normal reveal" data-category="web">
+            <div class="project-thumb">
+              <img src="Img/sertifikat/Selamat Datang Buku Tamu.png" alt="PUSPAGA Guestbook OCR" loading="lazy" />
+              <div class="project-overlay"><span class="project-overlay-text">View Details &rarr;</span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Web App / OCR</div>
+              <h3 class="project-name">PUSPAGA Guestbook</h3>
+              <p class="project-desc">Advanced guestbook system with OCR technology for automated ID card data extraction. Streamlines visitor registration at the Family Learning Center.</p>
+              <div class="project-tags">
+                <span class="tag">OCR</span><span class="tag">PHP</span><span class="tag">JavaScript</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card-featured reveal" data-category="enterprise">
+            <div class="project-thumb">
+              <img src="Img/project/Absensi.png" alt="Absensi System" loading="lazy" />
+              <div class="project-overlay"><span class="project-overlay-text">View Details &rarr;</span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Enterprise / HR System</div>
+              <h3 class="project-name">Absensi System</h3>
+              <p class="project-desc">Digital attendance management system for tracking employee and staff presence in real time. Features automated recording, an attendance reporting dashboard, and notification system for HR management.</p>
+              <div class="project-tags">
+                <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 6 -->
+          <article class="project-card project-card-featured reveal" data-category="web">
+            <div class="project-thumb">
+              <img src="Img/project/e-cycle.png" alt="e-cycle" loading="lazy" />
+              <div class="project-overlay"><span class="project-overlay-text">View Details &rarr;</span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Web App / Environmental</div>
+              <h3 class="project-name">e-cycle</h3>
+              <p class="project-desc">Digital platform connecting users with e-waste recycling services. Enables scheduling of e-waste pickups, real-time recycling progress tracking, and environmental impact reports for a greener community.</p>
+              <div class="project-tags">
+                <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card-normal reveal" data-category="enterprise">
+            <div class="project-thumb">
+              <img src="Img/project/MLA.png" alt="Management Lab Accessories" loading="lazy" />
+              <div class="project-overlay"><span class="project-overlay-text">View Details &rarr;</span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Enterprise / Inventory</div>
+              <h3 class="project-name">Management Lab Accessories</h3>
+              <p class="project-desc">Laboratory accessories and equipment management system for tracking inventory, managing borrowing requests, and maintaining asset records across departments.</p>
+              <div class="project-tags">
+                <span class="tag">Laravel</span><span class="tag">JavaScript</span><span class="tag">MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Row 5 -->
+          <article class="project-card project-card-normal reveal" data-category="web">
+            <div class="project-thumb">
+              <img src="Img/project/Euphoria bag.png" alt="Euphoria Bag" loading="lazy" />
+              <div class="project-overlay"><span class="project-overlay-text">View Details &rarr;</span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Web App / E-Commerce</div>
+              <h3 class="project-name">Euphoria Bag</h3>
+              <p class="project-desc">E-commerce catalog platform for Euphoria Bag fashion products. Features elegant product showcase, catalog management, and a responsive design optimized for mobile shopping experience.</p>
+              <div class="project-tags">
+                <span class="tag">Laravel</span><span class="tag">JavaScript</span><span class="tag">MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card-featured reveal" data-category="enterprise">
+            <div class="project-thumb">
+              <img src="Img/project/PPG Unesa.png" alt="PPG Unesa" loading="lazy" />
+              <div class="project-overlay"><span class="project-overlay-text">View Details &rarr;</span></div>
+            </div>
+            <div class="project-body">
+              <div class="project-category">Enterprise / Education</div>
+              <h3 class="project-name">PPG Unesa</h3>
+              <p class="project-desc">Professional Teacher Education (PPG) management platform for Universitas Negeri Surabaya. Digitizes the teacher certification workflow with document management, progress tracking, and administrative reporting tools.</p>
+              <div class="project-tags">
+                <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ EXPERIENCE ═══ -->
+    <section id="experience" class="section" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-label" aria-hidden="true">04 / Experience</div>
+        <h2 class="section-title reveal" id="experience-title">Career Journey</h2>
+        <p class="section-subtitle reveal">Professional experience, internships, and self-development that shaped who I am.</p>
+
+        <div class="timeline">
+          <div class="timeline-line"><div class="timeline-line-fill" id="timelineFill"></div></div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-item-left"></div>
+            <div class="timeline-center"><div class="timeline-dot"></div></div>
+            <div class="timeline-item-right">
+              <div class="timeline-card">
+                <div class="timeline-period">Sept 2025 — Present &nbsp;·&nbsp; Full-time</div>
+                <div class="timeline-role">IT Staff Programmer</div>
+                <div class="timeline-company">PT Bhrama Benua Sejahtera</div>
+                <p class="timeline-desc">Developing and maintaining enterprise web applications for business operations. Building scalable solutions using modern full-stack technologies and optimizing application performance for production environments.</p>
+                <div class="timeline-tags">
+                  <span class="tag">Node.js</span><span class="tag">Vue.js</span><span class="tag">Tailwind CSS</span><span class="tag">PostgreSQL</span><span class="tag">CI/CD</span>
                 </div>
-                <p class="text-sm" style="color: var(--text-secondary);">Foundation in analytical thinking and
-                  problem-solving skills</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-item-left">
+              <div class="timeline-card">
+                <div class="timeline-period">Aug 2023 — Sept 2025 &nbsp;·&nbsp; Freelance</div>
+                <div class="timeline-role">Fullstack Developer</div>
+                <div class="timeline-company">Cons Code</div>
+                <p class="timeline-desc">Designing and developing custom web applications from scratch using Laravel, Vue.js, and React. Handling the full development lifecycle from database design to frontend implementation.</p>
+                <div class="timeline-tags">
+                  <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">React</span><span class="tag">MySQL</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-center"><div class="timeline-dot"></div></div>
+            <div class="timeline-item-right"></div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-item-left"></div>
+            <div class="timeline-center"><div class="timeline-dot"></div></div>
+            <div class="timeline-item-right">
+              <div class="timeline-card">
+                <div class="timeline-period">Feb — Apr 2025 &nbsp;·&nbsp; Research</div>
+                <div class="timeline-role">Thesis Researcher</div>
+                <div class="timeline-company">PUSPAGA Surabaya</div>
+                <p class="timeline-desc">Conducted thesis research at PUSPAGA (Family Learning Center) Surabaya, developing an innovative OCR-based solution for family services and community engagement.</p>
+                <div class="timeline-tags">
+                  <span class="tag">Research</span><span class="tag">Data Analysis</span><span class="tag">OCR Technology</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-item-left">
+              <div class="timeline-card">
+                <div class="timeline-period">Sept — Dec 2024 &nbsp;·&nbsp; MSIB Batch 7</div>
+                <div class="timeline-role">IT Crew</div>
+                <div class="timeline-company">DP3APPKB Surabaya</div>
+                <p class="timeline-desc">Participated in the MSIB Batch 7 program as IT Crew, responsible for maintaining IT infrastructure, developing internal systems, and supporting local government operations.</p>
+                <div class="timeline-tags">
+                  <span class="tag">Vue.js</span><span class="tag">Laravel</span><span class="tag">Bootstrap</span><span class="tag">PostgreSQL</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-center"><div class="timeline-dot"></div></div>
+            <div class="timeline-item-right"></div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-item-left"></div>
+            <div class="timeline-center"><div class="timeline-dot"></div></div>
+            <div class="timeline-item-right">
+              <div class="timeline-card">
+                <div class="timeline-period">Feb — Jul 2024 &nbsp;·&nbsp; MSIB Batch 6</div>
+                <div class="timeline-role">Software Developer</div>
+                <div class="timeline-company">Dinkominfo Surabaya</div>
+                <p class="timeline-desc">Developed government web applications and contributed to digital transformation initiatives at Surabaya City's Communications and Information Technology Department.</p>
+                <div class="timeline-tags">
+                  <span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">JavaScript</span><span class="tag">MySQL</span>
+                </div>
               </div>
             </div>
           </div>
@@ -405,642 +630,204 @@
       </div>
     </section>
 
-    <section id="experience" class="section">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 sm:mb-16">
-          <h2 class="section-title" data-aos="fade-up">Professional Experience</h2>
-          <p class="text-base sm:text-lg max-w-2xl mx-auto" style="color: var(--text-secondary);" data-aos="fade-up"
-            data-aos-delay="200">
-            My journey through internships, research, and professional development
-          </p>
+    <!-- ═══ CERTIFICATES ═══ -->
+    <section id="certificates" class="section" aria-labelledby="certificates-title">
+      <div class="container">
+        <div class="section-label" aria-hidden="true">05 / Certificates</div>
+        <h2 class="section-title reveal" id="certificates-title">Awards &amp; Certificates</h2>
+        <p class="section-subtitle reveal">A growing track record of learning and achievement.</p>
+
+        <div class="certs-filter reveal" role="group" aria-label="Filter certificates">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="academic">Academic</button>
+          <button class="filter-btn" data-filter="organization">Organization</button>
+          <button class="filter-btn" data-filter="competition">Competition</button>
         </div>
 
-        <div class="relative max-w-4xl mx-auto">
-          <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-cyan-500 rounded-full hidden md:block"></div>
-
-          <div class="space-y-8 md:space-y-12">
-            <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="50">
-              <div class="md:w-1/2 md:pr-8 order-1"></div>
-              <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-cyan-500 border-4 border-gray-900 rounded-full z-10"></div>
-              <div class="md:w-1/2 md:pl-8 mb-6 md:mb-0 order-2">
-                <div class="glass-card p-6 hover-lift group">
-                  <div class="flex items-center mb-3">
-                    <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center">
-                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                      </svg>
-                    </div>
-                    <div class="ml-4">
-                      <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Staff IT Programmer</h3>
-                      <p class="text-cyan-400 font-medium">PT Bhrama Benua Sejahtera</p>
-                    </div>
-                  </div>
-                  <p class="text-sm text-green-400 font-medium mb-3">September 2025 - Present</p>
-                  <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
-                    Developing and maintaining enterprise web applications for business operations. Building scalable solutions using modern full-stack technologies, implementing responsive designs, and optimizing application performance for production environments.
-                  </p>
-                  <div class="mt-3 flex flex-wrap gap-2">
-                    <span class="tech-tag text-xs">Node.js</span>
-                    <span class="tech-tag text-xs">Vue.js</span>
-                    <span class="tech-tag text-xs">Tailwind CSS</span>
-                    <span class="tech-tag text-xs">PostgreSQL</span>
-                    <span class="tech-tag text-xs">CI/CD</span>
-                  </div>
-                </div>
-              </div>
+        <div class="certs-grid" id="certsGrid">
+          <div class="cert-card reveal" data-category="organization">
+            <div class="cert-thumb">
+              <img src="Img/sertifikat/Himpunan Mahasiswa Teknik Informatika - Choirul Ainul Ibad_page-0001.jpg" alt="HIMTI Certificate" loading="lazy" />
             </div>
-
-            <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="100">
-              <div class="md:w-1/2 md:pr-8 mb-6 md:mb-0 md:text-right order-2 md:order-1">
-                <div class="glass-card p-6 hover-lift group">
-                  <div class="flex items-center gap-4 mb-3 md:flex-row-reverse">
-                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                      </svg>
-                    </div>
-                    <div class="md:mr-4">
-                      <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Fullstack Developer</h3>
-                      <p class="text-purple-400 font-medium">Cons Code (Freelance)</p>
-                    </div>
-                  </div>
-                  <p class="text-sm text-green-400 font-medium mb-3">August 2023 - Sept 2025</p>
-                  <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
-                    Working as a freelance fullstack developer, creating custom web applications using modern technologies like Laravel, Vue.js, and React. Developing end-to-end solutions from database design to frontend implementation.
-                  </p>
-                  <div class="mt-3 flex flex-wrap gap-2 justify-end md:justify-start">
-                    <span class="tech-tag text-xs">Laravel</span>
-                    <span class="tech-tag text-xs">Vue.js</span>
-                    <span class="tech-tag text-xs">React</span>
-                    <span class="tech-tag text-xs">MySQL</span>
-                  </div>
-                </div>
-              </div>
-              <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 border-4 border-gray-900 rounded-full z-10"></div>
-              <div class="md:w-1/2 md:pl-8 order-1 md:order-2"></div>
+            <div class="cert-body">
+              <span class="cert-category cat-organization">Organization</span>
+              <div class="cert-title">HIMTI Participation</div>
+              <div class="cert-desc">Active member of the Informatics Student Association</div>
             </div>
+          </div>
 
-            <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="150">
-              <div class="md:w-1/2 md:pr-8 order-1"></div>
-              <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-yellow-500 border-4 border-gray-900 rounded-full z-10"></div>
-              <div class="md:w-1/2 md:pl-8 mb-6 md:mb-0 order-2">
-                <div class="glass-card p-6 hover-lift group">
-                  <div class="flex items-center mb-3">
-                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center">
-                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                      </svg>
-                    </div>
-                    <div class="ml-4">
-                      <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Thesis Researcher</h3>
-                      <p class="text-yellow-400 font-medium">PUSPAGA Surabaya</p>
-                    </div>
-                  </div>
-                  <p class="text-sm text-green-400 font-medium mb-3">February - April 2025</p>
-                  <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
-                    Conducted thesis research at Family Learning Center (PUSPAGA) Surabaya, focusing on developing innovative solutions for family services and community engagement through technology integration.
-                  </p>
-                  <div class="mt-3 flex flex-wrap gap-2">
-                    <span class="tech-tag text-xs">Research</span>
-                    <span class="tech-tag text-xs">Data Analysis</span>
-                    <span class="tech-tag text-xs">OCR Technology</span>
-                  </div>
-                </div>
-              </div>
+          <div class="cert-card reveal" data-category="academic">
+            <div class="cert-thumb">
+              <img src="Img/sertifikat/PKKMB FT_page-0001.jpg" alt="PKKMB Certificate" loading="lazy" />
             </div>
-            <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="200">
-              <div class="md:w-1/2 md:pr-8 mb-6 md:mb-0 md:text-right order-2 md:order-1">
-                <div class="glass-card p-6 hover-lift group">
-                  <div class="flex items-center gap-4 mb-3 md:justify-between md:flex-row-reverse">
-                    <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                      </svg>
-                    </div>
-                    <div class="md:mr-4">
-                      <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">IT Crew</h3>
-                      <p class="text-green-400 font-medium">DP3APPKB Surabaya (MSIB Batch 7)</p>
-                    </div>
-                  </div>
-                  <p class="text-sm text-green-400 font-medium mb-3">Sept - December 2024</p>
-                  <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
-                    Participated in MSIB Batch 7 program as IT Crew at DP3APPKB Surabaya. Responsible for maintaining IT infrastructure, developing internal systems, and providing technical support for government operations.
-                  </p>
-                  <div class="mt-3 flex flex-wrap gap-2 justify-end md:justify-start">
-                    <span class="tech-tag text-xs">IT Support</span>
-                    <span class="tech-tag text-xs">Vue.js</span>
-                    <span class="tech-tag text-xs">Laravel</span>
-                    <span class="tech-tag text-xs">Boostrap</span>
-                    <span class="tech-tag text-xs">PostgreSQL</span>
-                  </div>
-                </div>
-              </div>
-              <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-green-500 border-4 border-gray-900 rounded-full z-10"></div>
-              <div class="md:w-1/2 md:pl-8 order-1 md:order-2"></div>
+            <div class="cert-body">
+              <span class="cert-category cat-academic">Academic</span>
+              <div class="cert-title">PKKMB Certificate</div>
+              <div class="cert-desc">New Student Orientation Program — Faculty of Engineering</div>
             </div>
+          </div>
 
-            <div class="relative flex flex-col md:flex-row items-center" data-aos="fade-up" data-aos-delay="250">
-              <div class="md:w-1/2 md:pr-8 order-1"></div>
-              <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-500 border-4 border-gray-900 rounded-full z-10"></div>
-              <div class="md:w-1/2 md:pl-8 mb-6 md:mb-0 order-2">
-                <div class="glass-card p-6 hover-lift group">
-                  <div class="flex items-center justify-between mb-3">
-                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
-                      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                      </svg>
-                    </div>
-                    <div class="ml-4">
-                      <h3 class="text-xl font-bold mb-1" style="color: var(--text-primary);">Software Developer</h3>
-                      <p class="text-blue-400 font-medium">Dinkominfo Surabaya (MSIB Batch 6)</p>
-                    </div>
-                  </div>
-                  <p class="text-sm text-green-400 font-medium mb-3">February - July 2024</p>
-                  <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
-                    Participated in MSIB Batch 6 program as a Software Developer at Surabaya Communication and Information Department. Developed government web applications and contributed to digital transformation initiatives.
-                  </p>
-                  <div class="mt-3 flex flex-wrap gap-2">
-                    <span class="tech-tag text-xs">PHP</span>
-                    <span class="tech-tag text-xs">Laravel</span>
-                    <span class="tech-tag text-xs">JavaScript</span>
-                    <span class="tech-tag text-xs">MySQL</span>
-                  </div>
-                </div>
-              </div>
+          <div class="cert-card reveal" data-category="competition">
+            <div class="cert-thumb">
+              <img src="Img/sertifikat/Sertifikat IBC - Choirul Ainul Ibad_page-0001.jpg" alt="IBC Certificate" loading="lazy" />
+            </div>
+            <div class="cert-body">
+              <span class="cert-category cat-competition">Competition</span>
+              <div class="cert-title">IBC Competition</div>
+              <div class="cert-desc">Achievement at Informatics Business Competition</div>
+            </div>
+          </div>
+
+          <div class="cert-card reveal" data-category="competition">
+            <div class="cert-thumb">
+              <img src="Img/sertifikat/IT Sport - Choirul Ainul Ibad_page-0001.jpg" alt="IT Sport Certificate" loading="lazy"
+                onerror="this.parentElement.style.background='var(--bg-elevated)';this.style.display='none'" />
+            </div>
+            <div class="cert-body">
+              <span class="cert-category cat-competition">Competition</span>
+              <div class="cert-title">IT Sport Event</div>
+              <div class="cert-desc">Achievement in IT Department Sports Competition</div>
+            </div>
+          </div>
+
+          <div class="cert-card reveal" data-category="academic">
+            <div class="cert-thumb">
+              <img src="Img/sertifikat/Seminar Nasional Teknik Informatika - Choirul Ainul Ibad_page-0001.jpg" alt="National IT Seminar Certificate" loading="lazy" />
+            </div>
+            <div class="cert-body">
+              <span class="cert-category cat-academic">Academic</span>
+              <div class="cert-title">National IT Seminar</div>
+              <div class="cert-desc">Participation in National Informatics Engineering Seminar</div>
+            </div>
+          </div>
+
+          <div class="cert-card reveal" data-category="academic">
+            <div class="cert-thumb">
+              <img src="Img/sertifikat/Job Show - Choirul Ainul Ibad_page-0001.jpg" alt="Job Show Certificate" loading="lazy" />
+            </div>
+            <div class="cert-body">
+              <span class="cert-category cat-academic">Academic</span>
+              <div class="cert-title">Job Show Event</div>
+              <div class="cert-desc">Career Development and Professional Networking</div>
+            </div>
+          </div>
+
+          <div class="cert-card reveal" data-category="competition">
+            <div class="cert-thumb">
+              <img src="Img/sertifikat/Competines - Choirul Ainul Ibad_page-0001.jpg" alt="Competines Certificate" loading="lazy" />
+            </div>
+            <div class="cert-body">
+              <span class="cert-category cat-competition">Competition</span>
+              <div class="cert-title">Competines Achievement</div>
+              <div class="cert-desc">Achievement in Technical Competition</div>
+            </div>
+          </div>
+
+          <div class="cert-card reveal" data-category="competition">
+            <div class="cert-thumb">
+              <img src="Img/sertifikat/Informatic Championship - Choirul Ainul Ibad_page-0001.jpg" alt="Informatics Championship Certificate" loading="lazy" />
+            </div>
+            <div class="cert-body">
+              <span class="cert-category cat-competition">Competition</span>
+              <div class="cert-title">Informatics Championship</div>
+              <div class="cert-desc">Award at Informatics Engineering Championship</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="project" class="section">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 sm:mb-16">
-          <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
-          <p class="text-base sm:text-lg max-w-2xl mx-auto" style="color: var(--text-secondary);" data-aos="fade-up"
-            data-aos-delay="200">
-            Some amazing things I've built with passion and dedication
-          </p>
-        </div>
+    <!-- ═══ CONTACT ═══ -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-label" aria-hidden="true">06 / Contact</div>
+        <h2 class="section-title reveal" id="contact-title">Let's Collaborate</h2>
+        <p class="contact-intro reveal">Have an interesting project? Whether you need a developer for a new project, creative collaboration, or just want to connect — my inbox is always open.</p>
 
-        <div class="swiper projectSwiper" data-aos="fade-up" data-aos-delay="400">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="project-card group h-[32rem] flex flex-col">
-                <div class="project-image-container">
-                  <img src="Img/Leave-Management.png" alt="Leave Management" class="project-image">
-                  <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  </div>
-                </div>
-                <div class="project-content flex flex-col flex-grow">
-                  <div class="flex-grow">
-                    <h3 class="project-title group-hover:text-blue-400 transition-colors">
-                      Leave Management
-                    </h3>
-                    <p class="project-description line-clamp-4">
-                      Built using Laravel (REST API) for the backend and Vue.js with Laravel Mix for the frontend. This
-                      system has two main roles: User and Admin. Users can apply for leave by selecting dates, providing
-                      reasons, and uploading approval documents. Features include leave management, admin review, and
-                      audit trail tracking.
-                    </p>
-                  </div>
-                  <div class="mt-4 flex flex-wrap gap-2">
-                    <span class="tech-tag">Laravel</span>
-                    <span class="tech-tag">Vue.js</span>
-                    <span class="tech-tag">REST API</span>
-                  </div>
-                </div>
-              </div>
+        <div class="contact-socials">
+          <a href="https://www.instagram.com/ibbaaaaadd/" target="_blank" rel="noopener" class="contact-social-link reveal" aria-label="Instagram @ibbaaaaadd">
+            <div class="social-icon-wrap" style="background:linear-gradient(135deg,#833AB4,#FD1D1D,#F77737)">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </div>
-
-            <div class="swiper-slide">
-              <div class="project-card group h-[32rem] flex flex-col">
-                <div class="project-image-container">
-                  <img src="Img/E-Building2.png" alt="E-Building" class="project-image">
-                  <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  </div>
-                </div>
-                <div class="project-content flex flex-col flex-grow">
-                  <div class="flex-grow">
-                    <h3 class="text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors"
-                      style="color: var(--text-primary);">
-                      E-Building
-                    </h3>
-                    <p class="text-sm leading-relaxed line-clamp-4" style="color: var(--text-secondary);">A
-                      comprehensive website for DPRKPP
-                      office
-                      reporting system for official buildings in Surabaya. The platform enables detailed evaluation of
-                      various
-                      improvement aspects and facilitates efficient building management.</p>
-                  </div>
-                  <div class="mt-4 flex flex-wrap gap-2">
-                    <span class="tech-tag">Laravel</span>
-                    <span class="tech-tag">MySQL</span>
-                    <span class="tech-tag">JavaScript</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="project-card group h-[32rem] flex flex-col">
-                <div class="project-image-container">
-                  <img src="Img/Yasoge.png" alt="Yasoge" class="project-image">
-                  <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  </div>
-                </div>
-                <div class="project-content flex flex-col flex-grow">
-                  <div class="flex-grow">
-                    <h3 class="project-title group-hover:text-blue-400 transition-colors">
-                      Yasoge
-                    </h3>
-                    <p class="project-description line-clamp-4">
-                      Advanced invoice creation system for shoe products implementing Point of Sale (POS) methodology. Built with the latest Laravel 11 framework and styled with Bootstrap 5 for a modern, responsive interface.
-                    </p>
-                  </div>
-                  <div class="mt-4 flex flex-wrap gap-2">
-                    <span class="tech-tag">Laravel</span>
-                    <span class="tech-tag">Bootstrap</span>
-                    <span class="tech-tag">MySQL</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="project-card group h-[32rem] flex flex-col">
-                <div class="project-image-container">
-                  <img src="Img/MI.png" alt="Management Inventory" class="project-image">
-                  <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  </div>
-                </div>
-                <div class="project-content flex flex-col flex-grow">
-                  <div class="flex-grow">
-                    <h3 class="project-title group-hover:text-blue-400 transition-colors">
-                      Management Inventory
-                    </h3>
-                    <p class="project-description line-clamp-4">
-                      Full-stack inventory management system with API-first approach. Features include CRUD operations, stock management, transaction processing, automated notifications, and comprehensive reporting system.
-                    </p>
-                  </div>
-                  <div class="mt-4 flex flex-wrap gap-2">
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">Next.js</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="project-card group h-[32rem] flex flex-col">
-                <div class="project-image-container bg-gradient-to-br from-yellow-400 to-orange-500">
-                  <img src="Img/Selamat Datang Buku Tamu.png" alt="PUSPAGA Guestbook" class="project-image">
-                  <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  </div>
-                </div>
-                <div class="project-content flex flex-col flex-grow">
-                  <div class="flex-grow">
-                    <h3 class="project-title group-hover:text-blue-400 transition-colors">
-                      PUSPAGA Guestbook
-                    </h3>
-                    <p class="project-description line-clamp-4">
-                      Advanced guestbook system featuring OCR technology for automatic ID card data extraction at Family Learning Centers. Streamlines visitor registration and improves data accuracy.
-                    </p>
-                  </div>
-                  <div class="mt-4 flex flex-wrap gap-2">
-                    <span class="tech-tag">OCR</span>
-                    <span class="tech-tag">PHP</span>
-                    <span class="tech-tag">JavaScript</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination mt-8"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="certificate" class="section">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 sm:mb-16">
-          <h2 class="section-title" data-aos="fade-up">Certificates & Achievements</h2>
-          <p class="text-base sm:text-lg" style="color: var(--text-secondary);" data-aos="fade-up" data-aos-delay="200">
-            Recognition of my continuous learning journey
-          </p>
-        </div>
-
-        <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="400">
-          <button onclick="filterCertificates('all')" class="filter-btn active">
-            All
-          </button>
-          <button onclick="filterCertificates('academic')" class="filter-btn">
-            Academic
-          </button>
-          <button onclick="filterCertificates('organization')" class="filter-btn">
-            Organization
-          </button>
-          <button onclick="filterCertificates('competition')" class="filter-btn">
-            Competition
-          </button>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="glass-card p-6 hover-lift group certificate-card" data-category="organization">
-            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
-              <img src="Img/Himpunan Mahasiswa Teknik Informatika - Choirul Ainul Ibad_page-0001.jpg"
-                alt="HIMTI Certificate"
-                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
-            </div>
-            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
-              style="color: var(--text-primary);">
-              HIMTI Participation
-            </h4>
-            <p class="text-sm mb-4" style="color: var(--text-secondary);">
-              Active member of Informatics Engineering Student Association
-            </p>
-            <div class="flex gap-2">
-              <span class="px-3 py-1 bg-cyan-500/20 text-cyan-400 text-xs rounded-full">Organization</span>
-            </div>
-          </div>
-
-          <div class="glass-card p-6 hover-lift group certificate-card" data-category="academic">
-            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
-              <img src="Img/PKKMB FT_page-0001.jpg" alt="PKKMB Certificate"
-                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
-            </div>
-            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
-              style="color: var(--text-primary);">PKKMB Certificate
-            </h4>
-            <p class="text-sm mb-4" style="color: var(--text-secondary);">New Student Orientation Program Achievement
-            </p>
-            <div class="flex gap-2">
-              <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Academic</span>
-            </div>
-          </div>
-
-          <div class="glass-card p-6 hover-lift group certificate-card" data-category="competition">
-            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
-              <img src="Img/Sertifikat IBC - Choirul Ainul Ibad_page-0001.jpg" alt="IBC Certificate"
-                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
-            </div>
-            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
-              style="color: var(--text-primary);">IBC Competition</h4>
-            <p class="text-sm mb-4" style="color: var(--text-secondary);">Informatics Championship Competition
-              Achievement</p>
-            <div class="flex gap-2">
-              <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">Competition</span>
-            </div>
-          </div>
-
-          <div class="glass-card p-6 hover-lift group certificate-card" data-category="competition">
-            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
-              <img src="Img/IT Sport - Choirul Ainul Ibad_page-0001.jpg" alt="IT Sport Certificate"
-                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-              <div class="w-full h-full bg-gradient-to-br from-purple-500/20 to-indigo-500/20 rounded-lg hidden items-center justify-center text-purple-400">
-                <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                </svg>
-              </div>
-            </div>
-            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
-              style="color: var(--text-primary);">IT Sport Event</h4>
-            <p class="text-sm mb-4" style="color: var(--text-secondary);">Sports Competition Achievement in IT
-              Department</p>
-            <div class="flex gap-2">
-              <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">Competition</span>
-            </div>
-          </div>
-
-          <div class="glass-card p-6 hover-lift group certificate-card" data-category="academic">
-            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
-              <img src="Img/Seminar Nasional Teknik Informatika - Choirul Ainul Ibad_page-0001.jpg"
-                alt="Seminar Certificate"
-                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
-            </div>
-            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
-              style="color: var(--text-primary);">National IT Seminar
-            </h4>
-            <p class="text-sm mb-4" style="color: var(--text-secondary);">Participation in National Informatics
-              Engineering Seminar</p>
-            <div class="flex gap-2">
-              <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Academic</span>
-            </div>
-          </div>
-
-          <div class="glass-card p-6 hover-lift group certificate-card" data-category="academic">
-            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
-              <img src="Img/Job Show - Choirul Ainul Ibad_page-0001.jpg" alt="Job Show Certificate"
-                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
-            </div>
-            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
-              style="color: var(--text-primary);">Job Show Event</h4>
-            <p class="text-sm mb-4" style="color: var(--text-secondary);">Career Development and Professional Networking
-              Event</p>
-            <div class="flex gap-2">
-              <span class="px-3 py-1 bg-green-500/20 text-green-400 text-xs rounded-full">Academic</span>
-            </div>
-          </div>
-
-          <div class="glass-card p-6 hover-lift group certificate-card" data-category="competition">
-            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
-              <img src="Img/Competines - Choirul Ainul Ibad_page-0001.jpg" alt="Competines Certificate"
-                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
-            </div>
-            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
-              style="color: var(--text-primary);">Competines
-              Achievement</h4>
-            <p class="text-sm mb-4" style="color: var(--text-secondary);">Excellence in Technical Competition</p>
-            <div class="flex gap-2">
-              <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">Competition</span>
-            </div>
-          </div>
-
-          <div class="glass-card p-6 hover-lift group certificate-card" data-category="competition">
-            <div class="aspect-video rounded-xl mb-4 overflow-hidden">
-              <img src="Img/Informatic Championship - Choirul Ainul Ibad_page-0001.jpg" alt="Informatic Championship"
-                class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-300" />
-            </div>
-            <h4 class="font-semibold mb-2 group-hover:text-blue-400 transition-colors"
-              style="color: var(--text-primary);">Informatics
-              Championship</h4>
-            <p class="text-sm mb-4" style="color: var(--text-secondary);">Recognition in Informatics Engineering
-              Competition</p>
-            <div class="flex gap-2">
-              <span class="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full">Competition</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12 sm:mb-16">
-          <h2 class="section-title inline-flex items-center gap-3 justify-center" data-aos="fade-up">
-            Let's Connect!
-            <span class="inline-flex items-center" style="color: var(--accent-primary);">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-            </span>
-          </h2>
-          <p class="text-base sm:text-lg max-w-2xl mx-auto" style="color: var(--text-secondary);" data-aos="fade-up"
-            data-aos-delay="200">
-            Ready to collaborate or just want to say hello? I'd love to hear from you!
-          </p>
-        </div>
-
-        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12" data-aos="fade-up" data-aos-delay="400">
-          <!-- Social Media Cards -->
-          <a href="https://www.instagram.com/ibbaaaaadd/" target="_blank"
-            class="contact-card-small group hover:border-pink-400">
-            <div
-              class="contact-icon-small bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 rounded-lg flex items-center justify-center">
-              <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.070-4.85.070-3.204 0-3.584-.012-4.849-.070-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-              </svg>
-            </div>
-            <h3 class="font-semibold text-base mb-1 group-hover:text-pink-400 transition-colors"
-              style="color: var(--text-primary);">Instagram</h3>
-            <p class="text-xs" style="color: var(--text-secondary);">@iibaaaadd</p>
+            <div><div class="social-name">Instagram</div><div class="social-handle">@ibbaaaaadd</div></div>
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
 
-          <a href="https://wa.me/+6289519267028" target="_blank"
-            class="contact-card-small group hover:border-green-400">
-            <div
-              class="contact-icon-small bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
-              <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.488" />
-              </svg>
+          <a href="https://wa.me/+6289519267028" target="_blank" rel="noopener" class="contact-social-link reveal" aria-label="WhatsApp 089519267028">
+            <div class="social-icon-wrap" style="background:linear-gradient(135deg,#25D366,#128C7E)">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.488"/></svg>
             </div>
-            <h3 class="font-semibold text-base mb-1 group-hover:text-green-400 transition-colors"
-              style="color: var(--text-primary);">WhatsApp</h3>
-            <p class="text-xs" style="color: var(--text-secondary);">089519267028</p>
+            <div><div class="social-name">WhatsApp</div><div class="social-handle">089519267028</div></div>
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
 
-          <a href="https://www.tiktok.com/@ibaaad" target="_blank"
-            class="contact-card-small group hover:border-gray-300">
-            <div
-              class="contact-icon-small bg-gradient-to-br from-black to-gray-800 rounded-lg flex items-center justify-center">
-              <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
-                <path
-                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
-              </svg>
+          <a href="https://www.linkedin.com/in/choirul-ainul-ibad-99b69b2a1/" target="_blank" rel="noopener" class="contact-social-link reveal" aria-label="LinkedIn Choirul Ainul Ibad">
+            <div class="social-icon-wrap" style="background:#0A66C2">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </div>
-            <h3 class="font-semibold text-base mb-1 group-hover:text-gray-400 transition-colors"
-              style="color: var(--text-primary);">TikTok</h3>
-            <p class="text-xs" style="color: var(--text-secondary);">@ibaaad</p>
+            <div><div class="social-name">LinkedIn</div><div class="social-handle">Choirul Ainul Ibad</div></div>
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
 
-          <a href="CV/CV Choirul Ainul Ibad.pdf" target="_blank" class="contact-card-small group hover:border-blue-400">
-            <div
-              class="contact-icon-small bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
-              <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
-                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
-              </svg>
+          <a href="https://github.com/Ibaaaadd/" target="_blank" rel="noopener" class="contact-social-link reveal" aria-label="GitHub Ibaaaadd">
+            <div class="social-icon-wrap" style="background:#24292E">
+              <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
             </div>
-            <h3 class="font-semibold text-base mb-1 group-hover:text-blue-400 transition-colors"
-              style="color: var(--text-primary);">Download CV</h3>
-            <p class="text-xs" style="color: var(--text-secondary);">PDF Format</p>
-          </a>
-        </div>
-
-        <div class="flex flex-wrap justify-center gap-4 mb-8">
-          <a href="https://www.linkedin.com/in/choirul-ainul-ibad-99b69b2a1/" target="_blank"
-            class="w-12 h-12 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
-            <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </svg>
+            <div><div class="social-name">GitHub</div><div class="social-handle">Ibaaaadd</div></div>
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
 
-          <a href="https://github.com/Ibaaaadd/" target="_blank"
-            class="w-12 h-12 bg-gray-800 hover:bg-gray-900 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
-            <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
-              <path
-                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-            </svg>
+          <a href="CV/CV Choirul Ainul Ibad.pdf" target="_blank" rel="noopener" class="contact-social-link reveal" aria-label="Download CV PDF">
+            <div class="social-icon-wrap" style="background:var(--accent)">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+            </div>
+            <div><div class="social-name">Download CV</div><div class="social-handle">PDF Format</div></div>
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
         </div>
       </div>
     </section>
 
-    <footer class="py-8 border-t" style="background: var(--bg-secondary); border-color: rgba(248, 250, 252, 0.1);">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
-          <p class="mb-4" style="color: var(--text-secondary);">
-            Crafted with
-            <span class="inline-flex items-center" style="color: var(--accent-tertiary);">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6 4 4 6.5 4c1.74 0 3.41 1 4.22 2.44C11.09 5 12.76 4 14.5 4 17 4 19 6 19 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
-              </svg>
-            </span>
-            by <span style="color: var(--accent-primary);" class="font-semibold">Choirul Ainul Ibad</span>
-          </p>
-          <p class="text-sm" style="color: var(--text-muted);">
-            © 2024 All rights reserved. Built with passion and modern web technologies.
-          </p>
-        </div>
-      </div>
-    </footer>
+  </main>
 
-    <button id="backToTop" class="back-to-top opacity-0 invisible">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-      </svg>
-    </button>
-
-    <nav class="mobile-bottom-nav lg:hidden">
-      <a href="#profile" class="mobile-bottom-nav-item" data-section="profile">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-        </svg>
-        <span>Profile</span>
-      </a>
-      <a href="#experience" class="mobile-bottom-nav-item" data-section="experience">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-        </svg>
-        <span>Exp</span>
-      </a>
-      <a href="#home" class="mobile-bottom-nav-item mobile-bottom-nav-center active" data-section="home">
-        <div class="mobile-bottom-nav-center-icon">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-          </svg>
-        </div>
-        <span>Home</span>
-      </a>
-            <a href="#project" class="mobile-bottom-nav-item" data-section="project">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-        </svg>
-        <span>Projects</span>
-      </a>
-      <a href="#contact" class="mobile-bottom-nav-item" data-section="contact">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-        </svg>
-        <span>Contact</span>
-      </a>
-      <a href="https://wa.me/6289519267028" target="_blank" class="wa-floating-btn" id="waFloatingBtn">
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <span class="footer-logo">Ibad</span>
+      <span class="footer-copy">© 2025 Choirul Ainul Ibad. Crafted with passion.</span>
+      <a href="#hero" class="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M18 15l-6-6-6 6"/>
         </svg>
       </a>
-    </nav>
+    </div>
+  </footer>
 
-    <script src="script.js"></script>
-  </body>
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+    <a href="#about"      class="mb-nav-item" data-section="about">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
+      <span>About</span>
+    </a>
+    <a href="#experience" class="mb-nav-item" data-section="experience">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+      <span>Exp</span>
+    </a>
+    <a href="#hero" class="mb-nav-item mb-nav-center active" data-section="hero">
+      <div class="mb-nav-center-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <span>Home</span>
+    </a>
+    <a href="#projects"   class="mb-nav-item" data-section="projects">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span>Projects</span>
+    </a>
+    <a href="#contact"    class="mb-nav-item" data-section="contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span>Contact</span>
+    </a>
+  </nav>
 
+  <script src="script.js"></script>
+</body>
 </html>
