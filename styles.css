@@ -1084,6 +1084,104 @@ body.cursor-text .cursor-ring {
   font-weight: 500;
 }
 
+/* ─── LOGO MARQUEE SECTION ─── */
+.logo-marquee-section {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+}
+
+.logo-marquee-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.logo-marquee-row { overflow: hidden; }
+
+.logo-track {
+  display: flex;
+  gap: 0.875rem;
+  width: max-content;
+  animation: marqueeLeft 40s linear infinite;
+  will-change: transform;
+}
+
+.logo-track--reverse {
+  animation: marqueeRight 38s linear infinite;
+}
+
+@keyframes marqueeLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.logo-marquee-wrap:hover .logo-track {
+  animation-play-state: paused;
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  cursor: default;
+  user-select: none;
+}
+
+.logo-item:hover {
+  border-color: var(--border-accent);
+  background: var(--bg-surface-2);
+  box-shadow: var(--glow-sm);
+}
+
+.logo-item i {
+  font-size: 1.35rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* devicon nextjs & express are dark — invert in dark mode so they're visible */
+[data-theme="dark"] .devicon-nextjs-plain,
+[data-theme="dark"] .devicon-express-original,
+[data-theme="dark"] .devicon-github-original,
+[data-theme="dark"] .devicon-linux-plain {
+  color: #e0e0e0;
+}
+
+[data-theme="light"] .devicon-nextjs-plain,
+[data-theme="light"] .devicon-express-original,
+[data-theme="light"] .devicon-github-original,
+[data-theme="light"] .devicon-linux-plain {
+  color: #1a1a1a;
+}
+
+.logo-item span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-track,
+  .logo-track--reverse { animation: none; }
+}
+
 /* ─── PROJECTS SECTION ─── */
 .projects-filter {
   display: flex;
@@ -1825,9 +1923,6 @@ footer {
   .about-stats { grid-template-columns: 1fr; }
 
   /* Skills: 1 col */
-  .skills-panel.active { grid-template-columns: 1fr; }
-  .skills-tabs { width: 100%; justify-content: center; }
-
   /* Certs: 1 col */
   .certs-grid { grid-template-columns: 1fr; }
 
