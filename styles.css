@@ -1926,7 +1926,7 @@ footer {
   .timeline-item { grid-template-columns: 1fr; padding-left: 40px; position: relative; }
   .timeline-line { left: 16px; }
   .timeline-center { position: absolute; left: 8px; top: 20px; }
-  .timeline-item-left { display: none; }
+  .timeline-item-left { padding-right: 0; }
   .timeline-item-right { padding-left: 0; }
 
   /* Nav */
