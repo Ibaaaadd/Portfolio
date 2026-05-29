@@ -663,7 +663,13 @@ body.cursor-text .cursor-ring {
   overflow: hidden;
 }
 
-.hero-cta-inner { transform: translateY(30px); opacity: 0; }
+.hero-cta-inner {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  transform: translateY(30px);
+  opacity: 0;
+}
 
 .hero-scroll {
   position: absolute;
@@ -1981,7 +1987,7 @@ footer {
   :root { --container-pad: 1rem; }
 
   /* Hero CTA stack */
-  .hero-cta { flex-direction: column; }
+  .hero-cta-inner { flex-direction: column; gap: 0.75rem; }
   .btn { width: 100%; justify-content: center; }
 
   /* About stats: stack vertically */
