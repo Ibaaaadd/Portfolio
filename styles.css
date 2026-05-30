@@ -310,8 +310,8 @@ body.cursor-hover .cursor-dot {
 
 body.cursor-hover .cursor-ring {
   width: 60px; height: 60px;
-  background: rgba(var(--accent-rgb),0.1);
-  border-color: rgba(var(--accent-rgb),0.8);
+  background: transparent;
+  border-color: rgba(var(--accent-rgb),0.6);
 }
 
 body.cursor-text .cursor-ring {
@@ -742,6 +742,7 @@ body.cursor-text .cursor-ring {
   background: transparent;
   color: var(--accent);
   border: 1.5px solid var(--border-accent);
+  padding: 18px 36px;
 }
 
 .btn-ghost:hover {
