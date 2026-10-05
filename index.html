@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Choirul Ainul Ibad</title>
-  <meta name="description" content="Choirul Ainul Ibad — Full Stack Developer specializing in Laravel, Vue.js, React, and Node.js. Building meaningful digital experiences." />
+  <meta name="description"
+    content="Choirul Ainul Ibad — Full Stack Developer specializing in Laravel, Vue.js, React, and Node.js. Building meaningful digital experiences." />
   <link rel="icon" href="Img/Icon.jpg" />
 
   <script>
-    (function(){
-      var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
-      document.documentElement.setAttribute('data-theme',t);
+    (function () {
+      var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -34,8 +38,8 @@
   <div id="preloader" aria-hidden="true">
     <div class="preloader-icon">
       <svg class="preloader-ring" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="32" cy="32" r="27" class="ring-track"/>
-        <circle cx="32" cy="32" r="27" class="ring-spin"/>
+        <circle cx="32" cy="32" r="27" class="ring-track" />
+        <circle cx="32" cy="32" r="27" class="ring-spin" />
       </svg>
       <span class="preloader-icon-code">&lt;/&gt;</span>
     </div>
@@ -46,7 +50,7 @@
     <div class="preloader-count" id="preloaderCount">0%</div>
   </div>
 
-  <div class="cursor-dot"  id="cursorDot"  aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
   <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
   <!-- Navigation -->
@@ -58,23 +62,24 @@
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#about"        class="nav-link" data-section="about">About</a>
-        <a href="#skills"       class="nav-link" data-section="skills">Skills</a>
-        <a href="#experience"   class="nav-link" data-section="experience">Experience</a>
-        <a href="#projects"     class="nav-link" data-section="projects">Projects</a>
+        <a href="#about" class="nav-link" data-section="about">About</a>
+        <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+        <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+        <a href="#projects" class="nav-link" data-section="projects">Projects</a>
         <a href="#certificates" class="nav-link" data-section="certificates">Certs</a>
-        <a href="#contact"      class="nav-link" data-section="contact">Contact</a>
+        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
       </nav>
 
       <div class="nav-right">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
           <div class="theme-toggle-thumb">
             <svg class="theme-toggle-icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+              <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" />
             </svg>
             <svg class="theme-toggle-icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="5"/>
-              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+              <circle cx="12" cy="12" r="5" />
+              <path
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
             </svg>
           </div>
         </button>
@@ -98,13 +103,15 @@
 
         <h1 class="hero-title" id="hero-title">
           <span class="word">
-            <span class="char">C</span><span class="char">h</span><span class="char">o</span><span class="char">i</span><span class="char">r</span><span class="char">u</span><span class="char">l</span>
+            <span class="char">C</span><span class="char">h</span><span class="char">o</span><span
+              class="char">i</span><span class="char">r</span><span class="char">u</span><span class="char">l</span>
           </span>
           <span style="display:inline-block;width:0.3em"></span>
           <span class="word">
-            <span class="char">A</span><span class="char">i</span><span class="char">n</span><span class="char">u</span><span class="char">l</span>
+            <span class="char">A</span><span class="char">i</span><span class="char">n</span><span
+              class="char">u</span><span class="char">l</span>
           </span>
-          <br/>
+          <br />
           <span class="word accent-word">
             <span class="char">I</span><span class="char">b</span><span class="char">a</span><span class="char">d</span>
           </span>
@@ -118,8 +125,9 @@
           <div class="hero-cta-inner">
             <a href="#projects" class="btn btn-primary" aria-label="View my work">
               View Work
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
             <a href="#contact" class="btn btn-ghost" aria-label="Get in touch">
@@ -144,10 +152,13 @@
         <div class="about-grid">
           <div class="about-text-block">
             <p class="about-lead reveal">
-              I'm Ibad — a professional Full Stack Developer building enterprise-grade digital solutions that deliver real business impact.
+              I'm Ibad — a professional Full Stack Developer building enterprise-grade digital solutions that deliver
+              real business impact.
             </p>
             <p class="about-body reveal">
-              Passionate Full Stack Developer with experience building scalable web applications and delivering reliable solutions for real-world business needs. I believe great software is an art—every line of code should have purpose, and every feature should create meaningful impact.
+              Passionate Full Stack Developer with experience building scalable web applications and delivering reliable
+              solutions for real-world business needs. I believe great software is an art—every line of code should have
+              purpose, and every feature should create meaningful impact.
             </p>
 
             <div class="about-stats reveal">
@@ -173,7 +184,10 @@
             <div class="edu-cards">
               <a href="https://www.unesa.ac.id/" target="_blank" rel="noopener" class="edu-card reveal">
                 <div class="edu-card-icon" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                  </svg>
                 </div>
                 <div>
                   <div class="edu-title">Universitas Negeri Surabaya</div>
@@ -183,7 +197,10 @@
               </a>
               <a href="https://pikti.itsteknosains.co.id/about/" target="_blank" rel="noopener" class="edu-card reveal">
                 <div class="edu-card-icon" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                    <path d="M8 21h8M12 17v4" />
+                  </svg>
                 </div>
                 <div>
                   <div class="edu-title">PIKTI ITS</div>
@@ -192,7 +209,10 @@
               </a>
               <a href="https://smadarussalamahkrian.sch.id/" target="_blank" rel="noopener" class="edu-card reveal">
                 <div class="edu-card-icon" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                  </svg>
                 </div>
                 <div>
                   <div class="edu-title">SMA Darussalamah</div>
@@ -236,93 +256,153 @@
 
         <div class="skills-layout">
           <div class="skills-tabs" role="tablist" aria-label="Skill categories">
-            <button class="skill-tab active" role="tab" aria-selected="true"  aria-controls="panel-frontend" data-panel="frontend">Frontend</button>
-            <button class="skill-tab"        role="tab" aria-selected="false" aria-controls="panel-backend"  data-panel="backend">Backend</button>
-            <button class="skill-tab"        role="tab" aria-selected="false" aria-controls="panel-tools"    data-panel="tools">Tools &amp; DB</button>
+            <button class="skill-tab active" role="tab" aria-selected="true" aria-controls="panel-frontend"
+              data-panel="frontend">Frontend</button>
+            <button class="skill-tab" role="tab" aria-selected="false" aria-controls="panel-backend"
+              data-panel="backend">Backend</button>
+            <button class="skill-tab" role="tab" aria-selected="false" aria-controls="panel-tools"
+              data-panel="tools">Tools &amp; DB</button>
           </div>
 
           <div id="panel-frontend" class="skills-panel active" role="tabpanel">
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-html5-plain colored"></i></div>
-              <div><div class="skill-name">HTML5</div><div class="skill-level">Expert</div></div>
+              <div>
+                <div class="skill-name">HTML5</div>
+                <div class="skill-level">Expert</div>
+              </div>
             </div>
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-css3-plain colored"></i></div>
-              <div><div class="skill-name">CSS3</div><div class="skill-level">Expert</div></div>
+              <div>
+                <div class="skill-name">CSS3</div>
+                <div class="skill-level">Expert</div>
+              </div>
             </div>
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-javascript-plain colored"></i></div>
-              <div><div class="skill-name">JavaScript</div><div class="skill-level">Expert</div></div>
+              <div>
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-level">Expert</div>
+              </div>
             </div>
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-vuejs-plain colored"></i></div>
-              <div><div class="skill-name">Vue.js</div><div class="skill-level">Expert</div></div>
+              <div>
+                <div class="skill-name">Vue.js</div>
+                <div class="skill-level">Expert</div>
+              </div>
             </div>
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-react-original colored"></i></div>
-              <div><div class="skill-name">React</div><div class="skill-level">Advanced</div></div>
+              <div>
+                <div class="skill-name">React</div>
+                <div class="skill-level">Advanced</div>
+              </div>
             </div>
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-nextjs-plain"></i></div>
-              <div><div class="skill-name">Next.js</div><div class="skill-level">Advanced</div></div>
+              <div>
+                <div class="skill-name">Next.js</div>
+                <div class="skill-level">Advanced</div>
+              </div>
             </div>
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-tailwindcss-plain colored"></i></div>
-              <div><div class="skill-name">Tailwind CSS</div><div class="skill-level">Expert</div></div>
+              <div>
+                <div class="skill-name">Tailwind CSS</div>
+                <div class="skill-level">Expert</div>
+              </div>
             </div>
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-bootstrap-plain colored"></i></div>
-              <div><div class="skill-name">Bootstrap</div><div class="skill-level">Advanced</div></div>
+              <div>
+                <div class="skill-name">Bootstrap</div>
+                <div class="skill-level">Advanced</div>
+              </div>
             </div>
           </div>
 
           <div id="panel-backend" class="skills-panel" role="tabpanel">
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-laravel-plain colored"></i></div>
-              <div><div class="skill-name">Laravel</div><div class="skill-level">Expert</div></div>
+              <div>
+                <div class="skill-name">Laravel</div>
+                <div class="skill-level">Expert</div>
+              </div>
             </div>
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-nodejs-plain colored"></i></div>
-              <div><div class="skill-name">Node.js</div><div class="skill-level">Advanced</div></div>
+              <div>
+                <div class="skill-name">Node.js</div>
+                <div class="skill-level">Advanced</div>
+              </div>
             </div>
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-php-plain colored"></i></div>
-              <div><div class="skill-name">PHP</div><div class="skill-level">Expert</div></div>
+              <div>
+                <div class="skill-name">PHP</div>
+                <div class="skill-level">Expert</div>
+              </div>
             </div>
             <div class="skill-card reveal">
-              <div class="skill-icon-wrap"><span class="skill-icon-abbr">REST<br/>API</span></div>
-              <div><div class="skill-name">REST API</div><div class="skill-level">Expert</div></div>
+              <div class="skill-icon-wrap"><span class="skill-icon-abbr">REST<br />API</span></div>
+              <div>
+                <div class="skill-name">REST API</div>
+                <div class="skill-level">Expert</div>
+              </div>
             </div>
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-express-original"></i></div>
-              <div><div class="skill-name">Express.js</div><div class="skill-level">Intermediate</div></div>
+              <div>
+                <div class="skill-name">Express.js</div>
+                <div class="skill-level">Intermediate</div>
+              </div>
             </div>
           </div>
 
           <div id="panel-tools" class="skills-panel" role="tabpanel">
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-mysql-plain colored"></i></div>
-              <div><div class="skill-name">MySQL</div><div class="skill-level">Advanced</div></div>
+              <div>
+                <div class="skill-name">MySQL</div>
+                <div class="skill-level">Advanced</div>
+              </div>
             </div>
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-postgresql-plain colored"></i></div>
-              <div><div class="skill-name">PostgreSQL</div><div class="skill-level">Advanced</div></div>
+              <div>
+                <div class="skill-name">PostgreSQL</div>
+                <div class="skill-level">Advanced</div>
+              </div>
             </div>
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-git-plain colored"></i></div>
-              <div><div class="skill-name">Git &amp; GitHub</div><div class="skill-level">Advanced</div></div>
+              <div>
+                <div class="skill-name">Git &amp; GitHub</div>
+                <div class="skill-level">Advanced</div>
+              </div>
             </div>
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><span class="skill-icon-abbr">OCR</span></div>
-              <div><div class="skill-name">OCR Technology</div><div class="skill-level">Intermediate</div></div>
+              <div>
+                <div class="skill-name">OCR Technology</div>
+                <div class="skill-level">Intermediate</div>
+              </div>
             </div>
             <div class="skill-card reveal">
-              <div class="skill-icon-wrap"><span class="skill-icon-abbr">CI/<br/>CD</span></div>
-              <div><div class="skill-name">CI / CD</div><div class="skill-level">Intermediate</div></div>
+              <div class="skill-icon-wrap"><span class="skill-icon-abbr">CI/<br />CD</span></div>
+              <div>
+                <div class="skill-name">CI / CD</div>
+                <div class="skill-level">Intermediate</div>
+              </div>
             </div>
             <div class="skill-card reveal">
               <div class="skill-icon-wrap"><i class="devicon-postman-plain colored"></i></div>
-              <div><div class="skill-name">Postman</div><div class="skill-level">Advanced</div></div>
+              <div>
+                <div class="skill-name">Postman</div>
+                <div class="skill-level">Advanced</div>
+              </div>
             </div>
           </div>
         </div>
@@ -334,22 +414,30 @@
       <div class="container">
         <div class="section-label" aria-hidden="true">03 / Experience</div>
         <h2 class="section-title reveal" id="experience-title">Career Journey</h2>
-        <p class="section-subtitle reveal">Professional experience, internships, and self-development that shaped who I am.</p>
+        <p class="section-subtitle reveal">Professional experience, internships, and self-development that shaped who I
+          am.</p>
 
         <div class="timeline">
-          <div class="timeline-line"><div class="timeline-line-fill" id="timelineFill"></div></div>
+          <div class="timeline-line">
+            <div class="timeline-line-fill" id="timelineFill"></div>
+          </div>
 
           <div class="timeline-item reveal">
             <div class="timeline-item-left"></div>
-            <div class="timeline-center"><div class="timeline-dot"></div></div>
+            <div class="timeline-center">
+              <div class="timeline-dot"></div>
+            </div>
             <div class="timeline-item-right">
               <div class="timeline-card">
                 <div class="timeline-period">Sept 2025 — Present &nbsp;·&nbsp; Full-time</div>
                 <div class="timeline-role">IT Staff Programmer</div>
                 <div class="timeline-company">PT Bhrama Benua Sejahtera</div>
-                <p class="timeline-desc">Developing and maintaining enterprise web applications for business operations. Building scalable solutions using modern full-stack technologies and optimizing application performance for production environments.</p>
+                <p class="timeline-desc">Developing and maintaining enterprise web applications for business operations.
+                  Building scalable solutions using modern full-stack technologies and optimizing application
+                  performance for production environments.</p>
                 <div class="timeline-tags">
-                  <span class="tag">Node.js</span><span class="tag">Vue.js</span><span class="tag">Tailwind CSS</span><span class="tag">PostgreSQL</span><span class="tag">CI/CD</span>
+                  <span class="tag">Node.js</span><span class="tag">Vue.js</span><span class="tag">Tailwind
+                    CSS</span><span class="tag">PostgreSQL</span><span class="tag">CI/CD</span>
                 </div>
               </div>
             </div>
@@ -361,27 +449,36 @@
                 <div class="timeline-period">Aug 2023 — Sept 2025 &nbsp;·&nbsp; Freelance</div>
                 <div class="timeline-role">Fullstack Developer</div>
                 <div class="timeline-company">Cons Code</div>
-                <p class="timeline-desc">Designing and developing custom web applications from scratch using Laravel, Vue.js, and React. Handling the full development lifecycle from database design to frontend implementation.</p>
+                <p class="timeline-desc">Designing and developing custom web applications from scratch using Laravel,
+                  Vue.js, and React. Handling the full development lifecycle from database design to frontend
+                  implementation.</p>
                 <div class="timeline-tags">
-                  <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">React</span><span class="tag">MySQL</span>
+                  <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">React</span><span
+                    class="tag">MySQL</span>
                 </div>
               </div>
             </div>
-            <div class="timeline-center"><div class="timeline-dot"></div></div>
+            <div class="timeline-center">
+              <div class="timeline-dot"></div>
+            </div>
             <div class="timeline-item-right"></div>
           </div>
 
           <div class="timeline-item reveal">
             <div class="timeline-item-left"></div>
-            <div class="timeline-center"><div class="timeline-dot"></div></div>
+            <div class="timeline-center">
+              <div class="timeline-dot"></div>
+            </div>
             <div class="timeline-item-right">
               <div class="timeline-card">
                 <div class="timeline-period">Feb — Apr 2025 &nbsp;·&nbsp; Research</div>
                 <div class="timeline-role">Thesis Researcher</div>
                 <div class="timeline-company">PUSPAGA Surabaya</div>
-                <p class="timeline-desc">Conducted thesis research at PUSPAGA (Family Learning Center) Surabaya, developing an innovative OCR-based solution for family services and community engagement.</p>
+                <p class="timeline-desc">Conducted thesis research at PUSPAGA (Family Learning Center) Surabaya,
+                  developing an innovative OCR-based solution for family services and community engagement.</p>
                 <div class="timeline-tags">
-                  <span class="tag">Research</span><span class="tag">Data Analysis</span><span class="tag">OCR Technology</span>
+                  <span class="tag">Research</span><span class="tag">Data Analysis</span><span class="tag">OCR
+                    Technology</span>
                 </div>
               </div>
             </div>
@@ -393,27 +490,36 @@
                 <div class="timeline-period">Sept — Dec 2024 &nbsp;·&nbsp; MSIB Batch 7</div>
                 <div class="timeline-role">IT Crew</div>
                 <div class="timeline-company">DP3APPKB Surabaya</div>
-                <p class="timeline-desc">Participated in the MSIB Batch 7 program as IT Crew, responsible for maintaining IT infrastructure, developing internal systems, and supporting local government operations.</p>
+                <p class="timeline-desc">Participated in the MSIB Batch 7 program as IT Crew, responsible for
+                  maintaining IT infrastructure, developing internal systems, and supporting local government
+                  operations.</p>
                 <div class="timeline-tags">
-                  <span class="tag">Vue.js</span><span class="tag">Laravel</span><span class="tag">Bootstrap</span><span class="tag">PostgreSQL</span>
+                  <span class="tag">Vue.js</span><span class="tag">Laravel</span><span class="tag">Bootstrap</span><span
+                    class="tag">PostgreSQL</span>
                 </div>
               </div>
             </div>
-            <div class="timeline-center"><div class="timeline-dot"></div></div>
+            <div class="timeline-center">
+              <div class="timeline-dot"></div>
+            </div>
             <div class="timeline-item-right"></div>
           </div>
 
           <div class="timeline-item reveal">
             <div class="timeline-item-left"></div>
-            <div class="timeline-center"><div class="timeline-dot"></div></div>
+            <div class="timeline-center">
+              <div class="timeline-dot"></div>
+            </div>
             <div class="timeline-item-right">
               <div class="timeline-card">
                 <div class="timeline-period">Feb — Jul 2024 &nbsp;·&nbsp; MSIB Batch 6</div>
                 <div class="timeline-role">Software Developer</div>
                 <div class="timeline-company">Dinkominfo Surabaya</div>
-                <p class="timeline-desc">Developed government web applications and contributed to digital transformation initiatives at Surabaya City's Communications and Information Technology Department.</p>
+                <p class="timeline-desc">Developed government web applications and contributed to digital transformation
+                  initiatives at Surabaya City's Communications and Information Technology Department.</p>
                 <div class="timeline-tags">
-                  <span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">JavaScript</span><span class="tag">MySQL</span>
+                  <span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">JavaScript</span><span
+                    class="tag">MySQL</span>
                 </div>
               </div>
             </div>
@@ -445,13 +551,19 @@
             <div class="project-body">
               <div class="project-category">Enterprise / Web App</div>
               <h3 class="project-name">Leave Management System</h3>
-              <p class="project-desc">A REST API-based leave management system built with Laravel backend and Vue.js frontend. Supports two main roles — User and Admin — with a comprehensive leave request, review, and audit trail workflow.</p>
+              <p class="project-desc">A REST API-based leave management system built with Laravel backend and Vue.js
+                frontend. Supports two main roles — User and Admin — with a comprehensive leave request, review, and
+                audit trail workflow.</p>
               <div class="project-tags">
-                <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">REST API</span><span class="tag">MySQL</span>
+                <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">REST API</span><span
+                  class="tag">MySQL</span>
               </div>
               <div class="project-links">
                 <a href="#" class="project-link" aria-label="View on GitHub" title="GitHub">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                  </svg>
                 </a>
               </div>
             </div>
@@ -465,7 +577,8 @@
             <div class="project-body">
               <div class="project-category">Enterprise / Government</div>
               <h3 class="project-name">E-Building DPRKPP</h3>
-              <p class="project-desc">Building reporting platform for DPRKPP Surabaya's government agency. Enables detailed evaluation of renovation aspects and efficient building management.</p>
+              <p class="project-desc">Building reporting platform for DPRKPP Surabaya's government agency. Enables
+                detailed evaluation of renovation aspects and efficient building management.</p>
               <div class="project-tags">
                 <span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">JavaScript</span>
               </div>
@@ -481,7 +594,8 @@
             <div class="project-body">
               <div class="project-category">Web App / POS</div>
               <h3 class="project-name">Yasoge</h3>
-              <p class="project-desc">A shoe product invoice system using Point of Sale methodology. Built with the latest Laravel 11 and Bootstrap 5 for a modern, responsive interface.</p>
+              <p class="project-desc">A shoe product invoice system using Point of Sale methodology. Built with the
+                latest Laravel 11 and Bootstrap 5 for a modern, responsive interface.</p>
               <div class="project-tags">
                 <span class="tag">Laravel 11</span><span class="tag">Bootstrap</span><span class="tag">MySQL</span>
               </div>
@@ -496,9 +610,12 @@
             <div class="project-body">
               <div class="project-category">Enterprise / Full Stack</div>
               <h3 class="project-name">Management Inventory</h3>
-              <p class="project-desc">Full-stack inventory management system with an API-first approach. Features include CRUD operations, stock management, transaction processing, automated notifications, and comprehensive reporting.</p>
+              <p class="project-desc">Full-stack inventory management system with an API-first approach. Features
+                include CRUD operations, stock management, transaction processing, automated notifications, and
+                comprehensive reporting.</p>
               <div class="project-tags">
-                <span class="tag">Node.js</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">REST API</span>
+                <span class="tag">Node.js</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span
+                  class="tag">REST API</span>
               </div>
             </div>
           </article>
@@ -512,7 +629,9 @@
             <div class="project-body">
               <div class="project-category">Enterprise / Order Management</div>
               <h3 class="project-name">Orderly</h3>
-              <p class="project-desc">Streamlined order and workflow management platform with an intuitive dashboard. Handles end-to-end order processing, status tracking, and operational reporting for business efficiency.</p>
+              <p class="project-desc">Streamlined order and workflow management platform with an intuitive dashboard.
+                Handles end-to-end order processing, status tracking, and operational reporting for business efficiency.
+              </p>
               <div class="project-tags">
                 <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">MySQL</span>
               </div>
@@ -527,7 +646,8 @@
             <div class="project-body">
               <div class="project-category">Web App / Environmental</div>
               <h3 class="project-name">Bank Sampah</h3>
-              <p class="project-desc">Digital waste bank management system enabling communities to track waste deposits, manage reward points, and generate environmental impact reports.</p>
+              <p class="project-desc">Digital waste bank management system enabling communities to track waste deposits,
+                manage reward points, and generate environmental impact reports.</p>
               <div class="project-tags">
                 <span class="tag">Laravel</span><span class="tag">Bootstrap</span><span class="tag">MySQL</span>
               </div>
@@ -543,7 +663,8 @@
             <div class="project-body">
               <div class="project-category">Web App / OCR</div>
               <h3 class="project-name">PUSPAGA Guestbook</h3>
-              <p class="project-desc">Advanced guestbook system with OCR technology for automated ID card data extraction. Streamlines visitor registration at the Family Learning Center.</p>
+              <p class="project-desc">Advanced guestbook system with OCR technology for automated ID card data
+                extraction. Streamlines visitor registration at the Family Learning Center.</p>
               <div class="project-tags">
                 <span class="tag">OCR</span><span class="tag">PHP</span><span class="tag">JavaScript</span>
               </div>
@@ -558,7 +679,9 @@
             <div class="project-body">
               <div class="project-category">Enterprise / HR System</div>
               <h3 class="project-name">Absensi System</h3>
-              <p class="project-desc">Digital attendance management system for tracking employee and staff presence in real time. Features automated recording, an attendance reporting dashboard, and notification system for HR management.</p>
+              <p class="project-desc">Digital attendance management system for tracking employee and staff presence in
+                real time. Features automated recording, an attendance reporting dashboard, and notification system for
+                HR management.</p>
               <div class="project-tags">
                 <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">MySQL</span>
               </div>
@@ -574,7 +697,9 @@
             <div class="project-body">
               <div class="project-category">Web App / Environmental</div>
               <h3 class="project-name">e-cycle</h3>
-              <p class="project-desc">Digital platform connecting users with e-waste recycling services. Enables scheduling of e-waste pickups, real-time recycling progress tracking, and environmental impact reports for a greener community.</p>
+              <p class="project-desc">Digital platform connecting users with e-waste recycling services. Enables
+                scheduling of e-waste pickups, real-time recycling progress tracking, and environmental impact reports
+                for a greener community.</p>
               <div class="project-tags">
                 <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">MySQL</span>
               </div>
@@ -589,7 +714,8 @@
             <div class="project-body">
               <div class="project-category">Enterprise / Inventory</div>
               <h3 class="project-name">Management Lab Accessories</h3>
-              <p class="project-desc">Laboratory accessories and equipment management system for tracking inventory, managing borrowing requests, and maintaining asset records across departments.</p>
+              <p class="project-desc">Laboratory accessories and equipment management system for tracking inventory,
+                managing borrowing requests, and maintaining asset records across departments.</p>
               <div class="project-tags">
                 <span class="tag">Laravel</span><span class="tag">JavaScript</span><span class="tag">MySQL</span>
               </div>
@@ -605,7 +731,9 @@
             <div class="project-body">
               <div class="project-category">Web App / E-Commerce</div>
               <h3 class="project-name">Euphoria Bag</h3>
-              <p class="project-desc">E-commerce catalog platform for Euphoria Bag fashion products. Features elegant product showcase, catalog management, and a responsive design optimized for mobile shopping experience.</p>
+              <p class="project-desc">E-commerce catalog platform for Euphoria Bag fashion products. Features elegant
+                product showcase, catalog management, and a responsive design optimized for mobile shopping experience.
+              </p>
               <div class="project-tags">
                 <span class="tag">Laravel</span><span class="tag">JavaScript</span><span class="tag">MySQL</span>
               </div>
@@ -620,7 +748,9 @@
             <div class="project-body">
               <div class="project-category">Enterprise / Education</div>
               <h3 class="project-name">PPG Unesa</h3>
-              <p class="project-desc">Professional Teacher Education (PPG) management platform for Universitas Negeri Surabaya. Digitizes the teacher certification workflow with document management, progress tracking, and administrative reporting tools.</p>
+              <p class="project-desc">Professional Teacher Education (PPG) management platform for Universitas Negeri
+                Surabaya. Digitizes the teacher certification workflow with document management, progress tracking, and
+                administrative reporting tools.</p>
               <div class="project-tags">
                 <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">PostgreSQL</span>
               </div>
@@ -648,7 +778,8 @@
         <div class="certs-grid" id="certsGrid">
           <div class="cert-card reveal" data-category="organization">
             <div class="cert-thumb">
-              <img src="Img/sertifikat/Himpunan Mahasiswa Teknik Informatika - Choirul Ainul Ibad_page-0001.jpg" alt="HIMTI Certificate" loading="lazy" />
+              <img src="Img/sertifikat/Himpunan Mahasiswa Teknik Informatika - Choirul Ainul Ibad_page-0001.jpg"
+                alt="HIMTI Certificate" loading="lazy" />
             </div>
             <div class="cert-body">
               <span class="cert-category cat-organization">Organization</span>
@@ -670,7 +801,8 @@
 
           <div class="cert-card reveal" data-category="competition">
             <div class="cert-thumb">
-              <img src="Img/sertifikat/Sertifikat IBC - Choirul Ainul Ibad_page-0001.jpg" alt="IBC Certificate" loading="lazy" />
+              <img src="Img/sertifikat/Sertifikat IBC - Choirul Ainul Ibad_page-0001.jpg" alt="IBC Certificate"
+                loading="lazy" />
             </div>
             <div class="cert-body">
               <span class="cert-category cat-competition">Competition</span>
@@ -681,7 +813,8 @@
 
           <div class="cert-card reveal" data-category="competition">
             <div class="cert-thumb">
-              <img src="Img/sertifikat/IT Sport - Choirul Ainul Ibad_page-0001.jpg" alt="IT Sport Certificate" loading="lazy"
+              <img src="Img/sertifikat/IT Sport - Choirul Ainul Ibad_page-0001.jpg" alt="IT Sport Certificate"
+                loading="lazy"
                 onerror="this.parentElement.style.background='var(--bg-elevated)';this.style.display='none'" />
             </div>
             <div class="cert-body">
@@ -693,7 +826,8 @@
 
           <div class="cert-card reveal" data-category="academic">
             <div class="cert-thumb">
-              <img src="Img/sertifikat/Seminar Nasional Teknik Informatika - Choirul Ainul Ibad_page-0001.jpg" alt="National IT Seminar Certificate" loading="lazy" />
+              <img src="Img/sertifikat/Seminar Nasional Teknik Informatika - Choirul Ainul Ibad_page-0001.jpg"
+                alt="National IT Seminar Certificate" loading="lazy" />
             </div>
             <div class="cert-body">
               <span class="cert-category cat-academic">Academic</span>
@@ -704,7 +838,8 @@
 
           <div class="cert-card reveal" data-category="academic">
             <div class="cert-thumb">
-              <img src="Img/sertifikat/Job Show - Choirul Ainul Ibad_page-0001.jpg" alt="Job Show Certificate" loading="lazy" />
+              <img src="Img/sertifikat/Job Show - Choirul Ainul Ibad_page-0001.jpg" alt="Job Show Certificate"
+                loading="lazy" />
             </div>
             <div class="cert-body">
               <span class="cert-category cat-academic">Academic</span>
@@ -715,7 +850,8 @@
 
           <div class="cert-card reveal" data-category="competition">
             <div class="cert-thumb">
-              <img src="Img/sertifikat/Competines - Choirul Ainul Ibad_page-0001.jpg" alt="Competines Certificate" loading="lazy" />
+              <img src="Img/sertifikat/Competines - Choirul Ainul Ibad_page-0001.jpg" alt="Competines Certificate"
+                loading="lazy" />
             </div>
             <div class="cert-body">
               <span class="cert-category cat-competition">Competition</span>
@@ -726,7 +862,8 @@
 
           <div class="cert-card reveal" data-category="competition">
             <div class="cert-thumb">
-              <img src="Img/sertifikat/Informatic Championship - Choirul Ainul Ibad_page-0001.jpg" alt="Informatics Championship Certificate" loading="lazy" />
+              <img src="Img/sertifikat/Informatic Championship - Choirul Ainul Ibad_page-0001.jpg"
+                alt="Informatics Championship Certificate" loading="lazy" />
             </div>
             <div class="cert-body">
               <span class="cert-category cat-competition">Competition</span>
@@ -743,47 +880,95 @@
       <div class="container">
         <div class="section-label" aria-hidden="true">06 / Contact</div>
         <h2 class="section-title reveal" id="contact-title">Let's Collaborate</h2>
-        <p class="contact-intro reveal">Have an interesting project? Whether you need a developer for a new project, creative collaboration, or just want to connect — my inbox is always open.</p>
+        <p class="contact-intro reveal">Have an interesting project? Whether you need a developer for a new project,
+          creative collaboration, or just want to connect — my inbox is always open.</p>
 
         <div class="contact-socials">
-          <a href="https://www.instagram.com/ibbaaaaadd/" target="_blank" rel="noopener" class="contact-social-link reveal" aria-label="Instagram @ibbaaaaadd">
+          <a href="https://www.instagram.com/ibbaaaaadd/" target="_blank" rel="noopener"
+            class="contact-social-link reveal" aria-label="Instagram @ibbaaaaadd">
             <div class="social-icon-wrap" style="background:linear-gradient(135deg,#833AB4,#FD1D1D,#F77737)">
-              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
             </div>
-            <div><div class="social-name">Instagram</div><div class="social-handle">@ibbaaaaadd</div></div>
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            <div>
+              <div class="social-name">Instagram</div>
+              <div class="social-handle">@ibbaaaaadd</div>
+            </div>
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M7 7h10v10" />
+            </svg>
           </a>
 
-          <a href="https://wa.me/+6289519267028" target="_blank" rel="noopener" class="contact-social-link reveal" aria-label="WhatsApp 089519267028">
+          <a href="https://wa.me/+6289519267028" target="_blank" rel="noopener" class="contact-social-link reveal"
+            aria-label="WhatsApp 089519267028">
             <div class="social-icon-wrap" style="background:linear-gradient(135deg,#25D366,#128C7E)">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.488"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.488" />
+              </svg>
             </div>
-            <div><div class="social-name">WhatsApp</div><div class="social-handle">089519267028</div></div>
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            <div>
+              <div class="social-name">WhatsApp</div>
+              <div class="social-handle">089519267028</div>
+            </div>
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M7 7h10v10" />
+            </svg>
           </a>
 
-          <a href="https://www.linkedin.com/in/choirul-ainul-ibad-99b69b2a1/" target="_blank" rel="noopener" class="contact-social-link reveal" aria-label="LinkedIn Choirul Ainul Ibad">
+          <a href="https://www.linkedin.com/in/choirul-ainul-ibad-99b69b2a1/" target="_blank" rel="noopener"
+            class="contact-social-link reveal" aria-label="LinkedIn Choirul Ainul Ibad">
             <div class="social-icon-wrap" style="background:#0A66C2">
-              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
             </div>
-            <div><div class="social-name">LinkedIn</div><div class="social-handle">Choirul Ainul Ibad</div></div>
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            <div>
+              <div class="social-name">LinkedIn</div>
+              <div class="social-handle">Choirul Ainul Ibad</div>
+            </div>
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M7 7h10v10" />
+            </svg>
           </a>
 
-          <a href="https://github.com/Ibaaaadd/" target="_blank" rel="noopener" class="contact-social-link reveal" aria-label="GitHub Ibaaaadd">
+          <a href="https://github.com/Ibaaaadd/" target="_blank" rel="noopener" class="contact-social-link reveal"
+            aria-label="GitHub Ibaaaadd">
             <div class="social-icon-wrap" style="background:#24292E">
-              <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+              </svg>
             </div>
-            <div><div class="social-name">GitHub</div><div class="social-handle">Ibaaaadd</div></div>
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            <div>
+              <div class="social-name">GitHub</div>
+              <div class="social-handle">Ibaaaadd</div>
+            </div>
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M7 7h10v10" />
+            </svg>
           </a>
 
-          <a href="CV/CV Choirul Ainul Ibad.pdf" target="_blank" rel="noopener" class="contact-social-link reveal" aria-label="Download CV PDF">
+          <a href="CV/CV Choirul Ainul Ibad.pdf" target="_blank" rel="noopener" class="contact-social-link reveal"
+            aria-label="Download CV PDF">
             <div class="social-icon-wrap" style="background:var(--accent)">
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+              <svg viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="12" y1="18" x2="12" y2="12" />
+                <line x1="9" y1="15" x2="15" y2="15" />
+              </svg>
             </div>
-            <div><div class="social-name">Download CV</div><div class="social-handle">PDF Format</div></div>
-            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            <div>
+              <div class="social-name">Download CV</div>
+              <div class="social-handle">PDF Format</div>
+            </div>
+            <svg class="social-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M7 7h10v10" />
+            </svg>
           </a>
         </div>
       </div>
@@ -858,7 +1043,7 @@
       <span class="footer-copy">© 2025 Choirul Ainul Ibad. Crafted with passion.</span>
       <a href="#hero" class="back-to-top" aria-label="Back to top">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M18 15l-6-6-6 6"/>
+          <path d="M18 15l-6-6-6 6" />
         </svg>
       </a>
     </div>
@@ -866,30 +1051,48 @@
 
   <!-- Mobile Bottom Nav -->
   <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
-    <a href="#about"      class="mb-nav-item" data-section="about">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"/><path d="M20 21a8 8 0 10-16 0"/></svg>
+    <a href="#about" class="mb-nav-item" data-section="about">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="7" r="4" />
+        <path d="M20 21a8 8 0 10-16 0" />
+      </svg>
       <span>About</span>
     </a>
     <a href="#experience" class="mb-nav-item" data-section="experience">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="2" y="7" width="20" height="14" rx="2" />
+        <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
+      </svg>
       <span>Exp</span>
     </a>
     <a href="#hero" class="mb-nav-item mb-nav-home active" data-section="hero">
       <div class="mb-nav-home-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+          <polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
       </div>
       <span>Home</span>
     </a>
-    <a href="#projects"   class="mb-nav-item" data-section="projects">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+    <a href="#projects" class="mb-nav-item" data-section="projects">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="7" height="7" />
+        <rect x="14" y="3" width="7" height="7" />
+        <rect x="14" y="14" width="7" height="7" />
+        <rect x="3" y="14" width="7" height="7" />
+      </svg>
       <span>Projects</span>
     </a>
-    <a href="#contact"    class="mb-nav-item" data-section="contact">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <a href="#contact" class="mb-nav-item" data-section="contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+        <polyline points="22,6 12,13 2,6" />
+      </svg>
       <span>Contact</span>
     </a>
   </nav>
 
   <script src="script.js"></script>
 </body>
+
 </html>
