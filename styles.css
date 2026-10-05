@@ -2015,3 +2015,285 @@ footer {
 html.theme-transitioning * {
   transition: background-color 0s, color 0s, border-color 0s !important;
 }
+
+/* ═══════════════════════════════════════════════════════
+   PREMIUM ANIMATION ADDITIONS
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── SPOTLIGHT OVERLAY ─── */
+#spotlight {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.3s;
+}
+
+/* ─── FLOATING CODE SNIPPETS ─── */
+.floating-code-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floating-code {
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.05);
+  border: 1px solid rgba(var(--accent-rgb), 0.12);
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: floatCode linear infinite;
+  backdrop-filter: blur(2px);
+  user-select: none;
+}
+
+@keyframes floatCode {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  10% {
+    opacity: 0.55;
+  }
+  85% {
+    opacity: 0.45;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+}
+
+/* ─── 3D CARD INNER GLOW ─── */
+.card-inner-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+/* ─── SCRAMBLE CHAR STYLE ─── */
+.scramble-char {
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  opacity: 0.7;
+}
+
+/* ─── WORD-BY-WORD REVEAL ─── */
+.word-reveal-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.word-reveal-inner {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s ease;
+}
+
+/* ─── HERO MOUSE GRADIENT ─── */
+.hero-mouse-gradient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: background 0.05s linear;
+}
+
+/* ─── TIMELINE CARD ACCENT BAR ─── */
+.timeline-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-card-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--gradient-accent);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  transition: width 0.4s var(--ease-spring);
+  box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.5);
+}
+
+.timeline-card:hover .timeline-card-bar {
+  width: 100%;
+}
+
+/* ─── CONTACT CHAR ANIMATION ─── */
+.contact-char {
+  display: inline-block;
+  transition: transform 0.4s var(--ease-spring), color 0.3s;
+  transition-delay: calc(var(--i) * 0.03s);
+}
+
+#contact-title:hover .contact-char {
+  transform: translateY(-6px) rotate(-3deg);
+  color: var(--accent);
+}
+
+#contact-title:hover .contact-char:nth-child(even) {
+  transform: translateY(6px) rotate(3deg);
+}
+
+/* ─── MAGNETIC BUTTON EFFECT ─── */
+.btn {
+  will-change: transform;
+}
+
+/* ─── SKILL CARD ICON SPIN ─── */
+@keyframes iconSpin {
+  from { transform: rotate(0deg) scale(1); }
+  to   { transform: rotate(360deg) scale(1.1); }
+}
+
+.skill-card:hover .skill-icon-wrap {
+  animation: iconPulse 0.6s var(--ease-spring);
+}
+
+@keyframes iconPulse {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.15) rotate(-8deg); }
+  70%  { transform: scale(0.95) rotate(4deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* ─── ENHANCED ORB ANIMATIONS ─── */
+.hero-orb {
+  will-change: transform;
+  transition: none;
+}
+
+/* ─── SECTION LABEL GLOW PULSE ─── */
+.section-label {
+  position: relative;
+}
+
+.section-label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 32px;
+  height: 1px;
+  background: var(--accent);
+  animation: labelPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes labelPulse {
+  0%, 100% { opacity: 0.5; box-shadow: none; }
+  50%       { opacity: 1; box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.8); }
+}
+
+/* ─── HERO EYEBROW ENHANCED ─── */
+.hero-eyebrow {
+  min-height: 1.2em;
+  will-change: contents;
+}
+
+/* ─── SCROLL PROGRESS GLOW ─── */
+.scroll-progress {
+  animation: progressGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes progressGlow {
+  from { box-shadow: 0 0 6px rgba(var(--accent-rgb), 0.4); }
+  to   { box-shadow: 0 0 14px rgba(var(--accent-rgb), 0.8); }
+}
+
+/* ─── NAV LOGO SHIMMER ─── */
+.nav-logo {
+  background-size: 200% auto;
+  animation: logoShimmer 4s linear infinite;
+}
+
+@keyframes logoShimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ─── GRADIENT BACKGROUND ANIMATE ─── */
+body::before {
+  animation: gridShift 20s linear infinite;
+}
+
+@keyframes gridShift {
+  0%   { background-position: 0px 0px, 0px 0px; }
+  100% { background-position: 60px 60px, 60px 60px; }
+}
+
+/* ─── ABOUT STATS GLOW ON HOVER ─── */
+.stat-item:hover .stat-number {
+  filter: drop-shadow(0 0 12px rgba(var(--accent-rgb), 0.6));
+  background-size: 200% auto;
+  animation: statShimmer 1s linear infinite;
+}
+
+@keyframes statShimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ─── CERT CARD FLIP HOVER ─── */
+.cert-card {
+  transition:
+    transform 0.3s var(--ease-spring),
+    box-shadow 0.3s,
+    border-color 0.3s;
+}
+
+/* ─── PROJECT CARD SHIMMER LINE ─── */
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--accent-rgb), 0.05),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-card:hover::before {
+  animation: projectShimmer 0.7s ease forwards;
+}
+
+@keyframes projectShimmer {
+  from { left: -100%; }
+  to   { left: 150%; }
+}
+
+/* ─── REDUCED MOTION OVERRIDES ─── */
+@media (prefers-reduced-motion: reduce) {
+  .floating-code,
+  .hero-orb,
+  .about-badge,
+  .nav-logo,
+  .scroll-progress,
+  body::before {
+    animation: none !important;
+  }
+  .contact-char {
+    transition: none !important;
+  }
+}

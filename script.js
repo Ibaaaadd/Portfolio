@@ -758,11 +758,395 @@ function initHeroAnimation() {
   }
 })();
 
+/* ─── TEXT SCRAMBLE / GLITCH EFFECT ─── */
+(function initTextScramble() {
+  const chars = '!<>-_\\/[]{}—=+*^?#01アイウエオカキクケコ';
+
+  class TextScramble {
+    constructor(el) {
+      this.el = el;
+      this.originalText = el.textContent;
+      this.frame = 0;
+      this.queue = [];
+      this.resolve = null;
+      this.frameRequest = null;
+      this.update = this.update.bind(this);
+    }
+
+    setText(newText) {
+      const oldText = this.el.innerText;
+      const length = Math.max(oldText.length, newText.length);
+      const promise = new Promise(r => (this.resolve = r));
+      this.queue = [];
+      for (let i = 0; i < length; i++) {
+        const from = oldText[i] || '';
+        const to = newText[i] || '';
+        const start = Math.floor(Math.random() * 20);
+        const end = start + Math.floor(Math.random() * 20);
+        this.queue.push({ from, to, start, end });
+      }
+      cancelAnimationFrame(this.frameRequest);
+      this.frame = 0;
+      this.update();
+      return promise;
+    }
+
+    update() {
+      let output = '';
+      let complete = 0;
+      for (let i = 0, n = this.queue.length; i < n; i++) {
+        let { from, to, start, end, char } = this.queue[i];
+        if (this.frame >= end) {
+          complete++;
+          output += to;
+        } else if (this.frame >= start) {
+          if (!char || Math.random() < 0.28) {
+            char = chars[Math.floor(Math.random() * chars.length)];
+            this.queue[i].char = char;
+          }
+          output += `<span class="scramble-char">${char}</span>`;
+        } else {
+          output += from;
+        }
+      }
+      this.el.innerHTML = output;
+      if (complete === this.queue.length) {
+        this.resolve();
+      } else {
+        this.frameRequest = requestAnimationFrame(this.update);
+        this.frame++;
+      }
+    }
+  }
+
+  // Apply to hero eyebrow on load
+  const eyebrow = $('.hero-eyebrow');
+  if (eyebrow) {
+    const fx = new TextScramble(eyebrow);
+    const phrases = [
+      "Hello, I'm — Full Stack Developer",
+      "Building Scalable Web Apps",
+      "Laravel · Vue.js · React · Node.js",
+      "Hello, I'm — Full Stack Developer",
+    ];
+    let counter = 0;
+    const next = () => {
+      fx.setText(phrases[counter]).then(() => {
+        setTimeout(next, 3500);
+      });
+      counter = (counter + 1) % phrases.length;
+    };
+    // Start after hero animation completes
+    setTimeout(next, 2500);
+  }
+
+  // Apply to skill names on hover
+  $$('.skill-name').forEach(el => {
+    const fx = new TextScramble(el);
+    const original = el.textContent;
+    el.closest('.skill-card').addEventListener('mouseenter', () => {
+      fx.setText(original);
+    });
+  });
+})();
+
+/* ─── 3D TILT EFFECT ON CARDS ─── */
+(function initTiltEffect() {
+  if (window.matchMedia('(pointer:coarse)').matches) return;
+
+  const tiltCards = $$('.project-card, .cert-card, .about-badge, .stat-item');
+
+  tiltCards.forEach(card => {
+    card.style.transformStyle = 'preserve-3d';
+    card.style.transition = 'transform 0.1s ease';
+    card.style.willChange = 'transform';
+
+    // Add inner glow element
+    const glowEl = document.createElement('div');
+    glowEl.className = 'card-inner-glow';
+    card.style.position = 'relative';
+    card.style.overflow = 'hidden';
+    card.appendChild(glowEl);
+
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const cx = rect.width / 2;
+      const cy = rect.height / 2;
+      const rotX = ((y - cy) / cy) * -8;
+      const rotY = ((x - cx) / cx) * 8;
+
+      card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02,1.02,1.02)`;
+
+      // Move inner glow
+      const gx = (x / rect.width) * 100;
+      const gy = (y / rect.height) * 100;
+      glowEl.style.background = `radial-gradient(circle at ${gx}% ${gy}%, rgba(var(--accent-rgb),0.18) 0%, transparent 60%)`;
+      glowEl.style.opacity = '1';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      if (typeof gsap !== 'undefined') {
+        gsap.to(card, {
+          rotateX: 0, rotateY: 0, scale: 1,
+          duration: 0.6, ease: 'elastic.out(1,0.5)',
+          clearProps: 'transform'
+        });
+      } else {
+        card.style.transform = '';
+      }
+      glowEl.style.opacity = '0';
+    });
+  });
+})();
+
+/* ─── SPOTLIGHT CURSOR EFFECT ─── */
+(function initSpotlight() {
+  if (window.matchMedia('(pointer:coarse)').matches) return;
+
+  const spotlight = document.createElement('div');
+  spotlight.id = 'spotlight';
+  spotlight.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(spotlight);
+
+  let tx = -500, ty = -500;
+  let cx = -500, cy = -500;
+
+  document.addEventListener('mousemove', e => {
+    tx = e.clientX;
+    ty = e.clientY;
+  });
+
+  function animateSpotlight() {
+    cx = lerp(cx, tx, 0.08);
+    cy = lerp(cy, ty, 0.08);
+    spotlight.style.background = `radial-gradient(600px circle at ${cx}px ${cy}px, rgba(var(--accent-rgb),0.06), transparent 40%)`;
+    raf(animateSpotlight);
+  }
+  raf(animateSpotlight);
+})();
+
+/* ─── FLOATING CODE SNIPPETS IN HERO ─── */
+(function initFloatingCode() {
+  const hero = $('#hero');
+  if (!hero) return;
+
+  const snippets = [
+    'const ibad = new Developer();',
+    'git push origin main',
+    'npm run build',
+    'php artisan serve',
+    '{ "stack": "fullstack" }',
+    'SELECT * FROM projects;',
+    'v-for="project in projects"',
+    ':style="{ transform: tilt }"',
+    'async function deploy() {}',
+    'composer require laravel',
+    'import { ref } from "vue"',
+    'useEffect(() => {}, [])',
+  ];
+
+  const container = document.createElement('div');
+  container.className = 'floating-code-container';
+  container.setAttribute('aria-hidden', 'true');
+  hero.appendChild(container);
+
+  snippets.forEach((text, i) => {
+    const el = document.createElement('div');
+    el.className = 'floating-code';
+    el.textContent = text;
+
+    const side = Math.random() > 0.5;
+    el.style.cssText = `
+      top: ${10 + Math.random() * 80}%;
+      ${side ? 'left' : 'right'}: ${2 + Math.random() * 18}%;
+      animation-delay: ${i * 0.8}s;
+      animation-duration: ${12 + Math.random() * 8}s;
+      font-size: ${0.6 + Math.random() * 0.2}rem;
+      opacity: 0;
+    `;
+    container.appendChild(el);
+  });
+})();
+
+/* ─── PARALLAX ORBS ON SCROLL ─── */
+(function initParallaxOrbs() {
+  const orbs = [
+    { el: $('.hero-orb-1'), speed: 0.3 },
+    { el: $('.hero-orb-2'), speed: 0.5 },
+    { el: $('.hero-orb-3'), speed: 0.2 },
+  ];
+
+  const validOrbs = orbs.filter(o => o.el);
+  if (!validOrbs.length) return;
+
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    raf(() => {
+      const scrollY = window.scrollY;
+      validOrbs.forEach(({ el, speed }) => {
+        el.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`;
+      });
+      ticking = false;
+    });
+  }, { passive: true });
+
+  // Mouse parallax on hero
+  const hero = $('#hero');
+  if (!hero || window.matchMedia('(pointer:coarse)').matches) return;
+
+  hero.addEventListener('mousemove', e => {
+    const rect = hero.getBoundingClientRect();
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const dx = (e.clientX - rect.left - cx) / cx;
+    const dy = (e.clientY - rect.top - cy) / cy;
+
+    validOrbs.forEach(({ el, speed }, i) => {
+      const factor = (i + 1) * 15 * speed;
+      if (typeof gsap !== 'undefined') {
+        gsap.to(el, {
+          x: dx * factor,
+          y: dy * factor,
+          duration: 1.5,
+          ease: 'power2.out',
+        });
+      }
+    });
+  });
+})();
+
+/* ─── MORPHING HERO GRADIENT ─── */
+(function initMorphGradient() {
+  const hero = $('#hero');
+  if (!hero || window.matchMedia('(pointer:coarse)').matches) return;
+
+  const gradientEl = document.createElement('div');
+  gradientEl.className = 'hero-mouse-gradient';
+  gradientEl.setAttribute('aria-hidden', 'true');
+  hero.appendChild(gradientEl);
+
+  let tx = 50, ty = 50;
+  let cx = 50, cy = 50;
+
+  hero.addEventListener('mousemove', e => {
+    const rect = hero.getBoundingClientRect();
+    tx = ((e.clientX - rect.left) / rect.width) * 100;
+    ty = ((e.clientY - rect.top) / rect.height) * 100;
+  });
+
+  function animate() {
+    cx = lerp(cx, tx, 0.04);
+    cy = lerp(cy, ty, 0.04);
+    gradientEl.style.background = `radial-gradient(ellipse 60% 50% at ${cx}% ${cy}%, rgba(var(--accent-rgb),0.12) 0%, transparent 70%)`;
+    raf(animate);
+  }
+  raf(animate);
+})();
+
+/* ─── SECTION TITLE WORD-BY-WORD REVEAL ─── */
+(function initWordReveal() {
+  const titles = $$('.section-title');
+
+  titles.forEach(title => {
+    // Split into words
+    const text = title.textContent.trim();
+    const words = text.split(' ');
+    title.innerHTML = words
+      .map(word => `<span class="word-reveal-wrap"><span class="word-reveal-inner">${word}</span></span>`)
+      .join(' ');
+
+    const inners = $$('.word-reveal-inner', title);
+
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        if (typeof gsap !== 'undefined') {
+          gsap.fromTo(inners,
+            { yPercent: 110, opacity: 0 },
+            {
+              yPercent: 0, opacity: 1,
+              duration: 0.85,
+              stagger: 0.12,
+              ease: 'power4.out',
+            }
+          );
+        } else {
+          inners.forEach((el, i) => {
+            setTimeout(() => {
+              el.style.transform = 'translateY(0)';
+              el.style.opacity = '1';
+            }, i * 120);
+          });
+        }
+        obs.unobserve(title);
+      }
+    }, { threshold: 0.3 });
+
+    obs.observe(title);
+  });
+})();
+
+/* ─── MAGNETIC BUTTONS ─── */
+(function initMagneticButtons() {
+  if (window.matchMedia('(pointer:coarse)').matches) return;
+  if (typeof gsap === 'undefined') return;
+
+  $$('.btn, .skill-tab, .filter-btn').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const rect = btn.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) * 0.35;
+      const y = (e.clientY - rect.top - rect.height / 2) * 0.35;
+      gsap.to(btn, { x, y, duration: 0.3, ease: 'power2.out' });
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, { x: 0, y: 0, duration: 0.7, ease: 'elastic.out(1,0.4)' });
+    });
+  });
+})();
+
+/* ─── HOVER HIGHLIGHT LINE ANIMATION ─── */
+(function initTimelineHover() {
+  $$('.timeline-card').forEach(card => {
+    const bar = document.createElement('div');
+    bar.className = 'timeline-card-bar';
+    card.appendChild(bar);
+  });
+})();
+
+/* ─── CONTACT SECTION REVEAL LETTERS ─── */
+(function initContactTitle() {
+  const title = $('#contact-title');
+  if (!title) return;
+
+  const text = title.textContent;
+  title.innerHTML = [...text]
+    .map((ch, i) => ch === ' '
+      ? ' '
+      : `<span class="contact-char" style="--i:${i}">${ch}</span>`)
+    .join('');
+})();
+
+/* ─── SMOOTH NOISE ANIMATION ─── */
+(function initNoiseAnimation() {
+  const noise = $('.noise');
+  if (!noise) return;
+
+  let offset = 0;
+  function animNoise() {
+    offset += 0.5;
+    noise.style.backgroundPosition = `${offset % 300}px ${(offset * 0.7) % 300}px`;
+    raf(animNoise);
+  }
+  raf(animNoise);
+})();
+
 /* ─── DOM READY ENTRY POINT ─── */
 document.addEventListener('DOMContentLoaded', () => {
-  // Mark initial skill cards as visible after slight delay
-  // (handled in initSkillTabs)
-
   // Preload visible images only
   if ('loading' in HTMLImageElement.prototype) {
     $$('img[loading="lazy"]').forEach(img => {
