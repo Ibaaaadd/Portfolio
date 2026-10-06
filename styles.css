@@ -1145,6 +1145,27 @@ body.cursor-text .cursor-ring {
   transform: scale(1.2) rotate(-4deg);
 }
 
+/* SVG Icons */
+.ico {
+  width: 1em;
+  height: 1em;
+  display: block;
+  fill: currentColor;
+}
+
+.skill-icon-wrap .ico {
+  font-size: 1.65rem;
+  transition: transform 0.35s var(--ease-spring);
+}
+
+.skill-card:hover .skill-icon-wrap .ico {
+  transform: scale(1.2) rotate(-4deg);
+}
+
+.logo-item .ico {
+  font-size: 1.35rem;
+}
+
 .skill-icon-abbr {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.58rem;
@@ -1239,18 +1260,12 @@ body.cursor-text .cursor-ring {
   flex-shrink: 0;
 }
 
-/* devicon nextjs & express are dark — invert in dark mode so they're visible */
-[data-theme="dark"] .devicon-nextjs-plain,
-[data-theme="dark"] .devicon-express-original,
-[data-theme="dark"] .devicon-github-original,
-[data-theme="dark"] .devicon-linux-plain {
+/* Mono icons use currentColor and adapt to theme */
+[data-theme="dark"] .ico.mono {
   color: #e0e0e0;
 }
 
-[data-theme="light"] .devicon-nextjs-plain,
-[data-theme="light"] .devicon-express-original,
-[data-theme="light"] .devicon-github-original,
-[data-theme="light"] .devicon-linux-plain {
+[data-theme="light"] .ico.mono {
   color: #1a1a1a;
 }
 
@@ -2388,5 +2403,48 @@ body::before {
   }
   .contact-char {
     transition: none !important;
+  }
+}
+
+/* --- MOBILE PERFORMANCE OPTIMIZATIONS --- */
+@media (max-width: 768px), (pointer: coarse) {
+  /* Disable body grid animation (background-position on fixed full-screen element) */
+  body::before {
+    animation: none !important;
+  }
+  
+  /* Disable box-shadow animations (non-composited) */
+  @keyframes statusPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+  
+  .availability-dot {
+    animation: statusPulse 2s ease-in-out infinite;
+  }
+  
+  /* Simplify scroll pulse to composited properties only */
+  @keyframes scrollPulse {
+    0%   { transform: scaleY(0); opacity: 1; transform-origin: top; }
+    50%  { transform: scaleY(1); opacity: 0.8; transform-origin: top; }
+    51%  { transform: scaleY(1); opacity: 0.8; transform-origin: bottom; }
+    100% { transform: scaleY(0); opacity: 1; transform-origin: bottom; }
+  }
+  
+  /* Disable infinite marquee on mobile (heavy background-position) */
+  .logo-track,
+  .logo-track--reverse {
+    animation-play-state: paused;
+  }
+  
+  /* Disable orb float animations on mobile */
+  .hero-orb {
+    animation: none !important;
+  }
+  
+  /* Disable floating code animation on mobile */
+  .floating-code {
+    animation: none !important;
+    opacity: 0 !important;
   }
 }

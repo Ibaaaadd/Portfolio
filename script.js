@@ -44,7 +44,7 @@ function lerp(a, b, t) { return a + (b - a) * t; }
     if (progress >= target) progress = target;
 
     const pct = Math.min(Math.floor(progress), 100);
-    if (bar)   bar.style.width = pct + '%';
+    if (bar)   bar.style.transform = `scaleX(${pct / 100})`;
     if (count) count.textContent = pct + '%';
 
     if (progress < target) {
@@ -845,27 +845,25 @@ function initHeroAnimation() {
   // Apply to hero eyebrow on load
   const eyebrow = $('.hero-eyebrow');
   if (eyebrow) {
-    const textEl = document.createElement('span');
-    textEl.className = 'hero-eyebrow-text';
-    textEl.textContent = eyebrow.textContent.trim();
-    eyebrow.textContent = '';
-    eyebrow.appendChild(textEl);
-    const fx = new TextScramble(textEl);
-    const phrases = [
-      "Hello, I'm — Full Stack Developer",
-      "Building Scalable Web Apps",
-      "Laravel · Vue.js · React · Node.js",
-      "Hello, I'm — Full Stack Developer",
-    ];
-    let counter = 0;
-    const next = () => {
-      fx.setText(phrases[counter]).then(() => {
-        setTimeout(next, 3500);
-      });
-      counter = (counter + 1) % phrases.length;
-    };
-    // Start after hero animation completes
-    setTimeout(next, 2500);
+    const textEl = $('.hero-eyebrow-text', eyebrow);
+    if (textEl) {
+      const fx = new TextScramble(textEl);
+      const phrases = [
+        "Hello, I'm — Full Stack Developer",
+        "Building Scalable Web Apps",
+        "Laravel · Vue.js · React · Node.js",
+        "Hello, I'm — Full Stack Developer",
+      ];
+      let counter = 0;
+      const next = () => {
+        fx.setText(phrases[counter]).then(() => {
+          setTimeout(next, 3500);
+        });
+        counter = (counter + 1) % phrases.length;
+      };
+      // Start after hero animation completes
+      setTimeout(next, 2500);
+    }
   }
 
   // Apply to skill names on hover
@@ -1154,6 +1152,11 @@ function initHeroAnimation() {
 (function initNoiseAnimation() {
   const noise = $('.noise');
   if (!noise) return;
+  
+  // Disable on mobile/touch devices to save performance
+  if (window.matchMedia('(max-width: 768px)').matches || window.matchMedia('(pointer: coarse)').matches) {
+    return;
+  }
 
   let offset = 0;
   function animNoise() {
@@ -1164,14 +1167,4 @@ function initHeroAnimation() {
   raf(animNoise);
 })();
 
-/* ─── DOM READY ENTRY POINT ─── */
-document.addEventListener('DOMContentLoaded', () => {
-  // Preload visible images only
-  if ('loading' in HTMLImageElement.prototype) {
-    $$('img[loading="lazy"]').forEach(img => {
-      if (img.getBoundingClientRect().top < window.innerHeight * 2) {
-        img.loading = 'eager';
-      }
-    });
-  }
-});
+
