@@ -500,25 +500,6 @@ function initHeroAnimation() {
   }
 })();
 
-/* ─── PROJECT CARD MAGNETIC EFFECT ─── */
-(function initMagnetic() {
-  if (window.matchMedia('(pointer:coarse)').matches) return;
-  if (typeof gsap === 'undefined') return;
-
-  $$('.project-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left - rect.width  / 2) * 0.1;
-      const y = (e.clientY - rect.top  - rect.height / 2) * 0.1;
-      gsap.to(card, { x, y, duration: 0.4, ease: 'power2.out' });
-    });
-
-    card.addEventListener('mouseleave', () => {
-      gsap.to(card, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1,0.4)' });
-    });
-  });
-})();
-
 /* ─── SKILLS TABS ─── */
 (function initSkillTabs() {
   const tabs   = $$('.skill-tab');
@@ -654,6 +635,37 @@ function initHeroAnimation() {
   sections.forEach(s => obs.observe(s));
 })();
 
+/* ─── MOBILE NAV COLLAPSE AT FOOTER ─── */
+(function initNavCollapse() {
+  const nav = $('.mobile-bottom-nav');
+  const footer = $('footer');
+  if (!nav || !footer) return;
+
+  let atFooter = false;
+  let peek = false;
+  const render = () => nav.classList.toggle('is-collapsed', atFooter && !peek);
+
+  new IntersectionObserver(entries => {
+    atFooter = entries[0].isIntersecting;
+    peek = false;
+    render();
+  }, { threshold: 0.1 }).observe(footer);
+
+  // capture: cegah smooth-scroll anchor global ikut jalan saat tap bulatan
+  nav.addEventListener('click', e => {
+    if (nav.classList.contains('is-collapsed') && e.target.closest('.mb-nav-home')) {
+      e.preventDefault();
+      e.stopPropagation();
+      peek = true;
+      render();
+    }
+  }, true);
+
+  document.addEventListener('click', e => {
+    if (peek && !e.target.closest('.mobile-bottom-nav')) { peek = false; render(); }
+  });
+})();
+
 /* ─── GSAP SCROLL TRIGGER EXTRAS ─── */
 (function initGsapAnimations() {
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
@@ -676,15 +688,26 @@ function initHeroAnimation() {
     });
   });
 
-  // Timeline cards — alternating from sides
+  // Timeline cards — alternating from sides on desktop, fade-up on mobile
   $$('.timeline-card').forEach(card => {
+    const isMobile = window.matchMedia('(max-width: 1024px)').matches;
     const fromLeft = card.closest('.timeline-item-left');
-    gsap.from(card, {
-      x: fromLeft ? -60 : 60,
-      opacity: 0, duration: 0.8,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: card, start: 'top 84%', once: true }
-    });
+    
+    if (isMobile) {
+      gsap.from(card, {
+        y: 40,
+        opacity: 0, duration: 0.7,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: card, start: 'top 88%', once: true }
+      });
+    } else {
+      gsap.from(card, {
+        x: fromLeft ? -60 : 60,
+        opacity: 0, duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: card, start: 'top 84%', once: true }
+      });
+    }
   });
 
   // About stats pop-in with spring
@@ -760,7 +783,7 @@ function initHeroAnimation() {
 
 /* ─── TEXT SCRAMBLE / GLITCH EFFECT ─── */
 (function initTextScramble() {
-  const chars = '!<>-_\\/[]{}—=+*^?#01アイウエオカキクケコ';
+  const chars = '!<>-_\\/[]{}—=+*^?#01';
 
   class TextScramble {
     constructor(el) {
@@ -822,7 +845,12 @@ function initHeroAnimation() {
   // Apply to hero eyebrow on load
   const eyebrow = $('.hero-eyebrow');
   if (eyebrow) {
-    const fx = new TextScramble(eyebrow);
+    const textEl = document.createElement('span');
+    textEl.className = 'hero-eyebrow-text';
+    textEl.textContent = eyebrow.textContent.trim();
+    eyebrow.textContent = '';
+    eyebrow.appendChild(textEl);
+    const fx = new TextScramble(textEl);
     const phrases = [
       "Hello, I'm — Full Stack Developer",
       "Building Scalable Web Apps",
@@ -853,49 +881,40 @@ function initHeroAnimation() {
 /* ─── 3D TILT EFFECT ON CARDS ─── */
 (function initTiltEffect() {
   if (window.matchMedia('(pointer:coarse)').matches) return;
+  if (typeof gsap === 'undefined') return;
 
-  const tiltCards = $$('.project-card, .cert-card, .about-badge, .stat-item');
+  $$('.project-card, .cert-card, .about-badge, .stat-item').forEach(card => {
+    const isProject = card.classList.contains('project-card');
+    const maxTilt = isProject ? 3 : 5;
+    const hoverScale = isProject ? 1.01 : 1.03;
 
-  tiltCards.forEach(card => {
-    card.style.transformStyle = 'preserve-3d';
-    card.style.transition = 'transform 0.1s ease';
-    card.style.willChange = 'transform';
-
-    // Add inner glow element
-    const glowEl = document.createElement('div');
-    glowEl.className = 'card-inner-glow';
+    card.style.transition = 'border-color .3s, box-shadow .3s, background .3s';
     card.style.position = 'relative';
     card.style.overflow = 'hidden';
+
+    const glowEl = document.createElement('div');
+    glowEl.className = 'card-inner-glow';
     card.appendChild(glowEl);
 
+    gsap.set(card, { transformPerspective: 900, transformOrigin: 'center' });
+    const rotX = gsap.quickTo(card, 'rotationX', { duration: 0.7, ease: 'power3.out' });
+    const rotY = gsap.quickTo(card, 'rotationY', { duration: 0.7, ease: 'power3.out' });
+
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, { scale: hoverScale, duration: 0.5, ease: 'power2.out', overwrite: 'auto' });
+    });
     card.addEventListener('mousemove', e => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
-      const rotX = ((y - cy) / cy) * -8;
-      const rotY = ((x - cx) / cx) * 8;
-
-      card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02,1.02,1.02)`;
-
-      // Move inner glow
-      const gx = (x / rect.width) * 100;
-      const gy = (y / rect.height) * 100;
-      glowEl.style.background = `radial-gradient(circle at ${gx}% ${gy}%, rgba(var(--accent-rgb),0.18) 0%, transparent 60%)`;
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      rotX(-py * maxTilt * 2);
+      rotY(px * maxTilt * 2);
+      glowEl.style.background = `radial-gradient(circle at ${(px + 0.5) * 100}% ${(py + 0.5) * 100}%, rgba(var(--accent-rgb),0.15) 0%, transparent 60%)`;
       glowEl.style.opacity = '1';
     });
-
     card.addEventListener('mouseleave', () => {
-      if (typeof gsap !== 'undefined') {
-        gsap.to(card, {
-          rotateX: 0, rotateY: 0, scale: 1,
-          duration: 0.6, ease: 'elastic.out(1,0.5)',
-          clearProps: 'transform'
-        });
-      } else {
-        card.style.transform = '';
-      }
+      rotX(0); rotY(0);
+      gsap.to(card, { scale: 1, duration: 0.6, ease: 'power3.out', overwrite: 'auto' });
       glowEl.style.opacity = '0';
     });
   });
@@ -1098,8 +1117,8 @@ function initHeroAnimation() {
   $$('.btn, .skill-tab, .filter-btn').forEach(btn => {
     btn.addEventListener('mousemove', e => {
       const rect = btn.getBoundingClientRect();
-      const x = (e.clientX - rect.left - rect.width / 2) * 0.35;
-      const y = (e.clientY - rect.top - rect.height / 2) * 0.35;
+      const x = (e.clientX - rect.left - rect.width / 2) * 0.2;
+      const y = (e.clientY - rect.top - rect.height / 2) * 0.2;
       gsap.to(btn, { x, y, duration: 0.3, ease: 'power2.out' });
     });
 

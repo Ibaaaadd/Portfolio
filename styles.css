@@ -614,8 +614,11 @@ body.cursor-text .cursor-ring {
   margin-bottom: 1.5rem;
   overflow: hidden;
   white-space: nowrap;
-  min-width: 20rem;
-  max-width: 100%;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 0;
+  width: 100%;
+  contain: layout paint;
 }
 
 .hero-eyebrow::before {
@@ -623,6 +626,18 @@ body.cursor-text .cursor-ring {
   display: block;
   width: 40px; height: 1px;
   background: var(--accent);
+  flex-shrink: 0;
+}
+
+.hero-eyebrow-text {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scramble-char {
+  display: inline-block;
 }
 
 .hero-title {
@@ -1852,15 +1867,21 @@ footer {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  transition: color 0.25s var(--ease-in-out), background 0.25s var(--ease-in-out), transform 0.2s var(--ease-spring);
+  transition: color 0.25s var(--ease-in-out), background 0.25s var(--ease-in-out), transform 0.2s var(--ease-spring), width 0.4s var(--ease-in-out), padding 0.4s var(--ease-in-out), opacity 0.25s;
   -webkit-tap-highlight-color: transparent;
   flex-shrink: 0;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .mb-nav-item svg {
   width: 20px; height: 20px;
   flex-shrink: 0;
   transition: transform 0.3s var(--ease-spring);
+}
+
+.mb-nav-item span {
+  transition: opacity 0.2s, font-size 0.3s;
 }
 
 .mb-nav-item:active { transform: scale(0.92); }
@@ -1902,6 +1923,14 @@ footer {
 }
 
 .mb-nav-home:active .mb-nav-home-icon { transform: scale(0.93); }
+
+.mobile-bottom-nav.is-collapsed { gap: 0; padding: 5px; }
+.mobile-bottom-nav.is-collapsed .mb-nav-item:not(.mb-nav-home) {
+  width: 0; padding: 0; opacity: 0; pointer-events: none;
+}
+.mobile-bottom-nav.is-collapsed .mb-nav-home { width: 46px; height: 46px; padding: 0; gap: 0; }
+.mobile-bottom-nav.is-collapsed .mb-nav-home span { font-size: 0; opacity: 0; height: 0; }
+.mobile-bottom-nav.is-collapsed .mb-nav-home-icon { width: 46px; height: 46px; }
 
 @keyframes floatCenter {
   0%,100% { transform: translateY(0); }
@@ -1981,7 +2010,7 @@ footer {
   }
 
   .hero-title { font-size: clamp(2.4rem, 9vw, 3.5rem); }
-  .hero-eyebrow { min-width: 15rem; }
+  .hero-eyebrow { font-size: 0.66rem; letter-spacing: 0.12em; min-width: 0; }
 
   /* About stats: keep 3-col (numbers are compact enough) */
   .about-stats { padding: 1.25rem; gap: 1rem; }
@@ -2005,9 +2034,10 @@ footer {
 
   /* Mobile bottom nav */
   .mobile-bottom-nav { display: flex; }
-  body { padding-bottom: 96px; }
+  body { padding-bottom: 0; }
 
   /* Footer */
+  footer { padding-bottom: calc(5.5rem + env(safe-area-inset-bottom)); }
   footer .back-to-top { display: none; }
   .footer-inner { justify-content: center; text-align: center; }
 }
