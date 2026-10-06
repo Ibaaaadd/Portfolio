@@ -613,6 +613,9 @@ body.cursor-text .cursor-ring {
   gap: 0.75rem;
   margin-bottom: 1.5rem;
   overflow: hidden;
+  white-space: nowrap;
+  min-width: 20rem;
+  max-width: 100%;
 }
 
 .hero-eyebrow::before {
@@ -1978,9 +1981,16 @@ footer {
   }
 
   .hero-title { font-size: clamp(2.4rem, 9vw, 3.5rem); }
+  .hero-eyebrow { min-width: 15rem; }
 
   /* About stats: keep 3-col (numbers are compact enough) */
   .about-stats { padding: 1.25rem; gap: 1rem; }
+  
+  /* About tech badges: reduce to 2 columns for better fit */
+  .about-tech-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  .about-badge { font-size: 0.8rem; padding: 0.75rem 0.875rem; }
+  .about-badge-icon { width: 26px; height: 26px; }
+  .about-photo-wrap { gap: 1.25rem; }
 
   /* Skills */
   .skills-panel.active { grid-template-columns: 1fr 1fr; }
@@ -2004,6 +2014,13 @@ footer {
 
 /* Mobile portrait — extra tightening before 480px */
 @media (max-width: 580px) {
+  /* About tech badges: tighter spacing for smaller screens */
+  .about-tech-grid { gap: 0.5rem; }
+  .about-badge { font-size: 0.75rem; padding: 0.7rem 0.8rem; gap: 0.5rem; }
+  .about-badge-icon { width: 24px; height: 24px; }
+  .about-photo-frame { border-radius: 1.5rem; }
+  .about-photo-wrap { gap: 1rem; }
+
   /* Project cards */
   .project-body { padding: 1.1rem; }
   .project-name { font-size: 1rem; }
@@ -2033,8 +2050,14 @@ footer {
   /* About tech badges */
   .about-tech-grid { grid-template-columns: 1fr; gap: 0.5rem; }
   .about-badge { font-size: 0.85rem; padding: 0.875rem 1rem; }
+  
+  /* Education cards: tighter padding on small screens */
+  .edu-card { padding: 1rem 1.25rem; gap: 0.875rem; }
+  .edu-card-icon { width: 40px; height: 40px; }
 
   /* Skills: 1 col */
+  .skills-panel.active { grid-template-columns: 1fr; }
+  
   /* Certs: 1 col */
   .certs-grid { grid-template-columns: 1fr; }
 
