@@ -27,7 +27,18 @@ function lerp(a, b, t) { return a + (b - a) * t; }
 
   if (!preloader) return;
 
-  // Animate logo chars in
+  const hasSeenPreloader = sessionStorage.getItem('preloaderShown');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (hasSeenPreloader || prefersReducedMotion) {
+    preloader.style.display = 'none';
+    document.body.style.overflow = '';
+    initHeroAnimation();
+    return;
+  }
+
+  document.body.style.overflow = 'hidden';
+
   chars.forEach((ch, i) => {
     setTimeout(() => {
       ch.style.transform = 'translateY(0)';
@@ -35,29 +46,38 @@ function lerp(a, b, t) { return a + (b - a) * t; }
     }, 100);
   });
 
+  const startTime = Date.now();
+  const minDuration = 600;
+  const maxDuration = 1500;
   let progress = 0;
-  const target = 100;
-  const speed  = 1.8;
+  let fontsReady = false;
+
+  document.fonts.ready.then(() => { fontsReady = true; });
 
   function tick() {
-    progress += (target - progress) * 0.04 + speed * 0.1;
-    if (progress >= target) progress = target;
+    const elapsed = Date.now() - startTime;
+    progress += (100 - progress) * 0.05;
 
     const pct = Math.min(Math.floor(progress), 100);
-    if (bar)   bar.style.transform = `scaleX(${pct / 100})`;
+    if (bar) bar.style.transform = `scaleX(${pct / 100})`;
     if (count) count.textContent = pct + '%';
 
-    if (progress < target) {
-      raf(tick);
-    } else {
+    const shouldFinish = fontsReady && elapsed >= minDuration && progress >= 99;
+    const forceFinish = elapsed >= maxDuration;
+
+    if (shouldFinish || forceFinish) {
+      if (bar) bar.style.transform = 'scaleX(1)';
+      if (count) count.textContent = '100%';
       revealPage();
+    } else {
+      raf(tick);
     }
   }
 
-  // Start after a tiny delay so fonts load
-  setTimeout(() => raf(tick), 300);
+  setTimeout(() => raf(tick), 100);
 
   function revealPage() {
+    sessionStorage.setItem('preloaderShown', '1');
     setTimeout(() => {
       if (typeof gsap !== 'undefined') {
         gsap.to(preloader, {
@@ -72,17 +92,15 @@ function lerp(a, b, t) { return a + (b - a) * t; }
         });
       } else {
         preloader.style.transition = 'opacity 0.5s';
-        preloader.style.opacity    = '0';
+        preloader.style.opacity = '0';
         setTimeout(() => {
           preloader.style.display = 'none';
           document.body.style.overflow = '';
           initHeroAnimation();
         }, 500);
       }
-    }, 400);
+    }, 200);
   }
-
-  document.body.style.overflow = 'hidden';
 })();
 
 /* ─── CUSTOM CURSOR ─── */

@@ -5,6 +5,63 @@
    Motif: Geometric grid lines + grain noise texture
    ============================================================ */
 
+/* ─── SELF-HOSTED FONTS ─── */
+@font-face {
+  font-family: 'Syne';
+  src: url('fonts/syne-latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Syne';
+  src: url('fonts/syne-latin-800-normal.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('fonts/dm-sans-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('fonts/dm-sans-latin-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('fonts/dm-sans-latin-600-normal.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('fonts/jetbrains-mono-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('fonts/jetbrains-mono-latin-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ─── CUSTOM PROPERTIES ─── */
 :root {
   --bg-base:      #0A0A0F;
@@ -116,7 +173,7 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-family: 'DM Sans', 'DM Sans Fallback', -apple-system, sans-serif;
   background: var(--bg-base);
   color: var(--text-primary);
   line-height: 1.65;
@@ -193,7 +250,7 @@ body::before {
 }
 
 .preloader-logo {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Syne Fallback', sans-serif;
   font-size: clamp(3rem, 10vw, 7rem);
   font-weight: 800;
   letter-spacing: -0.05em;
@@ -260,7 +317,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
   font-size: 0.72rem;
   font-weight: 500;
   color: var(--accent);
@@ -275,7 +332,7 @@ body::before {
   position: absolute;
   bottom: 3rem;
   right: 3rem;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
   font-size: 0.8rem;
   color: var(--text-muted);
   letter-spacing: 0.1em;
@@ -354,7 +411,7 @@ body.cursor-text .cursor-ring {
 }
 
 .nav-logo {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Syne Fallback', sans-serif;
   font-size: 1.5rem;
   font-weight: 800;
   letter-spacing: -0.04em;
@@ -371,7 +428,7 @@ body.cursor-text .cursor-ring {
 .nav-logo:hover { opacity: 0.8; }
 
 .nav-logo-code {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
   font-size: 0.65rem;
   font-weight: 500;
   color: var(--accent);
@@ -511,7 +568,7 @@ body.cursor-text .cursor-ring {
 .mobile-menu.open { opacity:1; pointer-events:all; }
 
 .mobile-menu .nav-link {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Syne Fallback', sans-serif;
   font-size: clamp(1.5rem,6vw,2.5rem);
   font-weight: 700;
   padding: 0.75rem 2rem;
@@ -602,7 +659,7 @@ body.cursor-text .cursor-ring {
 }
 
 .hero-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -641,7 +698,7 @@ body.cursor-text .cursor-ring {
 }
 
 .hero-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Syne Fallback', sans-serif;
   font-size: clamp(3rem, 8vw, 7.5rem);
   font-weight: 800;
   line-height: 0.95;
@@ -698,7 +755,7 @@ body.cursor-text .cursor-ring {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   color: var(--text-muted);
@@ -790,7 +847,7 @@ body.cursor-text .cursor-ring {
 }
 
 .section-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -808,7 +865,7 @@ body.cursor-text .cursor-ring {
 }
 
 .section-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Syne Fallback', sans-serif;
   font-size: clamp(2.5rem,5vw,4rem);
   font-weight: 800;
   line-height: 1.05;
@@ -836,7 +893,7 @@ body.cursor-text .cursor-ring {
 .about-text-block { max-width: 560px; }
 
 .about-lead {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Syne Fallback', sans-serif;
   font-size: clamp(1.1rem,1.8vw,1.3rem);
   font-weight: 600;
   color: var(--text-primary);
@@ -865,7 +922,7 @@ body.cursor-text .cursor-ring {
 .stat-item { text-align: center; }
 
 .stat-number {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Syne Fallback', sans-serif;
   font-size: clamp(1.8rem,4vw,2.8rem);
   font-weight: 800;
   background: var(--gradient-accent);
@@ -1167,7 +1224,7 @@ body.cursor-text .cursor-ring {
 }
 
 .skill-icon-abbr {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
   font-size: 0.58rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -1365,7 +1422,7 @@ body.cursor-text .cursor-ring {
 .project-card:hover .project-overlay { opacity:1; }
 
 .project-overlay-text {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Syne Fallback', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   color: white;
@@ -1377,7 +1434,7 @@ body.cursor-text .cursor-ring {
 .project-body { padding: 1.5rem; flex: 1; display:flex; flex-direction:column; }
 
 .project-category {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -1386,7 +1443,7 @@ body.cursor-text .cursor-ring {
 }
 
 .project-name {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Syne Fallback', sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -1523,7 +1580,7 @@ body.cursor-text .cursor-ring {
 }
 
 .timeline-period {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
   font-size: 0.72rem;
   color: var(--accent);
   letter-spacing: 0.08em;
@@ -1534,7 +1591,7 @@ body.cursor-text .cursor-ring {
 }
 
 .timeline-role {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Syne Fallback', sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -1617,7 +1674,7 @@ body.cursor-text .cursor-ring {
 .cat-competition { background:rgba(245,158,11,0.12); color:#fbbf24; }
 
 .cert-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Syne Fallback', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -1785,7 +1842,7 @@ textarea ~ .form-label { top: 0.6rem; font-size: 0.72rem; }
 }
 
 .success-title {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Syne Fallback', sans-serif;
   font-size: 1.3rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -1811,7 +1868,7 @@ footer {
 }
 
 .footer-logo {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Syne', 'Syne Fallback', sans-serif;
   font-size: 1.2rem;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -2148,7 +2205,7 @@ html.theme-transitioning * {
 
 .floating-code {
   position: absolute;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
   color: var(--accent);
   background: rgba(var(--accent-rgb), 0.05);
   border: 1px solid rgba(var(--accent-rgb), 0.12);
@@ -2192,7 +2249,7 @@ html.theme-transitioning * {
 /* ─── SCRAMBLE CHAR STYLE ─── */
 .scramble-char {
   color: var(--accent);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
   opacity: 0.7;
 }
 
@@ -2447,4 +2504,32 @@ body::before {
     animation: none !important;
     opacity: 0 !important;
   }
+}
+
+/* --- FALLBACK FONTS WITH SIZE-ADJUST --- */
+@font-face {
+  font-family: 'Syne Fallback';
+  src: local('Arial');
+  size-adjust: 107%;
+  ascent-override: 95%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'DM Sans Fallback';
+  src: local('Arial');
+  size-adjust: 100%;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono Fallback';
+  src: local('Courier New');
+  size-adjust: 95%;
+  ascent-override: 88%;
+  descent-override: 22%;
+  line-gap-override: 0%;
 }
