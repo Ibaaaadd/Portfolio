@@ -1286,8 +1286,10 @@ body.cursor-text .cursor-ring {
   100% { transform: translateX(0); }
 }
 
-.logo-marquee-wrap:hover .logo-track {
-  animation-play-state: paused;
+@media (hover: hover) and (pointer: fine) {
+  .logo-marquee-wrap:hover .logo-track {
+    animation-play-state: paused;
+  }
 }
 
 .logo-item {
@@ -2477,12 +2479,6 @@ body::before {
   /* Disable logo shimmer on mobile */
   .nav-logo {
     animation: none !important;
-  }
-  
-  /* Disable infinite marquee on mobile (heavy background-position) */
-  .logo-track,
-  .logo-track--reverse {
-    animation-play-state: paused;
   }
   
   /* Disable orb float animations on mobile */
