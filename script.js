@@ -9,6 +9,7 @@
 /* ─── GSAP REGISTRATION ─── */
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
 }
 
 /* ─── UTILITIES ─── */
@@ -47,8 +48,8 @@ function lerp(a, b, t) { return a + (b - a) * t; }
   });
 
   const startTime = Date.now();
-  const minDuration = 600;
-  const maxDuration = 1500;
+  const minDuration = 500;
+  const maxDuration = 1000;
   let progress = 0;
   let fontsReady = false;
 
@@ -56,7 +57,7 @@ function lerp(a, b, t) { return a + (b - a) * t; }
 
   function tick() {
     const elapsed = Date.now() - startTime;
-    progress += (100 - progress) * 0.05;
+    progress += (100 - progress) * 0.08;
 
     const pct = Math.min(Math.floor(progress), 100);
     if (bar) bar.style.transform = `scaleX(${pct / 100})`;
@@ -79,6 +80,7 @@ function lerp(a, b, t) { return a + (b - a) * t; }
   function revealPage() {
     sessionStorage.setItem('preloaderShown', '1');
     setTimeout(() => {
+      initHeroAnimation();
       if (typeof gsap !== 'undefined') {
         gsap.to(preloader, {
           y: '-100%',
@@ -87,7 +89,6 @@ function lerp(a, b, t) { return a + (b - a) * t; }
           onComplete: () => {
             preloader.style.display = 'none';
             document.body.style.overflow = '';
-            initHeroAnimation();
           }
         });
       } else {
@@ -96,10 +97,9 @@ function lerp(a, b, t) { return a + (b - a) * t; }
         setTimeout(() => {
           preloader.style.display = 'none';
           document.body.style.overflow = '';
-          initHeroAnimation();
         }, 500);
       }
-    }, 200);
+    }, 150);
   }
 })();
 
@@ -352,12 +352,14 @@ function initHeroAnimation() {
     });
   });
 
-  // Smooth scroll for all anchor links
+  // Smooth scroll for all anchor links (safe for href="#")
   document.addEventListener('click', e => {
     const a = e.target.closest('a[href^="#"]');
     if (!a) return;
     const id = a.getAttribute('href');
-    const target = $(id);
+    if (!id || id === '#') { e.preventDefault(); return; }
+    let target = null;
+    try { target = $(id); } catch (_) {}
     if (!target) return;
     e.preventDefault();
     const offset = target.getBoundingClientRect().top + window.scrollY - 80;
@@ -938,7 +940,7 @@ function initHeroAnimation() {
 
 /* ─── SPOTLIGHT CURSOR EFFECT ─── */
 (function initSpotlight() {
-  if (window.matchMedia('(pointer:coarse)').matches) return;
+  if (window.matchMedia('(pointer:coarse)').matches || window.matchMedia('(max-width:768px)').matches) return;
 
   const spotlight = document.createElement('div');
   spotlight.id = 'spotlight';
@@ -964,6 +966,7 @@ function initHeroAnimation() {
 
 /* ─── FLOATING CODE SNIPPETS IN HERO ─── */
 (function initFloatingCode() {
+  if (window.matchMedia('(pointer:coarse)').matches || window.matchMedia('(max-width:768px)').matches) return;
   const hero = $('#hero');
   if (!hero) return;
 
@@ -1183,6 +1186,28 @@ function initHeroAnimation() {
     raf(animNoise);
   }
   raf(animNoise);
+})();
+
+/* ─── DEBUG OVERLAY (hanya aktif dengan ?debug=1) ─── */
+(function () {
+  if (!location.search.includes('debug=1')) return;
+  const box = document.createElement('div');
+  box.style.cssText = 'position:fixed;top:env(safe-area-inset-top);left:0;right:0;z-index:2147483647;background:#000c;color:#0f0;font:11px monospace;padding:4px;pointer-events:none;white-space:pre-wrap;max-height:30vh;overflow:hidden';
+  document.body.appendChild(box);
+  const log = m => { box.textContent = (new Date().toLocaleTimeString() + ' ' + m + '\n' + box.textContent).slice(0, 900); };
+  const origTo = window.scrollTo.bind(window);
+  window.scrollTo = function (...a) { log('scrollTo ' + JSON.stringify(a[0])); return origTo(...a); };
+  const origInto = Element.prototype.scrollIntoView;
+  Element.prototype.scrollIntoView = function (...a) { log('scrollIntoView ' + (this.id || this.className)); return origInto.apply(this, a); };
+  let last = scrollY;
+  addEventListener('scroll', () => {
+    if (Math.abs(scrollY - last) > 500) log('JUMP ' + Math.round(last) + ' -> ' + Math.round(scrollY));
+    last = scrollY;
+  }, { passive: true });
+  addEventListener('resize', () => log('resize ' + innerWidth + 'x' + innerHeight));
+  addEventListener('pageshow', e => log('pageshow persisted=' + e.persisted));
+  addEventListener('hashchange', () => log('hashchange ' + location.hash));
+  document.addEventListener('click', e => { const a = e.target.closest('a'); if (a) log('click ' + a.getAttribute('href')); }, true);
 })();
 
 

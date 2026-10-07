@@ -168,8 +168,6 @@
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 
 html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -178,6 +176,7 @@ body {
   color: var(--text-primary);
   line-height: 1.65;
   overflow-x: hidden;
+  overflow-x: clip;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -232,7 +231,7 @@ body::before {
   transform-origin: left;
   transform: scaleX(0);
   background: var(--gradient-accent);
-  box-shadow: 0 0 10px rgba(var(--accent-rgb),0.5);
+  box-shadow: 0 0 8px rgba(var(--accent-rgb),0.4);
   will-change: transform;
 }
 
@@ -595,6 +594,7 @@ body.cursor-text .cursor-ring {
 #hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -766,14 +766,14 @@ body.cursor-text .cursor-ring {
   width: 1px;
   height: 60px;
   background: linear-gradient(to bottom, var(--accent), transparent);
+  transform-origin: top;
   animation: scrollPulse 2s ease-in-out infinite;
 }
 
 @keyframes scrollPulse {
-  0%   { transform: scaleY(0); transform-origin: top; }
-  50%  { transform: scaleY(1); transform-origin: top; }
-  51%  { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
+  0%   { transform: scaleY(0); opacity: 0.4; }
+  50%  { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(0); opacity: 0.4; }
 }
 
 /* ─── BUTTONS ─── */
@@ -2369,25 +2369,19 @@ html.theme-transitioning * {
   will-change: contents;
 }
 
-/* ─── SCROLL PROGRESS GLOW ─── */
-.scroll-progress {
-  animation: progressGlow 2s ease-in-out infinite alternate;
-}
+/* ─── SCROLL PROGRESS (static, no glow animation) ─── */
 
-@keyframes progressGlow {
-  from { box-shadow: 0 0 6px rgba(var(--accent-rgb), 0.4); }
-  to   { box-shadow: 0 0 14px rgba(var(--accent-rgb), 0.8); }
-}
-
-/* ─── NAV LOGO SHIMMER ─── */
-.nav-logo {
-  background-size: 200% auto;
-  animation: logoShimmer 4s linear infinite;
-}
-
-@keyframes logoShimmer {
-  0%   { background-position: 0% center; }
-  100% { background-position: 200% center; }
+/* ─── NAV LOGO (shimmer disabled on mobile) ─── */
+@media (pointer: fine) {
+  .nav-logo {
+    background-size: 200% auto;
+    animation: logoShimmer 4s linear infinite;
+  }
+  
+  @keyframes logoShimmer {
+    0%   { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
 }
 
 /* ─── GRADIENT BACKGROUND ANIMATE ─── */
@@ -2480,12 +2474,9 @@ body::before {
     animation: statusPulse 2s ease-in-out infinite;
   }
   
-  /* Simplify scroll pulse to composited properties only */
-  @keyframes scrollPulse {
-    0%   { transform: scaleY(0); opacity: 1; transform-origin: top; }
-    50%  { transform: scaleY(1); opacity: 0.8; transform-origin: top; }
-    51%  { transform: scaleY(1); opacity: 0.8; transform-origin: bottom; }
-    100% { transform: scaleY(0); opacity: 1; transform-origin: bottom; }
+  /* Disable logo shimmer on mobile */
+  .nav-logo {
+    animation: none !important;
   }
   
   /* Disable infinite marquee on mobile (heavy background-position) */
@@ -2532,4 +2523,20 @@ body::before {
   ascent-override: 88%;
   descent-override: 22%;
   line-gap-override: 0%;
+}
+
+/* --- MOBILE SAFARI SCROLL FIX --- */
+@media (max-width: 768px), (pointer: coarse) {
+  .hero-orb,
+  .floating-code-container,
+  .noise { display: none; }
+
+  .project-card,
+  .btn { will-change: auto; }
+
+  #nav.scrolled {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--nav-bg-scrolled);
+  }
 }
