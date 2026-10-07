@@ -24,7 +24,6 @@ function lerp(a, b, t) { return a + (b - a) * t; }
   const preloader = $('#preloader');
   const bar       = $('#preloaderBar');
   const count     = $('#preloaderCount');
-  const chars     = $$('.preloader-logo span');
 
   if (!preloader) return;
 
@@ -39,13 +38,6 @@ function lerp(a, b, t) { return a + (b - a) * t; }
   }
 
   document.body.style.overflow = 'hidden';
-
-  chars.forEach((ch, i) => {
-    setTimeout(() => {
-      ch.style.transform = 'translateY(0)';
-      ch.style.transition = `transform 0.6s cubic-bezier(0.34,1.56,0.64,1) ${i * 0.08}s`;
-    }, 100);
-  });
 
   const startTime = Date.now();
   const minDuration = 500;
@@ -316,41 +308,16 @@ function initHeroAnimation() {
 /* ─── NAVIGATION ─── */
 (function initNav() {
   const nav       = $('#nav');
-  const hamburger = $('#navHamburger');
-  const mobileMenu= $('#mobileMenu');
   const allNavLinks = $$('[data-section]');
   const sections    = $$('section[id]');
 
   // Scroll: add .scrolled class
-  let lastY = 0;
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
     if (nav) {
       nav.classList.toggle('scrolled', y > 60);
     }
-    lastY = y;
   }, { passive: true });
-
-  // Hamburger toggle
-  if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = hamburger.classList.contains('open');
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', !isOpen);
-      document.body.style.overflow = isOpen ? '' : 'hidden';
-    });
-  }
-
-  // Close menu on link click
-  $$('.mobile-menu .nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger && hamburger.classList.remove('open');
-      hamburger && hamburger.setAttribute('aria-expanded', 'false');
-      mobileMenu && mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
 
   // Smooth scroll for all anchor links (safe for href="#")
   document.addEventListener('click', e => {
@@ -589,50 +556,6 @@ function initHeroAnimation() {
         }
       });
     });
-  });
-})();
-
-/* ─── CONTACT FORM ─── */
-(function initContactForm() {
-  const form    = $('#contactForm');
-  const success = $('#formSuccess');
-  if (!form) return;
-
-  function validate(input) {
-    const v = input.value.trim();
-    let ok = true;
-    if (input.required && !v)                  ok = false;
-    if (input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) ok = false;
-    if (input.minLength && v.length < input.minLength) ok = false;
-    input.classList.toggle('valid',   ok && v.length > 0);
-    input.classList.toggle('invalid', !ok && v.length > 0);
-    return ok;
-  }
-
-  // Real-time validation
-  $$('input, textarea', form).forEach(input => {
-    input.addEventListener('input', () => validate(input));
-    input.addEventListener('blur',  () => { if (input.value) validate(input); });
-  });
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const inputs = $$('input, textarea', form);
-    const allValid = inputs.every(validate);
-    if (!allValid) {
-      const first = inputs.find(i => i.classList.contains('invalid'));
-      if (first) first.focus();
-      return;
-    }
-
-    // Simulate send (no actual backend)
-    const btn = form.querySelector('.form-submit');
-    if (btn) { btn.textContent = 'Mengirim...'; btn.disabled = true; }
-
-    setTimeout(() => {
-      form.style.display    = 'none';
-      success.classList.add('show');
-    }, 1200);
   });
 })();
 
@@ -1088,7 +1011,7 @@ function initHeroAnimation() {
 
 /* ─── SECTION TITLE WORD-BY-WORD REVEAL ─── */
 (function initWordReveal() {
-  const titles = $$('.section-title');
+  const titles = $$('.section-title:not(#contact-title)');
 
   titles.forEach(title => {
     // Split into words
