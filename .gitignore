@@ -4,3 +4,7 @@ node_modules/
 .env
 dist/
 build/
+lighthouse*.json
+CLEANUP_REPORT.md
+*-backup/
+*.report.*
