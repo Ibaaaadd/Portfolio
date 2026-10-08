@@ -655,34 +655,44 @@ function initHeroAnimation() {
   sections.forEach(s => obs.observe(s));
 })();
 
-/* ─── MOBILE NAV COLLAPSE AT FOOTER ─── */
+/* ─── MOBILE NAV: PILL ⇄ BULATAN DI FOOTER ─── */
 (function initNavCollapse() {
-  const nav = $('.mobile-bottom-nav');
+  const nav    = $('.mobile-bottom-nav');
+  const fab    = $('#mbFab');
   const footer = $('footer');
-  if (!nav || !footer) return;
+  if (!nav || !fab || !footer) return;
 
   let atFooter = false;
-  let peek = false;
-  const render = () => nav.classList.toggle('is-collapsed', atFooter && !peek);
+  let open = false;   // user membuka menu saat di footer
+  let timer;
 
-  new IntersectionObserver(entries => {
-    atFooter = entries[0].isIntersecting;
-    peek = false;
-    render();
+  const render = () => {
+    const collapsed = atFooter && !open;
+    nav.classList.toggle('is-collapsed', collapsed);
+    fab.classList.toggle('is-visible', collapsed);
+    fab.setAttribute('aria-expanded', String(!collapsed));
+  };
+
+  // debounce kecil agar rubber-band scroll iOS tidak memicu bolak-balik
+  new IntersectionObserver(([entry]) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      if (entry.isIntersecting !== atFooter) {
+        atFooter = entry.isIntersecting;
+        open = false;
+        render();
+      }
+    }, 80);
   }, { threshold: 0.1 }).observe(footer);
 
-  // capture: cegah smooth-scroll anchor global ikut jalan saat tap bulatan
-  nav.addEventListener('click', e => {
-    if (nav.classList.contains('is-collapsed') && e.target.closest('.mb-nav-home')) {
-      e.preventDefault();
-      e.stopPropagation();
-      peek = true;
+  fab.addEventListener('click', () => { open = true; render(); });
+
+  // tap di luar nav/FAB -> kembali jadi bulatan
+  document.addEventListener('click', e => {
+    if (open && !e.target.closest('.mobile-bottom-nav, .mb-fab')) {
+      open = false;
       render();
     }
-  }, true);
-
-  document.addEventListener('click', e => {
-    if (peek && !e.target.closest('.mobile-bottom-nav')) { peek = false; render(); }
   });
 })();
 

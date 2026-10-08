@@ -23,7 +23,7 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-  <link rel="stylesheet" href="styles.min.css?v=20261007" />
+  <link rel="stylesheet" href="styles.min.css" />
 </head>
 
 <body>
@@ -1174,7 +1174,7 @@
   </footer>
 
   <!-- Mobile Bottom Nav -->
-  <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+  <nav class="mobile-bottom-nav" id="mobileNav" aria-label="Mobile navigation">
     <a href="#about" class="mb-nav-item" data-section="about">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="7" r="4" />
@@ -1216,7 +1216,17 @@
     </a>
   </nav>
 
-  <script defer src="script.min.js?v=20261007"></script>
+  <button type="button" class="mb-fab" id="mbFab"
+    aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNav">
+    <span class="mb-nav-home-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+    </span>
+  </button>
+
+  <script defer src="script.min.js"></script>
 </body>
 
 </html>
