@@ -150,15 +150,21 @@ function lerp(a, b, t) { return a + (b - a) * t; }
 
   const ctx = canvas.getContext('2d');
   const isMobile = window.matchMedia('(max-width:768px)').matches;
-  const COUNT = isMobile ? 35 : 65;
+  const COUNT = isMobile ? 25 : 65;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let W, H, particles = [];
   let mouse = { x: -9999, y: -9999 };
   let animating = true;
+  let running = false;
 
   function resize() {
-    W = canvas.width  = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.offsetWidth;
+    H = canvas.offsetHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
   function mkParticle() {
@@ -178,7 +184,21 @@ function lerp(a, b, t) { return a + (b - a) * t; }
   }
 
   function draw() {
-    if (!animating) return;
+    if (!animating || document.hidden) return;
+    if (prefersReducedMotion && running) {
+      // Draw one static frame only
+      ctx.clearRect(0, 0, W, H);
+      const rgb = getAccentRgb();
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${rgb},${p.op})`;
+        ctx.fill();
+      });
+      return;
+    }
+    if (!running) return;
+    
     ctx.clearRect(0, 0, W, H);
     const rgb = getAccentRgb();
 
@@ -209,16 +229,17 @@ function lerp(a, b, t) { return a + (b - a) * t; }
       ctx.fill();
 
       // Connections
+      const maxDist = isMobile ? 90 : 110;
       for (let j = i + 1; j < particles.length; j++) {
         const q  = particles[j];
         const ex = p.x - q.x;
         const ey = p.y - q.y;
         const ed = Math.sqrt(ex * ex + ey * ey);
-        if (ed < 110) {
+        if (ed < maxDist) {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = `rgba(${rgb},${0.14 * (1 - ed / 110)})`;
+          ctx.strokeStyle = `rgba(${rgb},${0.14 * (1 - ed / maxDist)})`;
           ctx.lineWidth = 0.6;
           ctx.stroke();
         }
@@ -244,8 +265,28 @@ function lerp(a, b, t) { return a + (b - a) * t; }
     mouse.y = e.clientY - rect.top;
   });
 
+  // Touch interaction for mobile
+  canvas.addEventListener('touchmove', e => {
+    e.preventDefault();
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+    mouse.x = touch.clientX - rect.left;
+    mouse.y = touch.clientY - rect.top;
+  }, { passive: false });
+
+  canvas.addEventListener('touchend', () => {
+    mouse.x = -9999;
+    mouse.y = -9999;
+  }, { passive: true });
+
+  document.addEventListener('pointerleave', () => {
+    mouse.x = -9999;
+    mouse.y = -9999;
+  });
+
   resize();
   for (let i = 0; i < COUNT; i++) particles.push(mkParticle());
+  running = true;
   raf(draw);
 
   let resizeTO;
@@ -899,11 +940,13 @@ function initHeroAnimation() {
 
 /* ─── FLOATING CODE SNIPPETS IN HERO ─── */
 (function initFloatingCode() {
-  if (window.matchMedia('(pointer:coarse)').matches || window.matchMedia('(max-width:768px)').matches) return;
   const hero = $('#hero');
   if (!hero) return;
 
-  const snippets = [
+  const isMobile = window.matchMedia('(max-width:768px)').matches;
+  const isTouch = window.matchMedia('(pointer:coarse)').matches;
+
+  const allSnippets = [
     'const ibad = new Developer();',
     'git push origin main',
     'npm run build',
@@ -918,27 +961,45 @@ function initHeroAnimation() {
     'useEffect(() => {}, [])',
   ];
 
+  // Mobile: only 4-5 snippets, smaller, positioned carefully
+  const snippets = (isMobile || isTouch) ? allSnippets.slice(0, 5) : allSnippets;
+
   const container = document.createElement('div');
   container.className = 'floating-code-container';
   container.setAttribute('aria-hidden', 'true');
-  hero.appendChild(container);
+  
+  // Use whenIdle for mobile to defer creation
+  const createSnippets = () => {
+    snippets.forEach((text, i) => {
+      const el = document.createElement('div');
+      el.className = 'floating-code';
+      el.textContent = text;
 
-  snippets.forEach((text, i) => {
-    const el = document.createElement('div');
-    el.className = 'floating-code';
-    el.textContent = text;
+      const side = Math.random() > 0.5;
+      const topPos = (isMobile || isTouch) ? (60 + Math.random() * 20) : (10 + Math.random() * 80);
+      el.style.cssText = `
+        top: ${topPos}%;
+        ${side ? 'left' : 'right'}: ${2 + Math.random() * 18}%;
+        animation-delay: ${i * 0.8}s;
+        animation-duration: ${12 + Math.random() * 8}s;
+        font-size: ${(isMobile || isTouch) ? 0.65 : (0.6 + Math.random() * 0.2)}rem;
+        opacity: 0;
+      `;
+      container.appendChild(el);
+    });
+    hero.appendChild(container);
+  };
 
-    const side = Math.random() > 0.5;
-    el.style.cssText = `
-      top: ${10 + Math.random() * 80}%;
-      ${side ? 'left' : 'right'}: ${2 + Math.random() * 18}%;
-      animation-delay: ${i * 0.8}s;
-      animation-duration: ${12 + Math.random() * 8}s;
-      font-size: ${0.6 + Math.random() * 0.2}rem;
-      opacity: 0;
-    `;
-    container.appendChild(el);
-  });
+  // Defer on mobile, immediate on desktop
+  if (isMobile || isTouch) {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(createSnippets, { timeout: 2000 });
+    } else {
+      setTimeout(createSnippets, 1500);
+    }
+  } else {
+    createSnippets();
+  }
 })();
 
 /* ─── PARALLAX ORBS ON SCROLL ─── */
