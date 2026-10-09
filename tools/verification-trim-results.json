@@ -1,0 +1,68 @@
+[
+  {
+    "scenario": "desktop-1440-dark",
+    "currentSrc": "ibad-cutout-trim.webp",
+    "headPositionPct": 0,
+    "ratioDiffPct": 0.07,
+    "headCheck": true,
+    "ratioCheck": true,
+    "shadowCheck": true,
+    "borderCheck": true,
+    "allPassed": true
+  },
+  {
+    "scenario": "desktop-1440-light",
+    "currentSrc": "ibad-cutout-trim.webp",
+    "headPositionPct": 0,
+    "ratioDiffPct": 0.07,
+    "headCheck": true,
+    "ratioCheck": true,
+    "shadowCheck": true,
+    "borderCheck": true,
+    "allPassed": true
+  },
+  {
+    "scenario": "mobile-375-dark",
+    "currentSrc": "ibad-cutout-trim.webp",
+    "headPositionPct": 0,
+    "ratioDiffPct": 0,
+    "headCheck": true,
+    "ratioCheck": true,
+    "shadowCheck": true,
+    "borderCheck": true,
+    "allPassed": true
+  },
+  {
+    "scenario": "mobile-375-light",
+    "currentSrc": "ibad-cutout-trim.webp",
+    "headPositionPct": 0,
+    "ratioDiffPct": 0,
+    "headCheck": true,
+    "ratioCheck": true,
+    "shadowCheck": true,
+    "borderCheck": true,
+    "allPassed": true
+  },
+  {
+    "scenario": "mobile-390-dark",
+    "currentSrc": "ibad-cutout-trim.webp",
+    "headPositionPct": 0,
+    "ratioDiffPct": 0,
+    "headCheck": true,
+    "ratioCheck": true,
+    "shadowCheck": true,
+    "borderCheck": true,
+    "allPassed": true
+  },
+  {
+    "scenario": "mobile-390-light",
+    "currentSrc": "ibad-cutout-trim.webp",
+    "headPositionPct": 0,
+    "ratioDiffPct": 0,
+    "headCheck": true,
+    "ratioCheck": true,
+    "shadowCheck": true,
+    "borderCheck": true,
+    "allPassed": true
+  }
+]

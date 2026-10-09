@@ -952,8 +952,9 @@ body.cursor-text .cursor-ring {
 
 .about-photo-wrap {
   position: relative;
-  width: 420px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 340px;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -962,17 +963,20 @@ body.cursor-text .cursor-ring {
 .about-photo-frame {
   position: relative;
   width: 100%;
-  padding-bottom: 100%;
-  border-radius: 2rem;
-  overflow: hidden;
-  background: var(--bg-surface);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 0 1px var(--border);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  aspect-ratio: 3 / 4;
+  padding-bottom: 0;
+  background: none;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  isolation: isolate;
+  transition: none;
 }
 
 .about-photo-frame:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.2), 0 0 0 1px var(--border-accent);
+  transform: none;
+  box-shadow: none;
 }
 
 .about-photo-frame img {
@@ -980,30 +984,24 @@ body.cursor-text .cursor-ring {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center top;
+  z-index: 1;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 35%, rgba(0,0,0,0.98) 45%, rgba(0,0,0,0.92) 55%, rgba(0,0,0,0.82) 65%, rgba(0,0,0,0.65) 75%, rgba(0,0,0,0.45) 85%, rgba(0,0,0,0.2) 92%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 35%, rgba(0,0,0,0.98) 45%, rgba(0,0,0,0.92) 55%, rgba(0,0,0,0.82) 65%, rgba(0,0,0,0.65) 75%, rgba(0,0,0,0.45) 85%, rgba(0,0,0,0.2) 92%, transparent 100%);
 }
 
 .about-photo-frame::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4) 100%);
-  z-index: 1;
-  opacity: 0.6;
+  inset: 30% -2% 0%;
+  background: radial-gradient(ellipse at center bottom, rgba(var(--accent-rgb), 0.15) 0%, rgba(var(--accent-rgb), 0.08) 50%, transparent 75%);
+  z-index: 0;
+  opacity: 1;
 }
 
 .about-deco-ring {
-  position: absolute;
-  inset: -12px;
-  border-radius: 2.25rem;
-  border: 2px solid transparent;
-  background: linear-gradient(135deg, var(--border-accent), transparent 60%) border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  opacity: 0.5;
+  display: none;
 }
 
 .about-badge {
@@ -1043,6 +1041,9 @@ body.cursor-text .cursor-ring {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
+  position: relative;
+  z-index: 2;
+  margin-top: -2.5rem;
 }
 
 .badge-1, .badge-2, .badge-3 {
@@ -2193,8 +2194,7 @@ footer {
   .about-tech-grid { gap: 0.5rem; }
   .about-badge { font-size: 0.75rem; padding: 0.7rem 0.8rem; gap: 0.5rem; }
   .about-badge-icon { width: 24px; height: 24px; }
-  .about-photo-frame { border-radius: 1.5rem; }
-  .about-photo-wrap { gap: 1rem; }
+  .about-photo-wrap { gap: 1rem; max-width: 260px; margin: 0 auto; }
 
   /* Project cards */
   .project-body { padding: 1.1rem; }

@@ -1,0 +1,34 @@
+[
+  {
+    "scenario": "desktop-1440-dark",
+    "currentSrc": "ibad-800.webp",
+    "naturalRatio": "0.7487",
+    "renderedRatio": "0.7487",
+    "ratioDiffPct": "0.00",
+    "pass": true
+  },
+  {
+    "scenario": "desktop-1440-light",
+    "currentSrc": "ibad-800.webp",
+    "naturalRatio": "0.7487",
+    "renderedRatio": "0.7487",
+    "ratioDiffPct": "0.00",
+    "pass": true
+  },
+  {
+    "scenario": "mobile-390-dark",
+    "currentSrc": "ibad-800.webp",
+    "naturalRatio": "0.7487",
+    "renderedRatio": "0.7489",
+    "ratioDiffPct": "0.03",
+    "pass": true
+  },
+  {
+    "scenario": "mobile-390-light",
+    "currentSrc": "ibad-800.webp",
+    "naturalRatio": "0.7487",
+    "renderedRatio": "0.7489",
+    "ratioDiffPct": "0.03",
+    "pass": true
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "originalWidth": 432,
+  "originalHeight": 577,
+  "bboxLeft": 135,
+  "bboxTop": 163,
+  "bboxWidth": 182,
+  "bboxHeight": 414,
+  "bboxRatio": "0.4396",
+  "marginTop": 163,
+  "marginBottom": 0,
+  "marginLeft": 135,
+  "marginRight": 115,
+  "marginTopPct": "28.2",
+  "marginBottomPct": "0.0",
+  "marginLeftPct": "31.3",
+  "marginRightPct": "26.6",
+  "cropLeft": 131,
+  "cropTop": 151,
+  "cropWidth": 190,
+  "cropHeight": 426,
+  "paddingTop": 12,
+  "paddingLeftRight": 4
+}
