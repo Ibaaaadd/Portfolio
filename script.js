@@ -298,15 +298,19 @@ function lerp(a, b, t) { return a + (b - a) * t; }
 
 /* ─── HERO ENTRANCE ANIMATION ─── */
 function initHeroAnimation() {
-  const chars    = $$('.hero-title .char');
-  const eyebrow  = $('.hero-eyebrow');
-  const subP     = $('.hero-sub p');
-  const ctaWrap  = $('.hero-cta-inner');
-  const scroll   = $('#heroScroll');
+  const chars        = $$('.hero-title .char');
+  const pill         = $('.hero-status-pill');
+  const eyebrow      = $('.hero-eyebrow');
+  const subP         = $('.hero-sub p');
+  const ctaWrap      = $('.hero-cta-inner');
+  const metrics      = $('.hero-metrics');
+  const photoCard    = $('.hero-photo-container');
+  const badges       = $$('.hero-floating-badge');
+  const scroll       = $('#heroScroll');
 
   if (typeof gsap === 'undefined') {
     // CSS fallback
-    [eyebrow, subP, ctaWrap, scroll].forEach(el => {
+    [pill, eyebrow, subP, ctaWrap, metrics, photoCard, ...badges, scroll].forEach(el => {
       if (el) { el.style.opacity = '1'; el.style.transform = 'none'; }
     });
     chars.forEach(c => { c.style.transform = 'translateY(0)'; });
@@ -315,8 +319,9 @@ function initHeroAnimation() {
 
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-  // Eyebrow
-  tl.from(eyebrow, { y: 20, opacity: 0, duration: 0.6 }, 0);
+  // Status Pill & Eyebrow
+  if (pill) tl.from(pill, { y: -15, opacity: 0, duration: 0.6 }, 0);
+  tl.from(eyebrow, { y: 20, opacity: 0, duration: 0.6 }, 0.1);
 
   // Characters stagger
   tl.to(chars, {
@@ -332,9 +337,59 @@ function initHeroAnimation() {
   // CTA
   tl.to(ctaWrap, { y: 0, opacity: 1, duration: 0.6 }, 0.85);
 
+  // Metrics
+  if (metrics) tl.from(metrics, { y: 20, opacity: 0, duration: 0.6 }, 0.95);
+
+  // Right column photo card
+  if (photoCard) {
+    tl.from(photoCard, {
+      y: 40,
+      scale: 0.94,
+      opacity: 0,
+      duration: 1.1,
+      ease: 'power3.out'
+    }, 0.35);
+  }
+
+  // Floating badges
+  if (badges.length) {
+    tl.from(badges, {
+      y: 25,
+      scale: 0.85,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: 'back.out(1.6)'
+    }, 0.75);
+  }
+
   // Scroll indicator
-  tl.to(scroll, { opacity: 1, duration: 0.5 }, 1.1);
+  tl.to(scroll, { opacity: 1, duration: 0.5 }, 1.2);
 }
+
+/* ─── HERO 3D TILT EFFECT ─── */
+(function initHeroTilt() {
+  const container = $('.hero-photo-container');
+  const hero = $('#hero');
+  if (!container || !hero || window.matchMedia('(pointer: coarse)').matches) return;
+
+  hero.addEventListener('mousemove', e => {
+    const rect = container.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = (e.clientX - cx) / (window.innerWidth / 2);
+    const dy = (e.clientY - cy) / (window.innerHeight / 2);
+
+    const tiltX = -dy * 8;
+    const tiltY = dx * 8;
+
+    container.style.transform = `rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg)`;
+  });
+
+  hero.addEventListener('mouseleave', () => {
+    container.style.transform = 'rotateX(0deg) rotateY(0deg)';
+  });
+})();
 
 /* ─── SCROLL PROGRESS ─── */
 (function initScrollProgress() {

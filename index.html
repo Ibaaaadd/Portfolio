@@ -23,7 +23,7 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-  <link rel="stylesheet" href="styles.min.css?v=20261009-final" />
+  <link rel="stylesheet" href="styles.min.css?v=20261028-hero-transparent" />
 </head>
 
 <body>
@@ -218,40 +218,111 @@
       </div>
 
       <div class="hero-inner">
-        <p class="hero-eyebrow" aria-hidden="true"><span class="hero-eyebrow-text">Hello, I'm &mdash; Full Stack Developer</span></p>
+        <div class="hero-grid">
+          <!-- Left Column: Content -->
+          <div class="hero-content">
 
-        <h1 class="hero-title" id="hero-title">
-          <span class="word">
-            <span class="char">C</span><span class="char">h</span><span class="char">o</span><span
-              class="char">i</span><span class="char">r</span><span class="char">u</span><span class="char">l</span>
-          </span>
-          <span style="display:inline-block;width:0.3em"></span>
-          <span class="word">
-            <span class="char">A</span><span class="char">i</span><span class="char">n</span><span
-              class="char">u</span><span class="char">l</span>
-          </span>
-          <br />
-          <span class="word accent-word">
-            <span class="char">I</span><span class="char">b</span><span class="char">a</span><span class="char">d</span>
-          </span>
-        </h1>
+            <h1 class="hero-title" id="hero-title">
+              <span class="word">
+                <span class="char">C</span><span class="char">h</span><span class="char">o</span><span
+                  class="char">i</span><span class="char">r</span><span class="char">u</span><span class="char">l</span>
+              </span>
+              <span style="display:inline-block;width:0.3em"></span>
+              <span class="word">
+                <span class="char">A</span><span class="char">i</span><span class="char">n</span><span
+                  class="char">u</span><span class="char">l</span>
+              </span>
+              <br />
+              <span class="word accent-word">
+                <span class="char">I</span><span class="char">b</span><span class="char">a</span><span class="char">d</span>
+              </span>
+            </h1>
 
-        <div class="hero-sub">
-          <p>Building scalable web applications with clean architecture and purposeful design.</p>
-        </div>
+            <div class="hero-sub">
+              <p>Crafting high-impact web applications with scalable backend architecture, elegant interfaces, and modern full-stack performance.</p>
+            </div>
 
-        <div class="hero-cta">
-          <div class="hero-cta-inner">
-            <a href="#projects" class="btn btn-primary" aria-label="View my work">
-              View Work
-              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                aria-hidden="true">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
-            <a href="#contact" class="btn btn-ghost" aria-label="Get in touch">
-              Get in Touch
-            </a>
+            <div class="hero-cta">
+              <div class="hero-cta-inner">
+                <a href="#projects" class="btn btn-primary" aria-label="View my work">
+                  <span>View Projects</span>
+                  <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a href="#contact" class="btn btn-ghost" aria-label="Get in touch">
+                  Get in Touch
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-metrics">
+              <div class="hero-metric-item">
+                <span class="hero-metric-num">4+</span>
+                <span class="hero-metric-label">Years Experience</span>
+              </div>
+              <div class="hero-metric-sep" aria-hidden="true"></div>
+              <div class="hero-metric-item">
+                <span class="hero-metric-num">60+</span>
+                <span class="hero-metric-label">Projects Completed</span>
+              </div>
+              <div class="hero-metric-sep" aria-hidden="true"></div>
+              <div class="hero-metric-item">
+                <span class="hero-metric-num">30+</span>
+                <span class="hero-metric-label">Happy Clients</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Photo Showcase -->
+          <div class="hero-visual">
+            <div class="hero-photo-container">
+              <!-- Ambient Glow -->
+              <div class="hero-glow-back" aria-hidden="true"></div>
+              <div class="hero-cyber-rings" aria-hidden="true">
+                <div class="cyber-ring cyber-ring-1"></div>
+                <div class="cyber-ring cyber-ring-2"></div>
+              </div>
+
+              <!-- Main Glass Card Frame -->
+              <div class="hero-card-frame">
+                <span class="corner-tick top-left" aria-hidden="true"></span>
+                <span class="corner-tick top-right" aria-hidden="true"></span>
+                <span class="corner-tick bottom-left" aria-hidden="true"></span>
+                <span class="corner-tick bottom-right" aria-hidden="true"></span>
+
+                <div class="hero-code-watermark" aria-hidden="true">&lt;developer /&gt;</div>
+
+                <!-- Profile Photo -->
+                <div class="hero-photo-wrap">
+                  <img src="Img/ibad1.webp"
+                       alt="Choirul Ainul Ibad — Full Stack Developer"
+                       class="hero-photo-img"
+                       loading="eager"
+                       fetchpriority="high"
+                       decoding="async"
+                       width="1370"
+                       height="2560">
+                </div>
+
+                <!-- Pedestal blend fade -->
+                <div class="hero-photo-fade" aria-hidden="true"></div>
+              </div>
+
+              <div class="hero-floating-badge badge-bottom-left">
+                <div class="badge-icon-box" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"/>
+                    <polyline points="8 6 2 12 8 18"/>
+                  </svg>
+                </div>
+                <div class="badge-text-box">
+                  <span class="badge-title">Full Stack Developer</span>
+                  <span class="badge-sub">Clean Architecture &amp; APIs</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -266,9 +337,8 @@
     <section id="about" class="section" aria-labelledby="about-title">
       <div class="container">
         <div class="section-label" aria-hidden="true">01 / About</div>
-        <h2 class="section-title reveal" id="about-title">A Bit About Me</h2>
-
-        <div class="about-grid">
+        <h2 class="section-title reveal" id="about-title">A Bit About Me</h2>        <div class="about-grid">
+          <!-- Left Column: Bio & Core Pillars -->
           <div class="about-text-block">
             <p class="about-lead reveal">
               I'm Ibad — a professional Full Stack Developer building enterprise-grade digital solutions that deliver
@@ -280,24 +350,41 @@
               purpose, and every feature should create meaningful impact.
             </p>
 
-            <div class="about-stats reveal">
-              <div class="stat-item">
-                <div class="stat-number" data-target="4">0</div>
-                <div class="stat-label">Years Experience</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number" data-target="60">0</div>
-                <div class="stat-label">Projects Completed</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number" data-target="30">0</div>
-                <div class="stat-label">Happy Clients</div>
+            <div class="about-pillars reveal">
+
+              <div class="about-pillar-item">
+                <div class="pillar-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                  </svg>
+                </div>
+                <div class="pillar-content">
+                  <h3 class="pillar-title">Performance &amp; Speed</h3>
+                  <p class="pillar-desc">Optimized database queries, responsive UI feedback, and swift, frictionless user experience.</p>
+                </div>
               </div>
             </div>
 
-            <div class="about-availability reveal" role="status" aria-label="Available for freelance">
-              <div class="availability-dot" aria-hidden="true"></div>
-              Available for Freelance
+            <div class="about-actions reveal">
+              <a href="#contact" class="btn btn-primary" aria-label="Let's talk">
+                <span>Let's Work Together</span>
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Stats & Education Pathway -->
+          <div class="about-credentials-col">
+            <div class="edu-section-header reveal">
+              <div class="edu-header-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+              </div>
+              <h3 class="edu-header-title">Education &amp; Credentials</h3>
             </div>
 
             <div class="edu-cards">
@@ -341,17 +428,7 @@
               </a>
             </div>
           </div>
-
-          <div class="about-image-col">
-            <div class="about-photo-wrap reveal-right">
-              <div class="about-photo-frame">
-                <img src="Img/ibad-800-backup.webp"
-                     alt="Choirul Ainul Ibad — Full Stack Developer"
-                     loading="lazy" decoding="async" width="800" height="1067">
-                </div>
-              </div>
-            </div>
-          </div>
+        </div>
         </div>
       </div>
     </section>
